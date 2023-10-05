@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>awesome-video-self-supervised-learning survey | Akuya&#39;s Blog</title>
+<meta name="keywords" content="video, self-supervised">
+<meta name="description" content="视频自监督总结">
+<meta name="author" content="Akuya">
+<link rel="canonical" href="https://wulawkk11.github.io/posts/read/awesome-video-self-supervised-learning-survey/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://wulawkk11.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wulawkk11.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wulawkk11.github.io/img/girl.png">
+<link rel="apple-touch-icon" href="https://wulawkk11.github.io/img/girl.png">
+<link rel="mask-icon" href="https://wulawkk11.github.io/img/girl.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="awesome-video-self-supervised-learning survey" />
+<meta property="og:description" content="视频自监督总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wulawkk11.github.io/posts/read/awesome-video-self-supervised-learning-survey/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-03T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="awesome-video-self-supervised-learning survey"/>
+<meta name="twitter:description" content="视频自监督总结"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "文章",
+          "item": "https://wulawkk11.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "阅读",
+          "item": "https://wulawkk11.github.io/posts/read/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "awesome-video-self-supervised-learning survey",
+      "item": "https://wulawkk11.github.io/posts/read/awesome-video-self-supervised-learning-survey/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "awesome-video-self-supervised-learning survey",
+  "name": "awesome-video-self-supervised-learning survey",
+  "description": "视频自监督总结",
+  "keywords": [
+    "video", "self-supervised"
+  ],
+  "articleBody": "\r\u003c!doctype html\u003e\rawesome-video-self-supervised-learning survey\rSSL4VideoSurveyA collection of works on self-supervised, deep-learning learning for video. The papers listed here refers to our survey:\nSelf-Supervised Learning for Videos: A Survey\nMadeline Chantry Schiappa,\rYogesh Singh Rawat,\rMubarak Shah\nSummary In this survey, we provide a review of existing approaches on self-supervised learning focusing on the video domain. We summarize these methods into four different categories based on their learning objectives:1) pretext tasks, 2) generative learning, 3) contrastive learning, and 4) cross-modal agreement. We further introduce the commonly used datasets, downstream evaluation tasks, insights into the limitations of existing works, and the potential future directions in this area.\nStatistics of self-supervised (SSL) video representation learning research in recent years. From left to right we show a) the total number of SSL related papers published in top conference venues, b) categorical breakdown of the main research topics studied in SSL, and (c) modality breakdown of the main modalities used in SSL. The year 2022 remains incomplete because a majority of the conferences occur later in the year.\nAction recognition performance of models over time for different self-supervised strategies including different modalities: video-only (V), video-text (V+T), video-audio (V+A), video-text-audio (V+T+A). More recently, contrastive learning has become the most popular strategy.\nTraining TasksPre-Text LearningAction RecognitionDownstream evaluation of action recognition on pretext self-supervised learning measured by\rprediction accuracy. Top scores are in bold. Playback speed related tasks typically perform the best.\nModelSubcategoryVisual BackbonePre-TrainUCF101HMDB51GeometryAppearanceAlexNetUCF101/HMDB5154.1022.60Wang et al.AppearanceC3DUCF10161.2033.403D RotNetAppearance3D R-18MT62.9033.70VideoJigsawJigsawCaffeNetKinetics54.7027.003D ST-puzzleJigsawC3DKinetics65.8033.70CSJJigsawR(2+3)DKinetics+UCF101+HMDB5179.5052.60PRPSpeedR3DKinetics72.1035.00SpeedNetSpeedS3D-GKinetics81.1048.80Jenni et al.SpeedR(2+1)DUCF10187.1049.80PacePredSpeedS3D-GUCF10187.1052.60ShuffleLearnTemporal OrderAlexNetUCF10150.9019.80OPNTemporal OrderVGG-MUCF10159.8023.80O3NTemporal OrderAlexNetUCF10160.3032.50ClipOrderTemporal OrderR3DUCF10172.4030.90Video RetreivalPerformance for the downstream video retrieval(检索) task with top scores for each category in bold. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.\nModelCategorySubcategoryVisual BackbonePre-trainUCF101 R@5HMDB51 R@5SpeedNetPretextSpeedS3D-GKinetics28.10--ClipOrderPretextTemporal OrderR3DUCF10130.3022.90OPNPretextTemporal OrderCaffeNetUCF10128.70--CSJPretextJigsawR(2+3)DK/U/H40.50--PRPPretextSpeedR3DKinetics38.5027.20Jenni et al.PretextSpeed3D R-18Kinetics48.50--PacePredPretextSpeedR(2+1)DUCF10149.7032.20Generative LearningAction RecognitionDownstream action recognition evaluation for models that use a generative self-supervised pre-training approach. Top scores are in bold\nModelSubcategoryVisual BackbonePre-trainUCF101HMDB51pSwaVContrastiveView Aug.R-50Kinetics51.7pSimCLRContrastiveView Aug.R-50Kinetics52.0pMoCoContrastiveView Aug.R-50Kinetics54.4pBYOLContrastiveView Aug.R-50Kinetics55.8Mathieu et al.Frame PredictionC3DSports1M52.10--VideoGanReconstructionVAEFlickr52.90--Liang et al.Frame PredictionLSTMUCF10155.10--VideoMoCoFrame PredictionR(2+1)DKinetics78.7049.20MemDPC-DualFrame PredictionR(2+3)DKinetics86.1054.50Tian et al.Reconstruction3D R-101Kinetics88.1059.00VideoMAEMAEViT-LImageNet91.362.6MotionMAEMAEViT-BKinetics96.3--Downstream evaluation of action recognition on self-supervised learning measured by prediction accuracy for Something-Something (SS) and Kinetics400 (Kinetics). SS is a more temporally relevant dataset and therefore is more challenging. Top scores for each category are in bold and second best scores \\underline{underlined}.\nModelCategorySubcategoryVisual BackbonePre-TrainSSKineticsBEVTGenerativeMAESWIN-BKinetics+ImageNet71.481.1MAEGenerativeMAEViT-HKinetics74.181.1MaskFeatGenerativeMAEMViTKinetics74.486.7VideoMAEGenerativeMAEViT-LImageNet75.385.1MotionMAEGenerativeMAEViT-BKinetics75.581.7Video RetreivalPerformance for the downstream video retrieval task with top scores for each category in bold. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.\nModelCategorySubcategoryVisual BackbonePre-trainUCF101 R@5HMDB51 R@5MemDPC-RGPGenerativeFrame PredictionR(2+3)DKinetics40.4025.70MemDPC-FlowGenerativeFrame PredictionR(2+3)DKinetics63.2037.60Text-to-Video Retrieval Performance for the downstream video retrieval task. Top scores for each category are in bold. Masked Modeling (MM) is a generative approach that uses both video with text. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning () on the target dataset, YouCook2 or MSRVTT. The pre-training datasets titled COMBO are CC3M, WV-2M and COCO.*\nModelVisualTextPre-TrainR@5 YouCook2R@5 MSRVTTActBERT3D R-32BERTKinetics+How226.7023.40HEROSlowFastWordPiecesHow2+TV--43.40ClipBERTR-50WordPiecesVisualGenome--46.80VLMS3D-gBERTHow256.8855.50UniVLS3D-gBERTHow257.6049.60Amrani et al.R-152Word2VecHow2--21.30Video CaptioningDownstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in bold. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.\nModelCategorySubcategoryVisualTextPre-trainBLEU4METEORROUGECIDErVideoBertGenerativeMMS3D-gBERTKinetics4.3311.9428.800.55ActBERTGenerativeMM3D R-32BERTK/H5.4113.3030.560.65VLMGenerativeMMS3D-gBERTHow212.2718.2241.511.39UniVLGenerativeMMS3D-gBERTHow217.3522.3546.521.81Contrastive LearningAction RecognitionDownstream evaluation of action recognition on self-supervised learning measured by prediction accuracy for Something-Something (SS) and Kinetics400 (Kinetics). SS is a more temporally relevant dataset and therefore is more challenging. Top scores for each category are in bold and second best scores \\underline{underlined}.\nModelCategorySubcategoryVisual BackbonePre-TrainSSKineticspSwaVContrastiveView Aug.R-50Kinetics51.762.7pSimCLRContrastiveView Aug.R-50Kinetics52.062.0pMoCoContrastiveView Aug.R-50Kinetics54.469.0pBYOLContrastiveView Aug.R-50Kinetics55.871.5ContrastiveAction Recognition Downstream action recognition on UCF101 and HMDB51 for models that use contrastive learning and/or cross-modal agreement. Top scores for each category are in bold. Modalities include video (V), optical flow (F), human keypoints (K), text (T) and audio (A). Spatio-temporal augmentations with contrastive learning typically are the highest performing approaches.\nModelSubcategoryVisualModalitiesPre-TrainUCF101HMDB51VIEClusteringSlowfastVKinetics78.9050.1VIE-2pathwayClusteringR-18VKinetics80.4052.5Tokmakov et al.Clustering3D R-18VKinetics83.0050.4TCETemporal Aug.R-50VUCF10171.2036.6Lorre et al.Temporal Aug.R-18V+FUCF10187.9055.4CMC-DualSpatial Aug.CaffeNetV+FUCF10159.1026.7SwAVSpatial Aug.R-50VKinetics74.70--VDIMSpatial Aug.R(2+1)DVKinetics79.7049.2CoConSpatial Aug.R-34V+F+KUCF10182.4053.1SimCLRSpatial Aug.R-50VKinetics84.20--CoCLRSpatial Aug.S3D-GV+FUCF10190.6062.9MoCoSpatial Aug.R-50VKinetics90.80--BYOLSpatial Aug.R-50VKinetics91.20--DVIMSpatio-Temporal Aug.R-18V+FUCF10164.0029.7IICSpatio-Temporal Aug.R3DV+FKinetics74.4038.3DSMSpatio-Temporal Aug.I3DVKinetics78.2052.8pSimCLRSpatio-Temporal Aug.R-50VKinetics87.90--TCLRSpatio-Temporal Aug.R(2+1)DVUCF10188.2060.0SeCoSpatio-Temporal Aug.R-50VImageNet88.3055.6pSwaVSpatio-Temporal Aug.R-50VKinetics89.40--pBYOLSpatio-Temporal Aug.R-50VKinetics93.80--CVRLSpatio-Temporal Aug.3D R-50VKinetics93 Cross-Modal LearningText-to-Video Retrieval Performance for the downstream video retrieval task. Top scores for each category are in bold. Masked Modeling (MM) is a generative approach that uses both video with text. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning () on the target dataset, YouCook2 or MSRVTT. The pre-training datasets titled COMBO are CC3M, WV-2M and COCO.*\nModelVisualTextPre-TrainR@5 YouCook2R@5 MSRVTTActBERT3D R-32BERTKinetics+How226.7023.40HEROSlowFastWordPiecesHow2+TV--43.40ClipBERTR-50WordPiecesVisualGenome--46.80VLMS3D-gBERTHow256.8855.50UniVLS3D-gBERTHow257.6049.60Amrani et al.R-152Word2VecHow2--21.30MIL-NCES3DWord2VecHow238.0024.00COOTS3D-gBERTHow2+YouCook240.20--CE*ExpertsNetVLADMSRVTT--29.00VideoClipS3D-gBERTHow250.4022.20VATTLinear Proj.Linear Proj.AS+How2----MEEExpertsNetVLADCOCO--39.20JPoSETSNWord2VecKinetics--38.10Amrani et al.*R-152Word2VecHow2--41.60AVLnet*3D R-101Word2VecHow255.5050.50MMTExpertsBERTHow2--14.40MMT*ExpertsBERTHow2--55.70Patrick et al.*ExpertsT-5How258.50--VideoClip*S3D-gBERTHow262.6055.40FITViTBERTCOMBO--61.50Video CaptioningDownstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in bold. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.\nModelCategorySubcategoryVisualTextPre-trainBLEU4METEORROUGECIDErCBTCross-ModalVideo+TextS3D-GBERTKinetics5.1212.9730.440.64COOTCross-ModalVideo+TextS3D-gBERTYouCook211.3019.8537.94--VideoBertGenerativeMMS3D-gBERTKinetics4.3311.9428.800.55ActBERTGenerativeMM3D R-32BERTK/H5.4113.3030.560.65VLMGenerativeMMS3D-gBERTHow212.2718.2241.511.39UniVLGenerativeMMS3D-gBERTHow217.3522.3546.521.81Action SegmentationDownstream action segmentation evaluation on COIN for models that use a cross-modal agreement self-supervised pre-training approach. The top score is in bold.\nModelVisualTextPre-trainFrame-AccCBTS3D-GBERTKinetics+How253.90ActBERT3D R-32BERTKinetics+How256.95VideoClip (zs)S3D-gBERTHow258.90MIL-NCES3DWord2VecHow261.00VLMS3D-gBERTHow268.39VideoClip (ft)S3D-gBERTHow268.70UniVLS3D-gBERTHow270.20Temporal Action Step LocalizationDownstream temporal action step localization evaluation on CrossTask for models that use a contrastive multimodal self-supervised pre-training approach. Top scores are in bold.\nModelVisualTextPre-trainRecallVideoClip (zs)S3D-gBERTHow233.90MIL-NCES3DWord2VecHow240.50ActBERT3D R-32BERTKinetics+How241.40UniVLS3D-gBERTHow242.00VLMS3D-gBERTHow246.50VideoClip (ft)S3D-gBERTHow247.30Evaluation TasksAction Recognition Downstream action recognition on UCF101 and HMDB51 for models that use contrastive learning and/or cross-modal agreement. Top scores for each category are in bold. Modalities include video (V), optical flow (F), human keypoints (K), text (T) and audio (A). Spatio-temporal augmentations with contrastive learning typically are the highest performing approaches.\n基于对比学习和/或跨模态一致性的模型在UCF101和HMDB51上进行下游动作识别的情况。在每个类别中，最高分通常是指采用时空对比学习的模型。这些模态包括视频（V）、光流（F）、人体关键点（K）、文本（T）和音频（A）。时空对比学习通常是性能最优秀的方法，它使用了时空增强技术。\nModelSubcategoryVisualModalitiesPre-TrainUCF101HMDB51GeometryAppearanceAlexNetVUCF101/HMDB5154.1022.60Wang et al.AppearanceC3DVUCF10161.2033.403D RotNetAppearance3D R-18VMT62.9033.70VideoJigsawJigsawCaffeNetKinetics54.7027.00 3D ST-puzzleJigsawC3DVKinetics65.8033.70CSJJigsawR(2+3)DVKinetics+UCF101+HMDB5179.5052.60PRPSpeedR3DVKinetics72.1035.00SpeedNetSpeedS3D-GVKinetics81.1048.80Jenni et al.SpeedR(2+1)DVUCF10187.1049.80PacePredSpeedS3D-GVUCF10187.1052.60ShuffleLearnTemporal OrderAlexNetVUCF10150.9019.80OPNTemporal OrderVGG-MVUCF10159.8023.80O3NTemporal OrderAlexNetVUCF10160.3032.50ClipOrderTemporal OrderR3DVUCF10172.4030.90VIEClusteringSlowfastVKinetics78.9050.1VIE-2pathwayClusteringR-18VKinetics80.4052.5Tokmakov et al.Clustering3D R-18VKinetics83.0050.4TCETemporal Aug.R-50VUCF10171.2036.6Lorre et al.Temporal Aug.R-18V+FUCF10187.9055.4CMC-DualSpatial Aug.CaffeNetV+FUCF10159.1026.7SwAVSpatial Aug.R-50VKinetics74.70--VDIMSpatial Aug.R(2+1)DVKinetics79.7049.2CoConSpatial Aug.R-34V+F+KUCF10182.4053.1SimCLRSpatial Aug.R-50VKinetics84.20--CoCLRSpatial Aug.S3D-GV+FUCF10190.6062.9MoCoSpatial Aug.R-50VKinetics90.80--BYOLSpatial Aug.R-50VKinetics91.20--MIL-NCECross-ModalS3D-GV+THow261.0091.3GDTCross-ModalR(2+1)DV+T+AKinetics72.8095.5CBTCross-ModalS3D-GV+TKinetics79.5044.6VATTCross-ModalTransformerV+TAS+How285.5064.8AVTSCross-ModalMC3V+AKinetics85.8056.9AVID+CrossCross-ModalR(2+1)DV+AKinetics91.0064.1AVID+CMACross-ModalR(2+1)DV+AKinetics91.5064.7MMV-FACCross-ModalTSMV+T+AAS+How291.8067.1XDCCross-ModalR(2+1)DV+AKinetics95.5068.9DVIMSpatio-Temporal Aug.R-18V+FUCF10164.0029.7IICSpatio-Temporal Aug.R3DV+FKinetics74.4038.3DSMSpatio-Temporal Aug.I3DVKinetics78.2052.8pSimCLRSpatio-Temporal Aug.R-50VKinetics87.90--TCLRSpatio-Temporal Aug.R(2+1)DVUCF10188.2060.0SeCoSpatio-Temporal Aug.R-50VImageNet88.3055.6pSwaVSpatio-Temporal Aug.R-50VKinetics89.40--pBYOLSpatio-Temporal Aug.R-50VKinetics96.3075、。0CVRLSpatio-Temporal Aug.3D R-50VKinetics93.90 Downstream evaluation of action recognition on self-supervised learning measured by prediction accuracy for Something-Something (SS) and Kinetics400 (Kinetics). SS is a more temporally relevant dataset and therefore is more challenging. Top scores for each category are in bold and second best scores \\underline{underlined}.\n自监督学习中动作识别的下游评估是通过预测准确度来衡量的，其中使用了 Something-Something (SS) 和 Kinetics400 (Kinetics) 这两个数据集。\n【数据集使用】Something-Something-v1以及v2数据集使用记录 Kinetics 数据集简介\n一段视频一个标签，视频长度10s左右。\nKinetics 400/600/700 的标签的格式都是一样的\n下载的标签（csv文件）每行代表一个标签\n每个标签的内容包括\nlabel,youtube_id,time_start,time_end,split类别名称、youtube视频编号（用于下载）、视频起始时间（youtube原始视频中的时间戳）、视频终止时间（youtube原始视频中的时间戳）、属于哪个数据集（训练集/验证集/测试集 ModelCategorySubcategoryVisual BackbonePre-TrainSSKineticspSwaVContrastiveView Aug.R-50Kinetics51.762.7pSimCLRContrastiveView Aug.R-50Kinetics52.062.0pMoCoContrastiveView Aug.R-50Kinetics54.469.0pBYOLContrastiveView Aug.R-50Kinetics55.871.5BEVTGenerativeMAESWIN-BKinetics+ImageNet71.481.1MAEGenerativeMAEViT-HKinetics74.181.1MaskFeatGenerativeMAEMViTKinetics74.486.7VideoMAEGenerativeMAEViT-LImageNet75.385.1MotionMAEGenerativeMAEViT-BKinetics75.581.7Video Retrieval Performance for the downstream video retrieval task with top scores for each category in bold. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.\nModelCategorySubcategoryVisual BackbonePre-trainUCF101 R@5HMDB51 R@5SpeedNetPretextSpeedS3D-GKinetics28.10--ClipOrderPretextTemporal OrderR3DUCF10130.3022.90OPNPretextTemporal OrderCaffeNetUCF10128.70--CSJPretextJigsawR(2+3)DK/U/H40.50--PRPPretextSpeedR3DKinetics38.5027.20Jenni et al.PretextSpeed3D R-18Kinetics48.50--PacePredPretextSpeedR(2+1)DUCF10149.7032.20MemDPC-RGPGenerativeFrame PredictionR(2+3)DKinetics40.4025.70MemDPC-FlowGenerativeFrame PredictionR(2+3)DKinetics63.2037.60DSMContrastiveSpatio-TemporalI3DKinetics35.2025.90IICContrastiveSpatio-TemporalR-18UCF10160.9042.90SeLaViCross-ModalVideo+AudioR(2+1)DKinetics68.6047.60CoCLRContrastiveView AugmentationS3D-GUCF10170.8045.80GDTCross-ModalVideo+AudioR(2+1)DKinetics79.0051.70Video CaptioningDownstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in bold. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.\nModelCategorySubcategoryVisualTextPre-trainBLEU4METEORROUGECIDErCBTCross-ModalVideo+TextS3D-GBERTKinetics5.1212.9730.440.64COOTCross-ModalVideo+TextS3D-gBERTYouCook211.3019.8537.94--VideoBertGenerativeMMS3D-gBERTKinetics4.3311.9428.800.55ActBERTGenerativeMM3D R-32BERTK/H5.4113.3030.560.65VLMGenerativeMMS3D-gBERTHow212.2718.2241.511.39UniVLGenerativeMMS3D-gBERTHow217.3522.3546.521.81Text-to-Video Retrieval Performance for the downstream video retrieval task. Top scores for each category are in bold. Masked Modeling (MM) is a generative approach that uses both video with text. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning () on the target dataset, YouCook2 or MSRVTT. The pre-training datasets titled COMBO are CC3M, WV-2M and COCO.*\nModelVisualTextPre-TrainR@5 YouCook2R@5 MSRVTTActBERT3D R-32BERTKinetics+How226.7023.40HEROSlowFastWordPiecesHow2+TV--43.40ClipBERTR-50WordPiecesVisualGenome--46.80VLMS3D-gBERTHow256.8855.50UniVLS3D-gBERTHow257.6049.60Amrani et al.R-152Word2VecHow2--21.30MIL-NCES3DWord2VecHow238.0024.00COOTS3D-gBERTHow2+YouCook240.20--CE*ExpertsNetVLADMSRVTT--29.00VideoClipS3D-gBERTHow250.4022.20VATTLinear Proj.Linear Proj.AS+How2----MEEExpertsNetVLADCOCO--39.20JPoSETSNWord2VecKinetics--38.10Amrani et al.*R-152Word2VecHow2--41.60AVLnet*3D R-101Word2VecHow255.5050.50MMTExpertsBERTHow2--14.40MMT*ExpertsBERTHow2--55.70Patrick et al.*ExpertsT-5How258.50--VideoClip*S3D-gBERTHow262.6055.40FITViTBERTCOMBO--61.50DatasetsDatasetLabelsModalitiesClassesVideosTasksActivityNet (ActN)Activity, Captions, Bounding BoxVideo, Video+Text20019,995Action-Recognition, Video Captioning, Video GroundingAVAActivity, Face TracksVideo, Video+Audio80430Action-Recognition,Audio-Visual GroundingBreakfastActivityVideo101,989Action Recognition, Action SegmentationCharadesActivity, Objects, Indoor Scenes, VerbsVideo1579,848Action-Recognition, Object Recognition, Scene Recognition, Temporal Action Step LocalizationCOINActivity, Temporal Actions, ASRVideo, Video+Text18011,827Action-Recognition, Action Segmentation, Video-RetrievalCrossTaskTemporal Steps, ActivityVideo834,700Temporal Action Step Localization, RecognitionHMDB51ActivityVideo516,849Action-Recognition, Video-RetrievalHowTo100M (How2)ASRVideo+Text-136MText-to-Video Retrieval, VideoQAKineticsActivityVideo400/600/7001/2 MAction-RecognitionMSRVTTActivity, CaptionsVideo+Text2010,000Action-Recognition, Video-Captioning, Video-Retrieval, Visual-Question AnsweringMultiThumosActivity, Temporal StepsVideo65400Action Recognition, Temporal Action Step LocalizationUCF101ActivityVideo10113,320Recognition, Video-RetrievalYouCook2CaptionsVideo+Text892,000Video Captioning, Video-RetrievalYouTube-8MActivityVideo4,7168MAction Recognition ",
+  "wordCount" : "1677",
+  "inLanguage": "zh",
+  "datePublished": "2023-10-03T00:00:00Z",
+  "dateModified": "2023-10-03T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Akuya"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wulawkk11.github.io/posts/read/awesome-video-self-supervised-learning-survey/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Akuya's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wulawkk11.github.io/img/girl.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wulawkk11.github.io/" accesskey="h" title="凉生晓岸催残暑 (Alt + H)">凉生晓岸催残暑</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wulawkk11.github.io/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wulawkk11.github.io/" title="主页">
+                <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wulawkk11.github.io/posts" title="文章">
+                <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wulawkk11.github.io/tags" title="标签">
+                <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wulawkk11.github.io/archives/" title="时间轴">
+                <span>时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wulawkk11.github.io/about" title="关于">
+                <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://wulawkk11.github.io/"> 主页</a>&nbsp;»&nbsp;<a href="https://wulawkk11.github.io/posts/">文章</a>&nbsp;»&nbsp;<a href="https://wulawkk11.github.io/posts/read/">阅读</a></div>
+            <h1 class="post-title">
+                awesome-video-self-supervised-learning survey
+            </h1>
+            <div class="post-description">
+                视频自监督总结
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-10-03
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1677字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Akuya
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://wulawkk11.github.io/tags/self-supervised/" style="color: var(--secondary)!important;">self-supervised</a>
+                &nbsp;<a href="https://wulawkk11.github.io/tags/read/" style="color: var(--secondary)!important;">read</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#" aria-label="SSL4VideoSurvey"><span>SSL4VideoSurvey</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Summary "><span>Summary </span></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Training Tasks"><span>Training Tasks</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Pre-Text Learning"><span>Pre-Text Learning</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Action Recognition"><mark><span>Action Recognition</span></mark></a></li>
+                <li>
+                    <a href="#" aria-label="Video Retreival"><mark><span>Video Retreival</span></mark></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Generative Learning"><span>Generative Learning</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Action Recognition"><span>Action Recognition</span></a></li>
+                <li>
+                    <a href="#" aria-label="Video Retreival"><span>Video Retreival</span></a></li>
+                <li>
+                    <a href="#" aria-label="Text-to-Video Retrieval "><span>Text-to-Video Retrieval </span></a></li>
+                <li>
+                    <a href="#" aria-label="Video Captioning"><span>Video Captioning</span></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Contrastive Learning"><span>Contrastive Learning</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Action Recognition"><span>Action Recognition</span></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Contrastive"><span>Contrastive</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Action Recognition "><span>Action Recognition </span></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Cross-Modal Learning"><mark><span>Cross-Modal Learning</span></mark></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Text-to-Video Retrieval "><span>Text-to-Video Retrieval </span></a></li>
+                <li>
+                    <a href="#" aria-label="Video Captioning"><span>Video Captioning</span></a></li>
+                <li>
+                    <a href="#" aria-label="Action Segmentation"><span>Action Segmentation</span></a></li>
+                <li>
+                    <a href="#" aria-label="Temporal Action Step Localization"><span>Temporal Action Step Localization</span></a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Evaluation Tasks"><span>Evaluation Tasks</span></a><ul>
+                        
+                <li>
+                    <a href="#" aria-label="Action Recognition "><mark><span>Action Recognition</span></mark><span> </span></a></li>
+                <li>
+                    <a href="#" aria-label="Video Retrieval "><span>Video Retrieval </span></a></li>
+                <li>
+                    <a href="#" aria-label="Video Captioning"><span>Video Captioning</span></a></li>
+                <li>
+                    <a href="#" aria-label="Text-to-Video Retrieval "><span>Text-to-Video Retrieval </span></a></li></ul>
+                </li>
+                <li>
+                    <a href="#" aria-label="Datasets"><span>Datasets</span></a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content">
+
+
+<!doctype html>
+<html style='font-size:18px **!important**'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial **!important**;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+\#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+\#write.first-line-indent p { text-indent: 2em; }
+\#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+\#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+**@media** screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  \#write { padding-left: 20px; padding-right: 20px; }
+}
+\#write li > figure:last-child { margin-bottom: 0.5rem; }
+\#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+\#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+\#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+\#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+\#write pre { white-space: pre-wrap; }
+\#write.fences-no-line-wrapping pre { white-space: pre; }
+\#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative **!important**; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+\#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+\#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+\#write .footnote-line { white-space: pre-wrap; }
+**@media** print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  \#write { margin-top: 0px; padding-top: 0px; border-color: transparent **!important**; padding-bottom: 0px **!important**; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+\#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+\#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+**@media** screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre **!important**; border-width: initial **!important**; border-style: none **!important**; border-color: initial **!important**; display: inline-block **!important**; position: absolute **!important**; width: 1px **!important**; right: 0px **!important**; outline: 0px **!important**; background: 0px 0px **!important**; text-decoration: initial **!important**; text-shadow: initial **!important**; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 **!important**; }
+mark .md-meta { color: rgb(0, 0, 0); }
+**@media** print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none **!important**; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 **!important**; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+**@media** screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+**@media** screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" **!important**; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+**@import** '';
+:root {
+    --side-bar-bg-color: #fff;
+    --control-text-color: #777;
+    --select-text-bg-color: #ffafa3;
+    --active-file-text-color: #262626;
+    --active-file-border-color: #f22f27;
+    /* --active-file-bg-color: #fff3f0; */
+    --primary-color: #f22f27;
+    /* 中性色 */
+    --mid-1: #ffffff;
+    --mid-2: #fafafa;
+    --mid-3: #f5f5f5;
+    --mid-4: #f0f0f0;
+    --mid-5: #d9d9d9;
+    --mid-6: #bfbfbf;
+    --mid-7: #8c8c8c;
+    --mid-8: #595959;
+    --mid-9: #434343;
+    --mid-10: #262626;
+    --mid-11: #1f1f1f;
+    --mid-12: #141414;
+    --mid-13: #000000;
+    /* 主题色 */
+    --main-1: #fff3f0;
+    --main-2: #ffd4cc;
+    --main-3: #ffafa3;
+    --main-4: #ff887a;
+    --main-5: #ff5d52;
+    --main-6: #f22f27;
+    --main-7: #cc1616;
+    --main-8: #a60a0f;
+    --main-9: #80010a;
+    --main-10: #590009;
+}
+
+html {
+    font-size: 17px;
+}
+
+body {
+    font-family: "Vollkorn", Palatino, Times;
+    /* font-family: 'Source Han SerifCN', Georgia, Times, 'SimSun', serif!important; */
+    color: var(--mid-13);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+\#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 30px 160px;
+}
+
+\#write p {
+    line-height: 1.8rem;
+    word-spacing: .05rem;
+    /* color: #3f3f3f; */
+    color: var(--mid-13);
+}
+
+
+/* #write ol li {
+    padding-left: 0.5rem;
+} */
+
+\#write>ul:first-child,
+\#write>ol:first-child {
+    margin-top: 30px;
+}
+
+body>*:first-child {
+    margin-top: 0 **!important**;
+}
+
+body>*:last-child {
+    margin-bottom: 0 **!important**;
+}
+
+
+/* a {
+    color: var(--main-6);
+    font-weight: 500;
+    padding: 0 2px;
+    text-decoration: none;
+} */
+
+a {
+    color: blue;
+    font-weight: 500;
+    padding: 0 2px;
+    text-decoration: none;
+}
+
+
+/* 链接 */
+
+
+/* #write a {
+    border-bottom: 1px solid var(--main-6);
+    color: var(--main-6);
+    text-decoration: none;
+} */
+
+\#write a {
+    border-bottom: 1px solid blue;
+    color: blue;
+    text-decoration: none;
+}
+
+
+/* 目录 */
+
+\#write a.md-toc-inner {
+    line-height: 1.6;
+    white-space: pre-line;
+    border-bottom: none;
+}
+
+\#write a:hover {
+    border-bottom: 2px solid var(--main-6);
+    color: var(--main-7);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit **!important**;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit **!important**;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit **!important**;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit **!important**;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit **!important**;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit **!important**;
+}
+
+h2 a,
+h3 a {
+    color: #34495e;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 0.3em;
+    font-size: 2.2em;
+    line-height: 1.2;
+    margin: 2.4em auto 1.2em;
+    color: var(--main-10);
+}
+
+h1:after {
+    content: '';
+    display: block;
+    margin: 0.2em auto 0;
+    width: 100px;
+    height: 2px;
+    border-bottom: 2px solid var(--main-6);
+}
+
+h2 {
+    margin: 2em auto 1.4em;
+    /* padding-left: 10px; */
+    /* display:inline-block; */
+    line-height: 1.4;
+    font-size: 1.8em;
+    /* border-left: 9px solid var(--main-6); */
+    /* border-bottom: 1px solid #ddd; */
+    border-bottom: 1px solid var(--main-6);
+}
+
+h2::before {
+    content: '# '**!important**;
+    color: #f22f27;
+}
+
+h3 {
+    font-size: 1.4em;
+    line-height: 1.43;
+    margin: 1.6em auto 1.2em;
+    padding-left: 9px;
+    border-left: 5px solid #f22f27;
+}
+
+
+/* 三级四级标题点击后左边的提示图标 */
+
+\#write>h3.md-focus:before,
+\#write>h4.md-focus:before {
+    width: auto;
+    height: auto;
+    background-color: var(--main-5);
+    color: var(--mid-1);
+}
+
+h4 {
+    margin-top: 1.3em;
+    font-size: 1.2em;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-block;
+    border: 1px solid var(--main-6);
+    border-top: 4px solid var(--main-6);
+}
+
+\#write h5::before,
+\#write h6::before {
+    position: absolute;
+    right: calc(100% + .75em);
+    top: 0;
+    color: #5b5b5b;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-variant: 'small-caps';
+    white-space: nowrap;
+    /* 文本强制不换行 */
+    border: 0;
+}
+
+\#write h5 {
+    /* margin-left: 2em; */
+    font-size: 1rem;
+}
+
+\#write h6 {
+    /* margin-left: 2.5em; */
+    font-size: 1rem;
+}
+
+\#write h5::before {
+    content: 'H5';
+    top: 0.18rem;
+}
+
+\#write h6::before {
+    content: 'H6';
+    top: 0.18rem;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+body>h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h1:first-child+h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body>h3:first-child,
+body>h4:first-child,
+body>h5:first-child,
+body>h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+
+\#write ol,
+\#write ul {
+    padding-left: 25px;
+    margin: .5rem 0;
+}
+
+\#write ol>li,
+\#write ul>li {
+    color: #db4d52;
+    font-weight: bold;
+}
+
+\#write ol>li>*,
+\#write ul>li>* {
+    color: #333;
+    font-weight: normal;
+}
+
+\#write ol>li>*:not(ol):not(ul),
+\#write ul>li>*:not(ol):not(ul) {
+    padding-left: .25rem;
+}
+
+\#write ul {
+    list-style-type: disc;
+}
+
+blockquote {
+    border-left: 4px solid rgb(239, 112, 96);
+    padding: 10px 15px;
+    color: #3f3f3f;
+    background-color: #fff9f9;
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid var(--main-6);
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #fafafa;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid var(--main-6);
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid var(--main-6);
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+\#write strong {
+    padding: 0.1em;
+    color: #dc3545;
+}
+
+\#write em {
+    padding: 0 2px 0 2px;
+    font-style: normal;
+    color: #ff3502;
+    /* color: #595959;
+    background: #F6EEFF; */
+}
+
+
+/* 数学公式变蓝 */
+
+[md-inline='inline_math'] {
+    color: blue;
+    font-size: 100%;
+}
+
+
+/* 表格第一行 */
+
+
+/* #write table thead th {
+    background-color: var(--main-7);
+    color: #f8f8f8;
+} */
+
+
+/* 行号左框线 */
+
+\#write .CodeMirror-gutters {
+    border-right: 1px solid rgba(204, 51, 0);
+}
+
+
+/* 代码框 */
+
+\#write .md-fences {
+    border: 1px solid #7a7a7a;
+    -webkit-font-smoothing: initial;
+    margin: 2rem 0 **!important**;
+    /* padding: 0.3rem 0 !important; */
+    padding: 3px 5px;
+    line-height: 1.55rem;
+    border-radius: 2px;
+    font-family: 'Roboto Mono', 'Source Sans Pro', 'Microsoft YaHei', '微软雅黑' **!important**;
+    font-size: 0.9rem;
+    word-wrap: normal;
+}
+
+\#write [mdtype="math_block"] {
+    font-size: 1.2rem;
+}
+
+\#write .CodeMirror-wrap .CodeMirror-code pre {
+    padding-left: 12px;
+    line-height: 1.55rem;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+    width: 3ch **!important**;
+    color: rgba(128, 128, 255, 0.8);
+}
+
+\#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid var(--main-4);
+}
+
+
+/* 行间代码 */
+
+\#write code,
+tt {
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: 'Source Code Pro', Roboto Mono, Source Sans Pro, 'Microsoft YaHei', '微软雅黑' **!important**;
+    font-size: 0.92rem;
+    color: #ff3502;
+    background-color: #f8f5ec;
+    /* color: #c7254e;
+    background-color: #f9f2f4;  */
+}
+
+tt {
+    margin: 0 2px;
+}
+
+\#write .md-footnote {
+    background-color: #f8f8f8;
+    color: #e96900;
+}
+
+
+/* 流程图块 */
+
+\#write .md-diagram-panel {
+    position: relative;
+    margin: 24px auto;
+}
+
+\#write .md-focus .md-diagram-panel {
+    border: 1px solid var(--main-4);
+    border-radius: 4px;
+}
+
+
+/* heighlight. */
+
+\#write mark {
+    background-color: #EBFFEB;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: #222;
+    font-weight: 500;
+}
+
+\#write del {
+    padding: 1px 2px;
+}
+
+.cm-s-inner .cm-link,
+.cm-s-inner.cm-link {
+    color: #22a2c9;
+}
+
+.cm-s-inner .cm-string {
+    color: #22a2c9;
+}
+
+
+/* 任务列表小方框 */
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item>input:before {
+    content: '';
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--mid-1);
+    border-radius: 2px;
+    border: 1px solid var(--main-4);
+    margin-top: -0.4rem;
+    transition: all 0.2s linear;
+}
+
+.md-task-list-item>input:checked:before,
+.md-task-list-item>input[checked]:before {
+    content: '\2714';
+    font-size: 0.625rem;
+    color: var(--mid-1);
+    border: 1px solid var(--main-6);
+    background-color: var(--main-6);
+}
+
+
+/* @media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+} */
+
+
+/* .md-fences {
+    background-color: #f8f8f8;
+} */
+
+\#write pre.md-meta-block {
+    /* padding: 1rem; */
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 **!important**;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+    /* bottom: .575rem; */
+}
+
+\#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+\#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+\#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+\#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+
+/*--- 图片 ---*/
+
+.md-image {
+    margin: 24px auto;
+    border-radius: 4px;
+}
+
+.md-image img {
+    border-radius: 4px;
+}
+
+
+/* 当 “![shadow-随便写]()”写时，会有阴影 */
+
+.md-image img[alt|='shadow'] {
+    /* box-shadow: 0 4px 24px -6px #ddd; */
+    box-shadow: #84A1A8 0px 10px 15px;
+}
+
+.md-image>.md-meta {
+    border-radius: 3px;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: inherit;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+\#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+\#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+\#md-notification:before {
+    top: 10px;
+}
+
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #e6f0fe;
+}
+
+
+/* 侧边栏 */
+
+.file-list-item.active {
+    background: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
+    border-left: 4px solid var(--main-6);
+}
+
+.file-tree-node.active>.file-node-background {
+    background-color: var(--active-file-bg-color);
+    border-left: 4px solid var(--main-6);
+    border-color: var(--active-file-border-color);
+}
+
+**@media** print {
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+    html {
+        font-size: 16px**!important**;
+    }
+    body {
+        /* font-family: 'Source Han SerifCN', Georgia, Times, 'SimSun', serif!important; */
+        /* font-size: 16px!important; */
+        font-family: Times, 'SimSun', serif**!important**;
+        color: #000000**!important**;
+    }
+    p {
+        color: #000000**!important**;
+    }
+    a {
+        color: blue**!important**;
+        /* border-bottom: 1px solid blue!important; */
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+
+
+</style><title>awesome-video-self-supervised-learning survey</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='ssl4videosurvey'><span>SSL4VideoSurvey</span></h1><p><span>A collection of works on self-supervised, deep-learning learning for video. The papers listed here refers to our survey:</span></p><p><a href='https://dl.acm.org/doi/abs/10.1145/3577925'><strong><span>Self-Supervised Learning for Videos: A Survey</span></strong></a></p><p><a href='https://www.linkedin.com/in/madelineschiappa/'><em><span>Madeline Chantry Schiappa</span></em></a><span>,</span>
+<a href='https://www.crcv.ucf.edu/person/rawat/'><em><span>Yogesh Singh Rawat</span></em></a><span>,</span>
+<a href='https://www.crcv.ucf.edu/person/mubarak-shah/'><em><span>Mubarak Shah</span></em></a></p><h2 id='summary'><span>Summary </span></h2><p><span>In this survey, we provide a review of existing approaches on self-supervised learning focusing on the video domain. We summarize these methods into four different categories based on their learning objectives:</span><mark><span>1) </span><em><span>pretext tasks</span></em><span>, 2) </span><em><span>generative learning</span></em><span>, 3) </span><em><span>contrastive learning</span></em><span>, and 4) </span><em><span>cross-modal agreement</span></em></mark><span>. We further introduce the commonly used datasets, downstream evaluation tasks, insights into the limitations of existing works, and the potential future directions in this area.</span></p><p><img src="./awesome-video-self-supervised-learning survey.assets/FullLandscape-1694937380618-11.png" referrerpolicy="no-referrer" alt="Overview of publications"><em><span>Statistics of self-supervised (SSL) video representation learning research in recent years. From left to right we show a) the total number of SSL related papers published in top conference venues, b) categorical breakdown of the main research topics studied in SSL, and (c) modality breakdown of the main modalities used in SSL. The year 2022 remains incomplete because a majority of the conferences occur later in the year.</span></em></p><p><img src="./awesome-video-self-supervised-learning survey.assets/ActionRecongitionOverTime-1694937389177-14.png" referrerpolicy="no-referrer" alt="Overview of publications related to Action Recognition"><em><span>Action recognition performance of models over time for different self-supervised strategies including different modalities: video-only (V), video-text (V+T), video-audio (V+A), video-text-audio (V+T+A). More recently, contrastive learning has become the most popular strategy.</span></em></p><h1 id='training-tasks'><span>Training Tasks</span></h1><h2 id='pre-text-learning'><span>Pre-Text Learning</span></h2><h3 id='action-recognition-1'><mark><span>Action Recognition</span></mark></h3><p><em><span>Downstream evaluation of action recognition on pretext self-supervised learning measured by</span>
+<span>prediction accuracy. Top scores are in </span><strong><span>bold</span></strong><span>. </span><mark><span>Playback speed related tasks typically perform the best</span></mark><span>.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-Train</span></th><th><span>UCF101</span></th><th><span>HMDB51</span></th></tr></thead><tbody><tr><td><a href='https://ieeexplore.ieee.org/document/8578684'><span>Geometry</span></a></td><td><span>Appearance</span></td><td><span>AlexNet</span></td><td><span>UCF101/HMDB51</span></td><td><span>54.10</span></td><td><span>22.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/1904.03597'><span>Wang et al.</span></a></td><td><span>Appearance</span></td><td><span>C3D</span></td><td><span>UCF101</span></td><td><span>61.20</span></td><td><span>33.40</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2019/papers/Xu_Self-Supervised_Spatiotemporal_Learning_via_Video_Clip_Order_Prediction_CVPR_2019_paper.pdf'><span>3D RotNet</span></a></td><td><span>Appearance</span></td><td><span>3D R-18</span></td><td><a href='https://pubmed.ncbi.nlm.nih.gov/30802849/'><span>MT</span></a></td><td><span>62.90</span></td><td><span>33.70</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8659002'><span>VideoJigsaw</span></a></td><td><span>Jigsaw</span></td><td><span>CaffeNet</span></td><td><span>Kinetics</span></td><td><span>54.70</span></td><td><span>27.00</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.1609/aaai.v33i01.33018545'><span>3D ST-puzzle</span></a></td><td><span>Jigsaw</span></td><td><span>C3D</span></td><td><span>Kinetics</span></td><td><span>65.80</span></td><td><span>33.70</span></td></tr><tr><td><a href='https://www.ijcai.org/proceedings/2021/104'><span>CSJ</span></a></td><td><span>Jigsaw</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics+UCF101+HMDB51</span></td><td><span>79.50</span></td><td><u><span>52.60</span></u></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Yao_Video_Playback_Rate_Perception_for_Self-Supervised_Spatio-Temporal_Representation_Learning_CVPR_2020_paper.pdf'><span>PRP</span></a></td><td><span>Speed</span></td><td><span>R3D</span></td><td><span>Kinetics</span></td><td><span>72.10</span></td><td><span>35.00</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Benaim_SpeedNet_Learning_the_Speediness_in_Videos_CVPR_2020_paper.pdf'><span>SpeedNet</span></a></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>Kinetics</span></td><td><span>81.10</span></td><td><span>48.80</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730426.pdf'><span>Jenni et al.</span></a></td><td><span>Speed</span></td><td><span>R(2+1)D</span></td><td><span>UCF101</span></td><td><u><span>87.10</span></u></td><td><span>49.80</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620494.pdf'><code>PacePred</code></a></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>UCF101</span></td><td><strong><code>87.10</code></strong></td><td><strong><span>52.60</span></strong></td></tr><tr><td><a href='https://link.springer.com/chapter/10.1007/978-3-319-46448-0_32'><span>ShuffleLearn</span></a></td><td><span>Temporal Order</span></td><td><span>AlexNet</span></td><td><span>UCF101</span></td><td><span>50.90</span></td><td><span>19.80</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Lee_Unsupervised_Representation_Learning_ICCV_2017_paper.pdf'><span>OPN</span></a></td><td><span>Temporal Order</span></td><td><span>VGG-M</span></td><td><span>UCF101</span></td><td><span>59.80</span></td><td><span>23.80</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_cvpr_2017/papers/Fernando_Self-Supervised_Video_Representation_CVPR_2017_paper.pdf'><span>O3N</span></a></td><td><span>Temporal Order</span></td><td><span>AlexNet</span></td><td><span>UCF101</span></td><td><span>60.30</span></td><td><span>32.50</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8953292'><span>ClipOrder</span></a></td><td><span>Temporal Order</span></td><td><span>R3D</span></td><td><span>UCF101</span></td><td><span>72.40</span></td><td><span>30.90</span></td></tr></tbody></table></figure><h3 id='video-retreival-1'><mark><span>Video Retreival</span></mark></h3><p><em><span>Performance for the downstream video retrieval(检索) task with top scores for each category in </span><strong><span>bold</span></strong><span>. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.</span></em></p><p>&nbsp;</p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-train</span></th><th><span>UCF101 R@5</span></th><th><span>HMDB51 R@5</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Benaim_SpeedNet_Learning_the_Speediness_in_Videos_CVPR_2020_paper.pdf'><span>SpeedNet</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>Kinetics</span></td><td><span>28.10</span></td><td><span>--</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8953292'><span>ClipOrder</span></a></td><td><span>Pretext</span></td><td><span>Temporal Order</span></td><td><span>R3D</span></td><td><span>UCF101</span></td><td><span>30.30</span></td><td><span>22.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Lee_Unsupervised_Representation_Learning_ICCV_2017_paper.pdf'><span>OPN</span></a></td><td><span>Pretext</span></td><td><span>Temporal Order</span></td><td><span>CaffeNet</span></td><td><span>UCF101</span></td><td><span>28.70</span></td><td><span>--</span></td></tr><tr><td><a href='https://www.ijcai.org/proceedings/2021/104'><span>CSJ</span></a></td><td><span>Pretext</span></td><td><span>Jigsaw</span></td><td><span>R(2+3)D</span></td><td><span>K/U/H</span></td><td><span>40.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Yao_Video_Playback_Rate_Perception_for_Self-Supervised_Spatio-Temporal_Representation_Learning_CVPR_2020_paper.pdf'><span>PRP</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>R3D</span></td><td><span>Kinetics</span></td><td><span>38.50</span></td><td><span>27.20</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730426.pdf'><span>Jenni et al.</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>3D R-18</span></td><td><span>Kinetics</span></td><td><span>48.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620494.pdf'><code>PacePred</code></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>R(2+1)D</span></td><td><span>UCF101</span></td><td><strong><span>49.70</span></strong></td><td><strong><span>32.20</span></strong></td></tr></tbody></table></figure><h2 id='generative-learning'><span>Generative Learning</span></h2><h3 id='action-recognition-2'><span>Action Recognition</span></h3><p><em><span>Downstream action recognition evaluation for models that use a generative self-supervised pre-training approach. Top scores are in </span><strong><span>bold</span></strong></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-train</span></th><th><span>UCF101</span></th><th><span>HMDB51</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSwaV</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>51.7</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSimCLR</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>52.0</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pMoCo</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>54.4</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pBYOL</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><strong><span>55.8</span></strong></td></tr><tr><td><a href='https://arxiv.org/abs/1511.05440'><span>Mathieu et al.</span></a></td><td><span>Frame Prediction</span></td><td><span>C3D</span></td><td><span>Sports1M</span></td><td><span>52.10</span></td><td><span>--</span></td></tr><tr><td><a href='https://dl.acm.org/doi/pdf/10.5555/3157096.3157165'><span>VideoGan</span></a></td><td><span>Reconstruction</span></td><td><span>VAE</span></td><td><span>Flickr</span></td><td><span>52.90</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Liang_Dual_Motion_GAN_ICCV_2017_paper.pdf'><span>Liang et al.</span></a></td><td><span>Frame Prediction</span></td><td><span>LSTM</span></td><td><span>UCF101</span></td><td><span>55.10</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Pan_VideoMoCo_Contrastive_Video_Representation_Learning_With_Temporally_Adversarial_Examples_CVPR_2021_paper.pdf'><span>VideoMoCo</span></a></td><td><span>Frame Prediction</span></td><td><span>R(2+1)D</span></td><td><span>Kinetics</span></td><td><span>78.70</span></td><td><span>49.20</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123480324.pdf'><span>MemDPC-Dual</span></a></td><td><span>Frame Prediction</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics</span></td><td><span>86.10</span></td><td><span>54.50</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123590069.pdf'><span>Tian et al.</span></a></td><td><span>Reconstruction</span></td><td><span>3D R-101</span></td><td><span>Kinetics</span></td><td><span>88.10</span></td><td><span>59.00</span></td></tr><tr><td><a href='https://arxiv.org/abs/2203.12602'><code>VideoMAE</code></a></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-L</span></a></td><td><span>ImageNet</span></td><td><span>91.3</span></td><td><span>62.6</span></td></tr><tr><td><a href='https://arxiv.org/abs/2210.04154'><code>MotionMAE</code></a></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-B</span></a></td><td><span>Kinetics</span></td><td><span>96.3</span></td><td><span>--</span></td></tr></tbody></table></figure><p><em><span>Downstream evaluation of action recognition on  self-supervised learning measured by prediction accuracy for </span><a href='https://developer.qualcomm.com/software/ai-datasets/something-something'><span>Something-Something (SS)</span></a><span> and </span><a href='https://www.deepmind.com/open-source/kinetics'><span>Kinetics400 (Kinetics)</span></a><span>. SS is a more temporally relevant dataset and therefore is more challenging.  Top scores for each category are in </span><strong><span>bold</span></strong><span> and second best scores \underline{underlined}.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-Train</span></th><th><span>SS</span></th><th><span>Kinetics</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_BEVT_BERT_Pretraining_of_Video_Transformers_CVPR_2022_paper.pdf'><span>BEVT</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf'><span>SWIN-B</span></a></td><td><span>Kinetics+</span><a href='https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf'><span>ImageNet</span></a></td><td><span>71.4</span></td><td><span>81.1</span></td></tr><tr><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-H</span></a></td><td><span>Kinetics</span></td><td><span>74.1</span></td><td><span>81.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2022/papers/Wei_Masked_Feature_Prediction_for_Self-Supervised_Visual_Pre-Training_CVPR_2022_paper.pdf'><code>MaskFeat</code></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://openaccess.thecvf.com/content/ICCV2021/papers/Fan_Multiscale_Vision_Transformers_ICCV_2021_paper.pdf'><span>MViT</span></a></td><td><span>Kinetics</span></td><td><span>74.4</span></td><td><strong><span>86.7</span></strong></td></tr><tr><td><a href='https://arxiv.org/abs/2203.12602'><span>VideoMAE</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-L</span></a></td><td><span>ImageNet</span></td><td><span>75.3</span></td><td><span>85.1</span></td></tr><tr><td><a href='https://arxiv.org/abs/2210.04154'><code>MotionMAE</code></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-B</span></a></td><td><span>Kinetics</span></td><td><strong><span>75.5</span></strong></td><td><span>81.7</span></td></tr></tbody></table></figure><h3 id='video-retreival-2'><span>Video Retreival</span></h3><p><em><span>Performance for the downstream video retrieval task with top scores for each category in </span><strong><span>bold</span></strong><span>. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-train</span></th><th><span>UCF101 R@5</span></th><th><span>HMDB51 R@5</span></th></tr></thead><tbody><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123480324.pdf'><span>MemDPC-RGP</span></a></td><td><span>Generative</span></td><td><span>Frame Prediction</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics</span></td><td><span>40.40</span></td><td><span>25.70</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123480324.pdf'><span>MemDPC-Flow</span></a></td><td><span>Generative</span></td><td><span>Frame Prediction</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics</span></td><td><strong><span>63.20</span></strong></td><td><strong><span>37.60</span></strong></td></tr></tbody></table></figure><h3 id='text-to-video-retrieval-1'><span>Text-to-Video Retrieval </span></h3><p><em><span>Performance for the downstream video retrieval task. Top scores for each category are in </span><strong><span>bold</span></strong><span>. </span><mark><span>Masked Modeling (MM) is a generative approach that uses both video with text</span></mark><span>. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning (</span></em><span>) on the target dataset, </span><a href='http://youcook2.eecs.umich.edu'><span>YouCook2</span></a><span> or </span><a href='https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/'><span>MSRVTT</span></a><span>. The pre-training datasets titled COMBO are </span><a href='https://aclanthology.org/P18-1238/'><span>CC3M</span></a><span>, </span><a href='https://arxiv.org/abs/2104.00650'><span>WV-2M</span></a><span> and </span><a href='https://cocodataset.org/#home'><span>COCO</span></a><span>.*</span></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-Train</span></th><th><span>R@5 YouCook2</span></th><th><span>R@5 MSRVTT</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>26.70</span></td><td><span>23.40</span></td></tr><tr><td><a href='https://aclanthology.org/2020.emnlp-main.161/'><span>HERO</span></a></td><td><span>SlowFast</span></td><td><span>WordPieces</span></td><td><span>How2+</span><a href='https://arxiv.org/abs/1604.06506'><span>TV</span></a></td><td><span>--</span></td><td><span>43.40</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Lei_Less_Is_More_ClipBERT_for_Video-and-Language_Learning_via_Sparse_Sampling_CVPR_2021_paper.pdf'><span>ClipBERT</span></a></td><td><span>R-50</span></td><td><span>WordPieces</span></td><td><a href='https://arxiv.org/abs/1602.07332'><span>VisualGenome</span></a></td><td><span>--</span></td><td><span>46.80</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>56.88</span></td><td><span>55.50</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>57.60</span></td><td><span>49.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.03186'><span>Amrani et al.</span></a></td><td><span>R-152</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>21.30</span></td></tr></tbody></table></figure><h3 id='video-captioning-1'><span>Video Captioning</span></h3><p><em><span>Downstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in </span><strong><span>bold</span></strong><span>. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-train</span></th><th><span>BLEU4</span></th><th><span>METEOR</span></th><th><span>ROUGE</span></th><th><span>CIDEr</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Sun_VideoBERT_A_Joint_Model_for_Video_and_Language_Representation_Learning_ICCV_2019_paper.pdf'><span>VideoBert</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>Kinetics</span></td><td><span>4.33</span></td><td><span>11.94</span></td><td><span>28.80</span></td><td><span>0.55</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>K/H</span></td><td><span>5.41</span></td><td><span>13.30</span></td><td><span>30.56</span></td><td><span>0.65</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>12.27</span></td><td><span>18.22</span></td><td><span>41.51</span></td><td><span>1.39</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>17.35</span></td><td><span>22.35</span></td><td><span>46.52</span></td><td><span>1.81</span></td></tr></tbody></table></figure><h2 id='contrastive-learning'><span>Contrastive Learning</span></h2><h3 id='action-recognition-3'><span>Action Recognition</span></h3><p><em><span>Downstream evaluation of action recognition on  self-supervised learning measured by prediction accuracy for </span><a href='https://developer.qualcomm.com/software/ai-datasets/something-something'><span>Something-Something (SS)</span></a><span> and </span><a href='https://www.deepmind.com/open-source/kinetics'><span>Kinetics400 (Kinetics)</span></a><span>. SS is a more temporally relevant dataset and therefore is more challenging.  Top scores for each category are in </span><strong><span>bold</span></strong><span> and second best scores \underline{underlined}.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-Train</span></th><th><span>SS</span></th><th><span>Kinetics</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSwaV</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>51.7</span></td><td><span>62.7</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSimCLR</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>52.0</span></td><td><span>62.0</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pMoCo</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>54.4</span></td><td><span>69.0</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pBYOL</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><strong><span>55.8</span></strong></td><td><strong><span>71.5</span></strong></td></tr></tbody></table></figure><h2 id='contrastive'><span>Contrastive</span></h2><h3 id='action-recognition-4'><span>Action Recognition </span></h3><p><em><span>Downstream action recognition on UCF101 and HMDB51 for models that use contrastive learning and/or cross-modal agreement. Top scores for each category are in </span><strong><span>bold</span></strong><span>. Modalities include video (V), optical flow (F), human keypoints (K), text (T) and audio (A). Spatio-temporal augmentations with contrastive learning typically are the highest performing approaches.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Subcategory</span></th><th><span>Visual</span></th><th><span>Modalities</span></th><th><span>Pre-Train</span></th><th><span>UCF101</span></th><th><span>HMDB51</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhuang_Unsupervised_Learning_From_Video_With_Deep_Neural_Embeddings_CVPR_2020_paper.pdf'><span>VIE</span></a></td><td><span>Clustering</span></td><td><span>Slowfast</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>78.90</span></td><td><span>50.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhuang_Unsupervised_Learning_From_Video_With_Deep_Neural_Embeddings_CVPR_2020_paper.pdf'><span>VIE-2pathway</span></a></td><td><span>Clustering</span></td><td><span>R-18</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>80.40</span></td><td><span>52.5</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.1007/978-3-030-66096-3_28'><span>Tokmakov et al.</span></a></td><td><span>Clustering</span></td><td><span>3D R-18</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>83.00</span></td><td><span>50.4</span></td></tr><tr><td><a href='https://www.computer.org/csdl/proceedings-article/icpr/2021/09412071/1tmjbCfCuu4'><span>TCE</span></a></td><td><span>Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>71.20</span></td><td><span>36.6</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_WACV_2020/papers/LORRE_Temporal_Contrastive_Pretraining_for_Video_Action_Recognition_WACV_2020_paper.pdf'><span>Lorre et al.</span></a></td><td><span>Temporal Aug.</span></td><td><span>R-18</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>87.90</span></td><td><span>55.4</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123560749.pdf'><span>CMC-Dual</span></a></td><td><span>Spatial Aug.</span></td><td><span>CaffeNet</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>59.10</span></td><td><span>26.7</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>SwAV</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>74.70</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/2007.13278'><span>VDIM</span></a></td><td><span>Spatial Aug.</span></td><td><span>R(2+1)D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>79.70</span></td><td><span>49.2</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021W/HVU/papers/Rai_CoCon_Cooperative-Contrastive_Learning_CVPRW_2021_paper.pdf'><span>CoCon</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-34</span></td><td><span>V+F+K</span></td><td><span>UCF101</span></td><td><span>82.40</span></td><td><span>53.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>SimCLR</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>84.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/3def184ad8f4755ff269862ea77393dd-Paper.pdf'><span>CoCLR</span></a></td><td><span>Spatial Aug.</span></td><td><span>S3D-G</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>90.60</span></td><td><span>62.9</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>MoCo</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>90.80</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>BYOL</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>91.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/2109.12493'><span>DVIM</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-18</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>64.00</span></td><td><span>29.7</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.1145/3394171.3413694'><span>IIC</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R3D</span></td><td><span>V+F</span></td><td><span>Kinetics</span></td><td><span>74.40</span></td><td><span>38.3</span></td></tr><tr><td><a href='https://arxiv.org/abs/2009.05757'><span>DSM</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>I3D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>78.20</span></td><td><span>52.8</span></td></tr><tr><td><a href='https://dl.acm.org/doi/abs/10.5555/3524938.3525087'><span>pSimCLR</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>87.90</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/2101.07974'><span>TCLR</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R(2+1)D</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>88.20</span></td><td><span>60.0</span></td></tr><tr><td><a href='https://arxiv.org/abs/2008.00975'><span>SeCo</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>ImageNet</span></td><td><span>88.30</span></td><td><span>55.6</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf'><span>pSwaV</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>89.40</span></td><td><span>--</span></td></tr><tr><td><a href='https://dl.acm.org/doi/abs/10.5555/3495724.3497510'><span>pBYOL</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>93.80</span></td><td><span>--</span></td></tr><tr><td><a href='https://www.computer.org/csdl/proceedings-article/cvpr/2021/450900g960/1yeL2kcwn9S'><span>CVRL</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>3D R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>93</span></td><td>&nbsp;</td></tr></tbody></table></figure><h2 id='cross-modal-learning'><mark><span>Cross-Modal Learning</span></mark></h2><h3 id='text-to-video-retrieval-2'><span>Text-to-Video Retrieval </span></h3><p><em><span>Performance for the downstream video retrieval task. Top scores for each category are in </span><strong><span>bold</span></strong><span>. Masked Modeling (MM) is a generative approach that uses both video with text. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning (</span></em><span>) on the target dataset, </span><a href='http://youcook2.eecs.umich.edu'><span>YouCook2</span></a><span> or </span><a href='https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/'><span>MSRVTT</span></a><span>. The pre-training datasets titled COMBO are </span><a href='https://aclanthology.org/P18-1238/'><span>CC3M</span></a><span>, </span><a href='https://arxiv.org/abs/2104.00650'><span>WV-2M</span></a><span> and </span><a href='https://cocodataset.org/#home'><span>COCO</span></a><span>.*</span></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-Train</span></th><th><span>R@5 YouCook2</span></th><th><span>R@5 MSRVTT</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>26.70</span></td><td><span>23.40</span></td></tr><tr><td><a href='https://aclanthology.org/2020.emnlp-main.161/'><span>HERO</span></a></td><td><span>SlowFast</span></td><td><span>WordPieces</span></td><td><span>How2+</span><a href='https://arxiv.org/abs/1604.06506'><span>TV</span></a></td><td><span>--</span></td><td><span>43.40</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Lei_Less_Is_More_ClipBERT_for_Video-and-Language_Learning_via_Sparse_Sampling_CVPR_2021_paper.pdf'><span>ClipBERT</span></a></td><td><span>R-50</span></td><td><span>WordPieces</span></td><td><a href='https://arxiv.org/abs/1602.07332'><span>VisualGenome</span></a></td><td><span>--</span></td><td><span>46.80</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>56.88</span></td><td><span>55.50</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>57.60</span></td><td><span>49.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.03186'><span>Amrani et al.</span></a></td><td><span>R-152</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>21.30</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Miech_End-to-End_Learning_of_Visual_Representations_From_Uncurated_Instructional_Videos_CVPR_2020_paper.pdf'><span>MIL-NCE</span></a></td><td><span>S3D</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>38.00</span></td><td><span>24.00</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.5555/3495724.3497619'><span>COOT</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2+YouCook2</span></td><td><span>40.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/1907.13487'><span>CE</span></a><span>*</span></td><td><span>Experts</span></td><td><a href='https://openaccess.thecvf.com/content_cvpr_2016/papers/Arandjelovic_NetVLAD_CNN_Architecture_CVPR_2016_paper.pdf'><span>NetVLAD</span></a></td><td><span>MSRVTT</span></td><td><span>--</span></td><td><span>29.00</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>50.40</span></td><td><span>22.20</span></td></tr><tr><td><a href='https://arxiv.org/abs/2104.11178'><span>VATT</span></a></td><td><span>Linear Proj.</span></td><td><span>Linear Proj.</span></td><td><span>AS+How2</span></td><td><span>--</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/1804.02516'><span>MEE</span></a></td><td><span>Experts</span></td><td><a href='https://openaccess.thecvf.com/content_cvpr_2016/papers/Arandjelovic_NetVLAD_CNN_Architecture_CVPR_2016_paper.pdf'><span>NetVLAD</span></a></td><td><a href='https://cocodataset.org/#home'><span>COCO</span></a></td><td><span>--</span></td><td><span>39.20</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Wray_Fine-Grained_Action_Retrieval_Through_Multiple_Parts-of-Speech_Embeddings_ICCV_2019_paper.pdf'><span>JPoSE</span></a></td><td><a href='https://link.springer.com/chapter/10.1007/978-3-319-46484-8_2'><span>TSN</span></a></td><td><span>Word2Vec</span></td><td><span>Kinetics</span></td><td><span>--</span></td><td><span>38.10</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.03186'><span>Amrani et al.</span></a><span>*</span></td><td><span>R-152</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>41.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/2006.09199'><span>AVLnet</span></a><span>*</span></td><td><span>3D R-101</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>55.50</span></td><td><span>50.50</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123490205.pdf'><span>MMT</span></a></td><td><span>Experts</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>14.40</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123490205.pdf'><span>MMT</span></a><span>*</span></td><td><span>Experts</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>55.70</span></td></tr><tr><td><a href='https://arxiv.org/abs/2010.02824'><span>Patrick et al.</span></a><span>*</span></td><td><span>Experts</span></td><td><a href='https://arxiv.org/abs/1910.10683'><span>T-5</span></a></td><td><span>How2</span></td><td><span>58.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span>*</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><strong><span>62.60</span></strong></td><td><span>55.40</span></td></tr><tr><td><a href='https://arxiv.org/abs/2104.00650'><span>FIT</span></a></td><td><span>ViT</span></td><td><span>BERT</span></td><td><span>COMBO</span></td><td><span>--</span></td><td><strong><span>61.50</span></strong></td></tr></tbody></table></figure><h3 id='video-captioning-2'><span>Video Captioning</span></h3><p><em><span>Downstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in </span><strong><span>bold</span></strong><span>. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-train</span></th><th><span>BLEU4</span></th><th><span>METEOR</span></th><th><span>ROUGE</span></th><th><span>CIDEr</span></th></tr></thead><tbody><tr><td><a href='https://arxiv.org/abs/1906.05743'><span>CBT</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Text</span></td><td><span>S3D-G</span></td><td><span>BERT</span></td><td><span>Kinetics</span></td><td><span>5.12</span></td><td><span>12.97</span></td><td><span>30.44</span></td><td><span>0.64</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.5555/3495724.3497619'><span>COOT</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Text</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>YouCook2</span></td><td><span>11.30</span></td><td><span>19.85</span></td><td><span>37.94</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Sun_VideoBERT_A_Joint_Model_for_Video_and_Language_Representation_Learning_ICCV_2019_paper.pdf'><span>VideoBert</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>Kinetics</span></td><td><span>4.33</span></td><td><span>11.94</span></td><td><span>28.80</span></td><td><span>0.55</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>K/H</span></td><td><span>5.41</span></td><td><span>13.30</span></td><td><span>30.56</span></td><td><span>0.65</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>12.27</span></td><td><span>18.22</span></td><td><span>41.51</span></td><td><span>1.39</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>17.35</span></td><td><span>22.35</span></td><td><span>46.52</span></td><td><span>1.81</span></td></tr></tbody></table></figure><h3 id='action-segmentation'><span>Action Segmentation</span></h3><p><em><span>Downstream action segmentation evaluation on COIN for models that use a cross-modal agreement self-supervised pre-training approach. The top score is in </span><strong><span>bold</span></strong><span>.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-train</span></th><th><span>Frame-Acc</span></th></tr></thead><tbody><tr><td><a href='https://arxiv.org/abs/1906.05743'><span>CBT</span></a></td><td><span>S3D-G</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>53.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>56.95</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span> (zs)</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>58.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Miech_End-to-End_Learning_of_Visual_Representations_From_Uncurated_Instructional_Videos_CVPR_2020_paper.pdf'><span>MIL-NCE</span></a></td><td><span>S3D</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>61.00</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>68.39</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span> (ft)</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>68.70</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>70.20</span></td></tr></tbody></table></figure><h3 id='temporal-action-step-localization'><span>Temporal Action Step Localization</span></h3><p><em><span>Downstream temporal action step localization evaluation on CrossTask for models that use a contrastive multimodal self-supervised pre-training approach. Top scores are in </span><strong><span>bold</span></strong><span>.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-train</span></th><th><span>Recall</span></th></tr></thead><tbody><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span> (zs)</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>33.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Miech_End-to-End_Learning_of_Visual_Representations_From_Uncurated_Instructional_Videos_CVPR_2020_paper.pdf'><span>MIL-NCE</span></a></td><td><span>S3D</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>40.50</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>41.40</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>42.00</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>46.50</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span> (ft)</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><strong><span>47.30</span></strong></td></tr></tbody></table></figure><h1 id='evaluation-tasks'><span>Evaluation Tasks</span></h1><h2 id='action-recognition-5'><mark><span>Action Recognition</span></mark><span> </span></h2><p><em><span>Downstream action recognition on UCF101 and HMDB51 for models that use contrastive learning and/or cross-modal agreement. Top scores for each category are in </span><strong><span>bold</span></strong><span>. Modalities include video (V), optical flow (F), human keypoints (K), text (T) and audio (A). Spatio-temporal augmentations with contrastive learning typically are the highest performing approaches.</span></em></p><p><span>基于对比学习和/或跨模态一致性的模型在UCF101和HMDB51上进行下游动作识别的情况。在每个类别中，</span><strong><span>最高分</span></strong><span>通常是指采用时空对比学习的模型。这些模态包括视频（V）、光流（F）、人体关键点（K）、文本（T）和音频（A）。</span><mark><span>时空对比学习通常是性能最优秀的方法，它使用了时空增强技术。</span></mark></p><p>&nbsp;</p><p><img src="./awesome-video-self-supervised-learning survey.assets/image-20230917163832381.png" referrerpolicy="no-referrer" alt="image-20230917163832381"></p><p>&nbsp;</p><figure><table><thead><tr><th><span>Model</span></th><th><span>Subcategory</span></th><th><span>Visual</span></th><th><span>Modalities</span></th><th><span>Pre-Train</span></th><th><span>UCF101</span></th><th><span>HMDB51</span></th></tr></thead><tbody><tr><td><a href='https://ieeexplore.ieee.org/document/8578684'><span>Geometry</span></a></td><td><span>Appearance</span></td><td><span>AlexNet</span></td><td><span>V</span></td><td><span>UCF101/HMDB51</span></td><td><span>54.10</span></td><td><span>22.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/1904.03597'><span>Wang et al.</span></a></td><td><span>Appearance</span></td><td><span>C3D</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>61.20</span></td><td><span>33.40</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2019/papers/Xu_Self-Supervised_Spatiotemporal_Learning_via_Video_Clip_Order_Prediction_CVPR_2019_paper.pdf'><span>3D RotNet</span></a></td><td><span>Appearance</span></td><td><span>3D R-18</span></td><td><span>V</span></td><td><a href='https://pubmed.ncbi.nlm.nih.gov/30802849/'><span>MT</span></a></td><td><span>62.90</span></td><td><span>33.70</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8659002'><span>VideoJigsaw</span></a></td><td><span>Jigsaw</span></td><td><span>CaffeNet</span></td><td><span>Kinetics</span></td><td><span>54.70</span></td><td><span>27.00</span></td><td>&nbsp;</td></tr><tr><td><a href='https://dl.acm.org/doi/10.1609/aaai.v33i01.33018545'><span>3D ST-puzzle</span></a></td><td><span>Jigsaw</span></td><td><span>C3D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>65.80</span></td><td><span>33.70</span></td></tr><tr><td><a href='https://www.ijcai.org/proceedings/2021/104'><span>CSJ</span></a></td><td><span>Jigsaw</span></td><td><span>R(2+3)D</span></td><td><span>V</span></td><td><span>Kinetics+UCF101+HMDB51</span></td><td><span>79.50</span></td><td><span>52.60</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Yao_Video_Playback_Rate_Perception_for_Self-Supervised_Spatio-Temporal_Representation_Learning_CVPR_2020_paper.pdf'><span>PRP</span></a></td><td><span>Speed</span></td><td><span>R3D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>72.10</span></td><td><span>35.00</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Benaim_SpeedNet_Learning_the_Speediness_in_Videos_CVPR_2020_paper.pdf'><span>SpeedNet</span></a></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>81.10</span></td><td><span>48.80</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730426.pdf'><span>Jenni et al.</span></a></td><td><span>Speed</span></td><td><span>R(2+1)D</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>87.10</span></td><td><span>49.80</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620494.pdf'><span>PacePred</span></a></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>87.10</span></td><td><span>52.60</span></td></tr><tr><td><a href='https://link.springer.com/chapter/10.1007/978-3-319-46448-0_32'><span>ShuffleLearn</span></a></td><td><span>Temporal Order</span></td><td><span>AlexNet</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>50.90</span></td><td><span>19.80</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Lee_Unsupervised_Representation_Learning_ICCV_2017_paper.pdf'><span>OPN</span></a></td><td><span>Temporal Order</span></td><td><span>VGG-M</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>59.80</span></td><td><span>23.80</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_cvpr_2017/papers/Fernando_Self-Supervised_Video_Representation_CVPR_2017_paper.pdf'><span>O3N</span></a></td><td><span>Temporal Order</span></td><td><span>AlexNet</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>60.30</span></td><td><span>32.50</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8953292'><span>ClipOrder</span></a></td><td><span>Temporal Order</span></td><td><span>R3D</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>72.40</span></td><td><span>30.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhuang_Unsupervised_Learning_From_Video_With_Deep_Neural_Embeddings_CVPR_2020_paper.pdf'><span>VIE</span></a></td><td><span>Clustering</span></td><td><span>Slowfast</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>78.90</span></td><td><span>50.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhuang_Unsupervised_Learning_From_Video_With_Deep_Neural_Embeddings_CVPR_2020_paper.pdf'><span>VIE-2pathway</span></a></td><td><span>Clustering</span></td><td><span>R-18</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>80.40</span></td><td><span>52.5</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.1007/978-3-030-66096-3_28'><span>Tokmakov et al.</span></a></td><td><span>Clustering</span></td><td><span>3D R-18</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>83.00</span></td><td><span>50.4</span></td></tr><tr><td><a href='https://www.computer.org/csdl/proceedings-article/icpr/2021/09412071/1tmjbCfCuu4'><span>TCE</span></a></td><td><span>Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>71.20</span></td><td><span>36.6</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_WACV_2020/papers/LORRE_Temporal_Contrastive_Pretraining_for_Video_Action_Recognition_WACV_2020_paper.pdf'><span>Lorre et al.</span></a></td><td><span>Temporal Aug.</span></td><td><span>R-18</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>87.90</span></td><td><span>55.4</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123560749.pdf'><span>CMC-Dual</span></a></td><td><span>Spatial Aug.</span></td><td><span>CaffeNet</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>59.10</span></td><td><span>26.7</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>SwAV</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>74.70</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/2007.13278'><span>VDIM</span></a></td><td><span>Spatial Aug.</span></td><td><span>R(2+1)D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>79.70</span></td><td><span>49.2</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021W/HVU/papers/Rai_CoCon_Cooperative-Contrastive_Learning_CVPRW_2021_paper.pdf'><span>CoCon</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-34</span></td><td><span>V+F+K</span></td><td><span>UCF101</span></td><td><span>82.40</span></td><td><span>53.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>SimCLR</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>84.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/3def184ad8f4755ff269862ea77393dd-Paper.pdf'><span>CoCLR</span></a></td><td><span>Spatial Aug.</span></td><td><span>S3D-G</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>90.60</span></td><td><span>62.9</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>MoCo</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>90.80</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>BYOL</span></a></td><td><span>Spatial Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>91.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Miech_End-to-End_Learning_of_Visual_Representations_From_Uncurated_Instructional_Videos_CVPR_2020_paper.pdf'><span>MIL-NCE</span></a></td><td><span>Cross-Modal</span></td><td><span>S3D-G</span></td><td><span>V+T</span></td><td><span>How2</span></td><td><span>61.00</span></td><td><span>91.3</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.04298'><span>GDT</span></a></td><td><span>Cross-Modal</span></td><td><span>R(2+1)D</span></td><td><span>V+T+A</span></td><td><span>Kinetics</span></td><td><span>72.80</span></td><td><span>95.5</span></td></tr><tr><td><a href='https://arxiv.org/abs/1906.05743'><span>CBT</span></a></td><td><span>Cross-Modal</span></td><td><span>S3D-G</span></td><td><span>V+T</span></td><td><span>Kinetics</span></td><td><span>79.50</span></td><td><span>44.6</span></td></tr><tr><td><a href='https://arxiv.org/abs/2104.11178'><span>VATT</span></a></td><td><span>Cross-Modal</span></td><td><span>Transformer</span></td><td><span>V+T</span></td><td><span>AS+How2</span></td><td><span>85.50</span></td><td><span>64.8</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper_files/paper/2018/file/c4616f5a24a66668f11ca4fa80525dc4-Paper.pdf'><span>AVTS</span></a></td><td><span>Cross-Modal</span></td><td><a href='https://openaccess.thecvf.com/content_cvpr_2018/papers/Tran_A_Closer_Look_CVPR_2018_paper.pdf'><span>MC3</span></a></td><td><span>V+A</span></td><td><span>Kinetics</span></td><td><span>85.80</span></td><td><span>56.9</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Morgado_Audio-Visual_Instance_Discrimination_with_Cross-Modal_Agreement_CVPR_2021_paper.pdf'><span>AVID+Cross</span></a></td><td><span>Cross-Modal</span></td><td><span>R(2+1)D</span></td><td><span>V+A</span></td><td><span>Kinetics</span></td><td><span>91.00</span></td><td><span>64.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Morgado_Audio-Visual_Instance_Discrimination_with_Cross-Modal_Agreement_CVPR_2021_paper.pdf'><span>AVID+CMA</span></a></td><td><span>Cross-Modal</span></td><td><span>R(2+1)D</span></td><td><span>V+A</span></td><td><span>Kinetics</span></td><td><span>91.50</span></td><td><span>64.7</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/0060ef47b12160b9198302ebdb144dcf-Paper.pdf'><span>MMV-FAC</span></a></td><td><span>Cross-Modal</span></td><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Lin_TSM_Temporal_Shift_Module_for_Efficient_Video_Understanding_ICCV_2019_paper.pdf'><span>TSM</span></a></td><td><span>V+T+A</span></td><td><span>AS+How2</span></td><td><span>91.80</span></td><td><span>67.1</span></td></tr><tr><td><strong><a href='https://dl.acm.org/doi/10.5555/3495724.3496542'><span>XDC</span></a></strong></td><td><strong><span>Cross-Modal</span></strong></td><td><strong><span>R(2+1)D</span></strong></td><td><strong><span>V+A</span></strong></td><td><strong><span>Kinetics</span></strong></td><td><strong><span>95.50</span></strong></td><td><strong><span>68.9</span></strong></td></tr><tr><td><a href='https://arxiv.org/abs/2109.12493'><span>DVIM</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-18</span></td><td><span>V+F</span></td><td><span>UCF101</span></td><td><span>64.00</span></td><td><span>29.7</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.1145/3394171.3413694'><span>IIC</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R3D</span></td><td><span>V+F</span></td><td><span>Kinetics</span></td><td><span>74.40</span></td><td><span>38.3</span></td></tr><tr><td><a href='https://arxiv.org/abs/2009.05757'><span>DSM</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>I3D</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>78.20</span></td><td><span>52.8</span></td></tr><tr><td><a href='https://dl.acm.org/doi/abs/10.5555/3524938.3525087'><span>pSimCLR</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>87.90</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/2101.07974'><span>TCLR</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R(2+1)D</span></td><td><span>V</span></td><td><span>UCF101</span></td><td><span>88.20</span></td><td><span>60.0</span></td></tr><tr><td><a href='https://arxiv.org/abs/2008.00975'><span>SeCo</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>ImageNet</span></td><td><span>88.30</span></td><td><span>55.6</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/70feb62b69f16e0238f741fab228fec2-Paper.pdf'><span>pSwaV</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>89.40</span></td><td><span>--</span></td></tr><tr><td><a href='https://dl.acm.org/doi/abs/10.5555/3495724.3497510'><span>pBYOL</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>96.30</span></td><td><span>75、。0</span></td></tr><tr><td><a href='https://www.computer.org/csdl/proceedings-article/cvpr/2021/450900g960/1yeL2kcwn9S'><span>CVRL</span></a></td><td><span>Spatio-Temporal Aug.</span></td><td><span>3D R-50</span></td><td><span>V</span></td><td><span>Kinetics</span></td><td><span>93.90</span></td><td>&nbsp;</td></tr></tbody></table></figure><p><em><span>Downstream evaluation of action recognition on  self-supervised learning measured by </span><mark><span>prediction accuracy for </span><a href='https://developer.qualcomm.com/software/ai-datasets/something-something'><span>Something-Something (SS)</span></a><span> and </span><a href='https://www.deepmind.com/open-source/kinetics'><span>Kinetics400 (Kinetics)</span></a></mark><span>. SS is a more temporally relevant dataset and therefore is more challenging.  Top scores for each category are in </span><strong><span>bold</span></strong><span> and second best scores \underline{underlined}.</span></em></p><p>&nbsp;</p><p><span>自监督学习中动作识别的下游评估是通过预测准确度来衡量的，其中使用了 </span><a href='https://developer.qualcomm.com/software/ai-datasets/something-something'><span>Something-Something (SS)</span></a><span> 和 </span><a href='https://www.deepmind.com/open-source/kinetics'><span>Kinetics400 (Kinetics)</span></a><span> 这两个数据集。</span></p><p>&nbsp;</p><p><a href='https://blog.csdn.net/Amazingren/article/details/103865047'><span>【数据集使用】Something-Something-v1以及v2数据集使用记录</span></a><span> </span></p><p><img src="./awesome-video-self-supervised-learning survey.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FtYXppbmdyZW4=,size_16,color_FFFFFF,t_70.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><p>&nbsp;</p><p><a href='https://zhuanlan.zhihu.com/p/347490726'><span>Kinetics 数据集简介</span></a></p><ul><li><p><span>一段视频一个标签，视频长度10s左右。</span></p></li><li><p><span>Kinetics 400/600/700 的标签的格式都是一样的</span></p></li><li><p><span>下载的标签（csv文件）每行代表一个标签</span></p></li><li><p><span>每个标签的内容包括</span></p></li><li><ul><li><code>label,youtube_id,time_start,time_end,split</code></li><li><span>类别名称、youtube视频编号（用于下载）、视频起始时间（youtube原始视频中的时间戳）、视频终止时间（youtube原始视频中的时间戳）、属于哪个数据集（训练集/验证集/测试集</span></li></ul></li><li><p>&nbsp;</p></li></ul><p><img src="./awesome-video-self-supervised-learning survey.assets/image-20230917164323005.png" referrerpolicy="no-referrer" alt="image-20230917164323005"></p><p><img src="./awesome-video-self-supervised-learning survey.assets/image-20230917164419550.png" referrerpolicy="no-referrer" alt="image-20230917164419550"></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-Train</span></th><th><span>SS</span></th><th><span>Kinetics</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSwaV</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>51.7</span></td><td><span>62.7</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pSimCLR</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>52.0</span></td><td><span>62.0</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pMoCo</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>54.4</span></td><td><span>69.0</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Feichtenhofer_A_Large-Scale_Study_on_Unsupervised_Spatiotemporal_Representation_Learning_CVPR_2021_paper.pdf'><span>pBYOL</span></a></td><td><span>Contrastive</span></td><td><span>View Aug.</span></td><td><a href='https://arxiv.org/abs/1512.03385'><span>R-50</span></a></td><td><span>Kinetics</span></td><td><span>55.8</span></td><td><span>71.5</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_BEVT_BERT_Pretraining_of_Video_Transformers_CVPR_2022_paper.pdf'><span>BEVT</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf'><span>SWIN-B</span></a></td><td><span>Kinetics+</span><a href='https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf'><span>ImageNet</span></a></td><td><span>71.4</span></td><td><span>81.1</span></td></tr><tr><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-H</span></a></td><td><span>Kinetics</span></td><td><span>74.1</span></td><td><span>81.1</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2022/papers/Wei_Masked_Feature_Prediction_for_Self-Supervised_Visual_Pre-Training_CVPR_2022_paper.pdf'><span>MaskFeat</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://openaccess.thecvf.com/content/ICCV2021/papers/Fan_Multiscale_Vision_Transformers_ICCV_2021_paper.pdf'><span>MViT</span></a></td><td><span>Kinetics</span></td><td><span>74.4</span></td><td><span>86.7</span></td></tr><tr><td><a href='https://arxiv.org/abs/2203.12602'><span>VideoMAE</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-L</span></a></td><td><span>ImageNet</span></td><td><span>75.3</span></td><td><span>85.1</span></td></tr><tr><td><a href='https://arxiv.org/abs/2210.04154'><span>MotionMAE</span></a></td><td><span>Generative</span></td><td><a href='https://arxiv.org/abs/2205.09113'><span>MAE</span></a></td><td><a href='https://arxiv.org/abs/2010.11929'><span>ViT-B</span></a></td><td><span>Kinetics</span></td><td><span>75.5</span></td><td><span>81.7</span></td></tr></tbody></table></figure><h2 id='video-retrieval'><span>Video Retrieval </span></h2><p><em><span>Performance for the downstream video retrieval task with top scores for each category in </span><strong><span>bold</span></strong><span>. K/U/H indicates using all three datasets for pre-training, i.e. Kinetics, UCF101, and HMDB51.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual Backbone</span></th><th><span>Pre-train</span></th><th><span>UCF101 R@5</span></th><th><span>HMDB51 R@5</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Benaim_SpeedNet_Learning_the_Speediness_in_Videos_CVPR_2020_paper.pdf'><span>SpeedNet</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>S3D-G</span></td><td><span>Kinetics</span></td><td><span>28.10</span></td><td><span>--</span></td></tr><tr><td><a href='https://ieeexplore.ieee.org/document/8953292'><span>ClipOrder</span></a></td><td><span>Pretext</span></td><td><span>Temporal Order</span></td><td><span>R3D</span></td><td><span>UCF101</span></td><td><span>30.30</span></td><td><span>22.90</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Lee_Unsupervised_Representation_Learning_ICCV_2017_paper.pdf'><span>OPN</span></a></td><td><span>Pretext</span></td><td><span>Temporal Order</span></td><td><span>CaffeNet</span></td><td><span>UCF101</span></td><td><span>28.70</span></td><td><span>--</span></td></tr><tr><td><a href='https://www.ijcai.org/proceedings/2021/104'><span>CSJ</span></a></td><td><span>Pretext</span></td><td><span>Jigsaw</span></td><td><span>R(2+3)D</span></td><td><span>K/U/H</span></td><td><span>40.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Yao_Video_Playback_Rate_Perception_for_Self-Supervised_Spatio-Temporal_Representation_Learning_CVPR_2020_paper.pdf'><span>PRP</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>R3D</span></td><td><span>Kinetics</span></td><td><span>38.50</span></td><td><span>27.20</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730426.pdf'><span>Jenni et al.</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>3D R-18</span></td><td><span>Kinetics</span></td><td><span>48.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620494.pdf'><span>PacePred</span></a></td><td><span>Pretext</span></td><td><span>Speed</span></td><td><span>R(2+1)D</span></td><td><span>UCF101</span></td><td><strong><span>49.70</span></strong></td><td><strong><span>32.20</span></strong></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123480324.pdf'><span>MemDPC-RGP</span></a></td><td><span>Generative</span></td><td><span>Frame Prediction</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics</span></td><td><span>40.40</span></td><td><span>25.70</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123480324.pdf'><span>MemDPC-Flow</span></a></td><td><span>Generative</span></td><td><span>Frame Prediction</span></td><td><span>R(2+3)D</span></td><td><span>Kinetics</span></td><td><strong><span>63.20</span></strong></td><td><strong><span>37.60</span></strong></td></tr><tr><td><a href='https://arxiv.org/abs/2009.05757'><span>DSM</span></a></td><td><span>Contrastive</span></td><td><span>Spatio-Temporal</span></td><td><span>I3D</span></td><td><span>Kinetics</span></td><td><span>35.20</span></td><td><span>25.90</span></td></tr><tr><td><a href='https://arxiv.org/abs/2010.15464'><span>IIC</span></a></td><td><span>Contrastive</span></td><td><span>Spatio-Temporal</span></td><td><span>R-18</span></td><td><span>UCF101</span></td><td><span>60.90</span></td><td><span>42.90</span></td></tr><tr><td><a href='https://arxiv.org/pdf/2006.13662.pdf'><span>SeLaVi</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Audio</span></td><td><span>R(2+1)D</span></td><td><span>Kinetics</span></td><td><span>68.60</span></td><td><span>47.60</span></td></tr><tr><td><a href='https://proceedings.neurips.cc/paper/2020/file/3def184ad8f4755ff269862ea77393dd-Paper.pdf'><span>CoCLR</span></a></td><td><span>Contrastive</span></td><td><span>View Augmentation</span></td><td><span>S3D-G</span></td><td><span>UCF101</span></td><td><span>70.80</span></td><td><span>45.80</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.04298'><span>GDT</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Audio</span></td><td><span>R(2+1)D</span></td><td><span>Kinetics</span></td><td><strong><span>79.00</span></strong></td><td><strong><span>51.70</span></strong></td></tr></tbody></table></figure><h2 id='video-captioning-3'><span>Video Captioning</span></h2><p><em><span>Downstream evaluation for video captioning on the YouCook2 dataset for video-language models. Top scores are in </span><strong><span>bold</span></strong><span>. MM: Masked modeling with video and text, and K/H: Kinetics+HowTo100M.</span></em></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Category</span></th><th><span>Subcategory</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-train</span></th><th><span>BLEU4</span></th><th><span>METEOR</span></th><th><span>ROUGE</span></th><th><span>CIDEr</span></th></tr></thead><tbody><tr><td><a href='https://arxiv.org/abs/1906.05743'><span>CBT</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Text</span></td><td><span>S3D-G</span></td><td><span>BERT</span></td><td><span>Kinetics</span></td><td><span>5.12</span></td><td><span>12.97</span></td><td><span>30.44</span></td><td><span>0.64</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.5555/3495724.3497619'><span>COOT</span></a></td><td><span>Cross-Modal</span></td><td><span>Video+Text</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>YouCook2</span></td><td><span>11.30</span></td><td><span>19.85</span></td><td><span>37.94</span></td><td><span>--</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Sun_VideoBERT_A_Joint_Model_for_Video_and_Language_Representation_Learning_ICCV_2019_paper.pdf'><span>VideoBert</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>Kinetics</span></td><td><span>4.33</span></td><td><span>11.94</span></td><td><span>28.80</span></td><td><span>0.55</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>K/H</span></td><td><span>5.41</span></td><td><span>13.30</span></td><td><span>30.56</span></td><td><span>0.65</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>12.27</span></td><td><span>18.22</span></td><td><span>41.51</span></td><td><span>1.39</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>Generative</span></td><td><span>MM</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>17.35</span></td><td><span>22.35</span></td><td><span>46.52</span></td><td><span>1.81</span></td></tr></tbody></table></figure><h2 id='text-to-video-retrieval-3'><span>Text-to-Video Retrieval </span></h2><p><em><span>Performance for the downstream video retrieval task. Top scores for each category are in </span><strong><span>bold</span></strong><span>. Masked Modeling (MM) is a generative approach that uses both video with text. Cross-modal agreement include a variety of contrastive approaches that can use video with audio and/or text. Cross-modal agreement pre-training approaches typically perform best. Some models have dedicated variations in what they report with fine-tuning (</span></em><span>) on the target dataset, </span><a href='http://youcook2.eecs.umich.edu'><span>YouCook2</span></a><span> or </span><a href='https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/'><span>MSRVTT</span></a><span>. The pre-training datasets titled COMBO are </span><a href='https://aclanthology.org/P18-1238/'><span>CC3M</span></a><span>, </span><a href='https://arxiv.org/abs/2104.00650'><span>WV-2M</span></a><span> and </span><a href='https://cocodataset.org/#home'><span>COCO</span></a><span>.*</span></p><figure><table><thead><tr><th><span>Model</span></th><th><span>Visual</span></th><th><span>Text</span></th><th><span>Pre-Train</span></th><th><span>R@5 YouCook2</span></th><th><span>R@5 MSRVTT</span></th></tr></thead><tbody><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Zhu_ActBERT_Learning_Global-Local_Video-Text_Representations_CVPR_2020_paper.pdf'><span>ActBERT</span></a></td><td><span>3D R-32</span></td><td><span>BERT</span></td><td><span>Kinetics+How2</span></td><td><span>26.70</span></td><td><span>23.40</span></td></tr><tr><td><a href='https://aclanthology.org/2020.emnlp-main.161/'><span>HERO</span></a></td><td><span>SlowFast</span></td><td><span>WordPieces</span></td><td><span>How2+</span><a href='https://arxiv.org/abs/1604.06506'><span>TV</span></a></td><td><span>--</span></td><td><span>43.40</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content/CVPR2021/papers/Lei_Less_Is_More_ClipBERT_for_Video-and-Language_Learning_via_Sparse_Sampling_CVPR_2021_paper.pdf'><span>ClipBERT</span></a></td><td><span>R-50</span></td><td><span>WordPieces</span></td><td><a href='https://arxiv.org/abs/1602.07332'><span>VisualGenome</span></a></td><td><span>--</span></td><td><span>46.80</span></td></tr><tr><td><a href='https://aclanthology.org/2021.findings-acl.370/'><span>VLM</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>56.88</span></td><td><span>55.50</span></td></tr><tr><td><a href='https://arxiv.org/abs/2002.06353'><span>UniVL</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>57.60</span></td><td><span>49.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.03186'><span>Amrani et al.</span></a></td><td><span>R-152</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>21.30</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_CVPR_2020/papers/Miech_End-to-End_Learning_of_Visual_Representations_From_Uncurated_Instructional_Videos_CVPR_2020_paper.pdf'><span>MIL-NCE</span></a></td><td><span>S3D</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>38.00</span></td><td><span>24.00</span></td></tr><tr><td><a href='https://dl.acm.org/doi/10.5555/3495724.3497619'><span>COOT</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2+YouCook2</span></td><td><span>40.20</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/1907.13487'><span>CE</span></a><span>*</span></td><td><span>Experts</span></td><td><a href='https://openaccess.thecvf.com/content_cvpr_2016/papers/Arandjelovic_NetVLAD_CNN_Architecture_CVPR_2016_paper.pdf'><span>NetVLAD</span></a></td><td><span>MSRVTT</span></td><td><span>--</span></td><td><span>29.00</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>50.40</span></td><td><span>22.20</span></td></tr><tr><td><a href='https://arxiv.org/abs/2104.11178'><span>VATT</span></a></td><td><span>Linear Proj.</span></td><td><span>Linear Proj.</span></td><td><span>AS+How2</span></td><td><span>--</span></td><td><span>--</span></td></tr><tr><td><a href='https://arxiv.org/abs/1804.02516'><span>MEE</span></a></td><td><span>Experts</span></td><td><a href='https://openaccess.thecvf.com/content_cvpr_2016/papers/Arandjelovic_NetVLAD_CNN_Architecture_CVPR_2016_paper.pdf'><span>NetVLAD</span></a></td><td><a href='https://cocodataset.org/#home'><span>COCO</span></a></td><td><span>--</span></td><td><span>39.20</span></td></tr><tr><td><a href='https://openaccess.thecvf.com/content_ICCV_2019/papers/Wray_Fine-Grained_Action_Retrieval_Through_Multiple_Parts-of-Speech_Embeddings_ICCV_2019_paper.pdf'><span>JPoSE</span></a></td><td><a href='https://link.springer.com/chapter/10.1007/978-3-319-46484-8_2'><span>TSN</span></a></td><td><span>Word2Vec</span></td><td><span>Kinetics</span></td><td><span>--</span></td><td><span>38.10</span></td></tr><tr><td><a href='https://arxiv.org/abs/2003.03186'><span>Amrani et al.</span></a><span>*</span></td><td><span>R-152</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>41.60</span></td></tr><tr><td><a href='https://arxiv.org/abs/2006.09199'><span>AVLnet</span></a><span>*</span></td><td><span>3D R-101</span></td><td><span>Word2Vec</span></td><td><span>How2</span></td><td><span>55.50</span></td><td><span>50.50</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123490205.pdf'><span>MMT</span></a></td><td><span>Experts</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>14.40</span></td></tr><tr><td><a href='https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123490205.pdf'><span>MMT</span></a><span>*</span></td><td><span>Experts</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><span>--</span></td><td><span>55.70</span></td></tr><tr><td><a href='https://arxiv.org/abs/2010.02824'><span>Patrick et al.</span></a><span>*</span></td><td><span>Experts</span></td><td><a href='https://arxiv.org/abs/1910.10683'><span>T-5</span></a></td><td><span>How2</span></td><td><span>58.50</span></td><td><span>--</span></td></tr><tr><td><a href='https://aclanthology.org/2021.emnlp-main.544/'><span>VideoClip</span></a><span>*</span></td><td><span>S3D-g</span></td><td><span>BERT</span></td><td><span>How2</span></td><td><strong><span>62.60</span></strong></td><td><span>55.40</span></td></tr><tr><td><a href='https://arxiv.org/abs/2104.00650'><span>FIT</span></a></td><td><span>ViT</span></td><td><span>BERT</span></td><td><span>COMBO</span></td><td><span>--</span></td><td><strong><span>61.50</span></strong></td></tr></tbody></table></figure><h1 id='datasets'><span>Datasets</span></h1><figure><table><thead><tr><th><span>Dataset</span></th><th><span>Labels</span></th><th><span>Modalities</span></th><th><span>Classes</span></th><th><span>Videos</span></th><th><span>Tasks</span></th></tr></thead><tbody><tr><td><a href='http://activity-net.org'><span>ActivityNet</span></a><span> (ActN)</span></td><td><span>Activity, Captions, Bounding Box</span></td><td><span>Video, Video+Text</span></td><td><span>200</span></td><td><span>19,995</span></td><td><span>Action-Recognition, </span><a href='https://openaccess.thecvf.com/content_ICCV_2017/papers/Krishna_Dense-Captioning_Events_in_ICCV_2017_paper.pdf'><span>Video Captioning</span></a><span>, </span><a href='https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhou_Grounded_Video_Description_CVPR_2019_paper.pdf'><span>Video Grounding</span></a></td></tr><tr><td><a href='https://research.google.com/ava/'><span>AVA</span></a></td><td><span>Activity, Face Tracks</span></td><td><span>Video, Video+Audio</span></td><td><span>80</span></td><td><span>430</span></td><td><span>Action-Recognition,</span><a href='https://ieeexplore.ieee.org/document/9053900'><span>Audio-Visual Grounding</span></a></td></tr><tr><td><a href='https://serre-lab.clps.brown.edu/resource/breakfast-actions-dataset/'><span>Breakfast</span></a></td><td><span>Activity</span></td><td><span>Video</span></td><td><span>10</span></td><td><span>1,989</span></td><td><span>Action Recognition, Action Segmentation</span></td></tr><tr><td><a href='https://prior.allenai.org/projects/charades'><span>Charades</span></a></td><td><span>Activity, Objects, Indoor Scenes, Verbs</span></td><td><span>Video</span></td><td><span>157</span></td><td><span>9,848</span></td><td><span>Action-Recognition, Object Recognition, Scene Recognition, Temporal Action Step Localization</span></td></tr><tr><td><a href='https://coin-dataset.github.io'><span>COIN</span></a></td><td><span>Activity, Temporal Actions, ASR</span></td><td><span>Video, Video+Text</span></td><td><span>180</span></td><td><span>11,827</span></td><td><span>Action-Recognition, Action Segmentation, Video-Retrieval</span></td></tr><tr><td><a href='https://github.com/DmZhukov/CrossTask'><span>CrossTask</span></a></td><td><span>Temporal Steps, Activity</span></td><td><span>Video</span></td><td><span>83</span></td><td><span>4,700</span></td><td><span>Temporal Action Step Localization, Recognition</span></td></tr><tr><td><a href='https://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/'><span>HMDB51</span></a></td><td><span>Activity</span></td><td><span>Video</span></td><td><span>51</span></td><td><span>6,849</span></td><td><span>Action-Recognition, Video-Retrieval</span></td></tr><tr><td><a href='https://www.di.ens.fr/willow/research/howto100m/'><span>HowTo100M</span></a><span> (How2)</span></td><td><span>ASR</span></td><td><span>Video+Text</span></td><td><span>-</span></td><td><span>136M</span></td><td><span>Text-to-Video Retrieval, </span><a href='https://value-benchmark.github.io'><span>VideoQA</span></a></td></tr><tr><td><a href='https://www.deepmind.com/open-source/kinetics'><span>Kinetics</span></a></td><td><span>Activity</span></td><td><span>Video</span></td><td><span>400/600/700</span></td><td><span>1/2 M</span></td><td><span>Action-Recognition</span></td></tr><tr><td><a href='https://github.com/crux82/msr-vtt-it'><span>MSRVTT</span></a></td><td><span>Activity, Captions</span></td><td><span>Video+Text</span></td><td><span>20</span></td><td><span>10,000</span></td><td><span>Action-Recognition, Video-Captioning, Video-Retrieval, Visual-Question Answering</span></td></tr><tr><td><a href='https://ai.stanford.edu/~syyeung/everymoment.html'><span>MultiThumos</span></a></td><td><span>Activity, Temporal Steps</span></td><td><span>Video</span></td><td><span>65</span></td><td><span>400</span></td><td><span>Action Recognition, Temporal Action Step Localization</span></td></tr><tr><td><a href='https://www.crcv.ucf.edu/data/UCF101.php'><span>UCF101</span></a></td><td><span>Activity</span></td><td><span>Video</span></td><td><span>101</span></td><td><span>13,320</span></td><td><span>Recognition, Video-Retrieval</span></td></tr><tr><td><a href='http://youcook2.eecs.umich.edu'><span>YouCook2</span></a></td><td><span>Captions</span></td><td><span>Video+Text</span></td><td><span>89</span></td><td><span>2,000</span></td><td><span>Video Captioning,  Video-Retrieval</span></td></tr><tr><td><a href='https://research.google.com/youtube8m/'><span>YouTube-8M</span></a></td><td><span>Activity</span></td><td><span>Video</span></td><td><span>4,716</span></td><td><span>8M</span></td><td><span>Action Recognition</span></td></tr></tbody></table></figure><p>&nbsp;</p></div></div>
+</body>
+</html>
+
+        </div>
+
+        
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://wulawkk11.github.io/posts/tech/2023javaweb_08/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>2023JavaWeb-08</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+
+
+
+
+</article>
+</main>
+
+<footer class="footer">
+    <span>Akuya</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

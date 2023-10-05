@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Akuya&#39;s Blog</title>
+    <link>https://SteinsGatee.github.io/categories/</link>
+    <description>Recent content in Categories on Akuya&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Akuya</copyright>
+    <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>论文写作方法</title>
+      <link>https://SteinsGatee.github.io/categories/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb</title>
+      <link>https://SteinsGatee.github.io/categories/2023javaweb/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/2023javaweb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>https://SteinsGatee.github.io/categories/bug/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://SteinsGatee.github.io/categories/java/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rate</title>
+      <link>https://SteinsGatee.github.io/categories/rate/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/rate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://SteinsGatee.github.io/categories/redis/</link>
+      <pubDate>Sun, 30 Jul 2023 15:55:23 +0800</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/categories/redis/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

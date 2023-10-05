@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>2023JavaWeb on Akuya&#39;s Blog</title>
+    <link>https://SteinsGatee.github.io/categories/2023javaweb/</link>
+    <description>Recent content in 2023JavaWeb on Akuya&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Akuya</copyright>
+    <lastBuildDate>Mon, 25 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/categories/2023javaweb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023JavaWeb-08</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_08/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_08/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-07</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_07/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_07/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-06</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_06/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_06/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-05</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_05/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_05/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-04</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_04/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_04/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-03</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_03/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_03/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-01</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_01/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_01/</guid>
+      <description>前端三剑客学习</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-02</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_02/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_02/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+  </channel>
+</rss>

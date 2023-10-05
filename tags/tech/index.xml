@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>tech on Akuya&#39;s Blog</title>
+    <link>https://SteinsGatee.github.io/tags/tech/</link>
+    <description>Recent content in tech on Akuya&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>Akuya</copyright>
+    <lastBuildDate>Mon, 25 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023JavaWeb-08</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_08/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_08/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-07</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_07/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_07/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-06</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_06/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_06/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-05</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_05/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_05/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-04</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_04/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_04/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-03</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_03/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_03/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>JavaDebug01</title>
+      <link>https://SteinsGatee.github.io/posts/tech/javabugs20230920/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/javabugs20230920/</guid>
+      <description>java中遇到的bug和应对思路</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-01</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_01/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_01/</guid>
+      <description>前端三剑客学习</description>
+    </item>
+    
+    <item>
+      <title>2023JavaWeb-02</title>
+      <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_02/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/2023javaweb_02/</guid>
+      <description>Springboot基础</description>
+    </item>
+    
+    <item>
+      <title>Rate项目-邮件收发</title>
+      <link>https://SteinsGatee.github.io/posts/tech/ratemail/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/ratemail/</guid>
+      <description>如何使用Java完成Mail的收发</description>
+    </item>
+    
+    <item>
+      <title>TechInit</title>
+      <link>https://SteinsGatee.github.io/posts/tech/tech/</link>
+      <pubDate>Fri, 01 Sep 2023 00:18:15 +0800</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/tech/</guid>
+      <description>测试代码</description>
+    </item>
+    
+    <item>
+      <title>Redis scan命令学习</title>
+      <link>https://SteinsGatee.github.io/posts/tech/tech1/</link>
+      <pubDate>Sun, 30 Jul 2023 15:55:23 +0800</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/tech1/</guid>
+      <description>scan命令详解</description>
+    </item>
+    
+  </channel>
+</rss>

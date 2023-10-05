@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>2023JavaWeb-03 | Akuya&#39;s Blog</title>
+<meta name="keywords" content="springboot, mysql">
+<meta name="description" content="Springboot基础">
+<meta name="author" content="Akuya">
+<link rel="canonical" href="https://SteinsGatee.github.io/posts/tech/2023javaweb_03/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="apple-touch-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="mask-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="2023JavaWeb-03" />
+<meta property="og:description" content="Springboot基础" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://SteinsGatee.github.io/posts/tech/2023javaweb_03/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-09-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="2023JavaWeb-03"/>
+<meta name="twitter:description" content="Springboot基础"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "文章",
+          "item": "https://SteinsGatee.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "技术",
+          "item": "https://SteinsGatee.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "2023JavaWeb-03",
+      "item": "https://SteinsGatee.github.io/posts/tech/2023javaweb_03/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2023JavaWeb-03",
+  "name": "2023JavaWeb-03",
+  "description": "Springboot基础",
+  "keywords": [
+    "springboot", "mysql"
+  ],
+  "articleBody": "MySQL 1. 数据类型 在上面建表语句中，我们在指定字段的数据类型时，用到了int 、varchar、char，那么在MySQL中除了以上的数据类型，还有哪些常见的数据类型呢？ 接下来,我们就来详细介绍一下MySQL的数据类型。\nMySQL中的数据类型有很多，主要分为三类：数值类型、字符串类型、日期时间类型。\n数值类型 类型 大小 有符号(SIGNED)范围 无符号(UNSIGNED)范围 描述 TINYINT 1byte (-128，127) (0，255) 小整数值 SMALLINT 2bytes (-32768，32767) (0，65535) 大整数值 MEDIUMINT 3bytes (-8388608，8388607) (0，16777215) 大整数值 INT/INTEGER 4bytes (-2147483648，2147483647) (0，4294967295) 大整数值 BIGINT 8bytes (-2^63，2^63-1) (0，2^64-1) 极大整数值 FLOAT 4bytes (-3.402823466 E+38，3.402823466351 E+38) 0 和 (1.175494351 E-38，3.402823466 E+38) 单精度浮点数值 DOUBLE 8bytes (-1.7976931348623157 E+308，1.7976931348623157 E+308) 0 和 (2.2250738585072014 E-308，1.7976931348623157 E+308) 双精度浮点数值 DECIMAL 依赖于M(精度)和D(标度)的值 依赖于M(精度)和D(标度)的值 小数值(精确定点数) 示例: 年龄字段 ---不会出现负数, 而且人的年龄不会太大 age tinyint unsigned 分数 ---总分100分, 最多出现一位小数 score double(4,1) 字符串类型 类型 大小 描述 CHAR 0-255 bytes 定长字符串(需要指定长度) VARCHAR 0-65535 bytes 变长字符串(需要指定长度) TINYBLOB 0-255 bytes 不超过255个字符的二进制数据 TINYTEXT 0-255 bytes 短文本字符串 BLOB 0-65 535 bytes 二进制形式的长文本数据 TEXT 0-65 535 bytes 长文本数据 MEDIUMBLOB 0-16 777 215 bytes 二进制形式的中等长度文本数据 MEDIUMTEXT 0-16 777 215 bytes 中等长度文本数据 LONGBLOB 0-4 294 967 295 bytes 二进制形式的极大文本数据 LONGTEXT 0-4 294 967 295 bytes 极大文本数据 char 与 varchar 都可以描述字符串，char是定长字符串，指定长度多长，就占用多少个字符，和字段值的长度无关 。而varchar是变长字符串，指定的长度为最大占用长度 。相对来说，char的性能会更高些。\n示例： 用户名 username ---长度不定, 最长不会超过50 username varchar(50) 手机号 phone ---固定长度为11 phone char(11) 日期时间类型 类型 大小 范围 格式 描述 DATE 3 1000-01-01 至 9999-12-31 YYYY-MM-DD 日期值 TIME 3 -838:59:59 至 838:59:59 HH:MM:SS 时间值或持续时间 YEAR 1 1901 至 2155 YYYY 年份值 DATETIME 8 1000-01-01 00:00:00 至 9999-12-31 23:59:59 YYYY-MM-DD HH:MM:SS 混合日期和时间值 TIMESTAMP 4 1970-01-01 00:00:01 至 2038-01-19 03:14:07 YYYY-MM-DD HH:MM:SS 混合日期和时间值，时间戳 示例: 生日字段 birthday ---生日只需要年月日 birthday date 创建时间 createtime --- 需要精确到时分秒 createtime datetime 2. ==案例== 需求：根据产品原型/需求创建表((设计合理的数据类型、长度、约束)\n参考资料中提供的《黑马-tlias智能学习辅助系统》页面原型，设计员工管理模块的表结构\n暂不考虑所属部门字段\n产品原型及需求如下：\n步骤：\n阅读产品原型及需求文档，看看里面涉及到哪些字段。\n查看需求文档说明，确认各个字段的类型以及字段存储数据的长度限制。\n在页面原型中描述的基础字段的基础上，再增加额外的基础字段。\n使用SQL创建表：\ncreate table emp ( id int unsigned primary key auto_increment comment 'ID', username varchar(20) not null unique comment '用户名', password varchar(32) default '123456' comment '密码', name varchar(10) not null comment '姓名', gender tinyint unsigned not null comment '性别, 说明: 1 男, 2 女', image varchar(300) comment '图像', job tinyint unsigned comment '职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管', entrydate date comment '入职时间', create_time datetime not null comment '创建时间', update_time datetime not null comment '修改时间' ) comment '员工表'; 除了使用SQL语句创建表外，我们还可以借助于图形化界面来创建表结构，这种创建方式会更加直观、更加方便。\n3. DQL 3.1 基础语法 SELECT 字段列表 FROM 表名列表 WHERE 条件列表 GROUP BY 分组字段列表 HAVING 分组后条件列表 ORDER BY 排序字段列表 LIMIT 分页参数 3.2 条件查询 语法：\nselect 字段列表 from 表名 where 条件列表 ; -- 条件列表：意味着可以有多个条件 学习条件查询就是学习条件的构建方式，而在SQL语句当中构造条件的运算符分为两类：\n比较运算符 逻辑运算符 常用的比较运算符如下:\n比较运算符 功能 \u003e 大于 \u003e= 大于等于 \u003c 小于 \u003c= 小于等于 = 等于 \u003c\u003e 或 != 不等于 between … and … 在某个范围之内(含最小、最大值) in(…) 在in之后的列表中的值，多选一 like 占位符 模糊匹配(_匹配单个字符, %匹配任意个字符) is null 是null 常用的逻辑运算符如下:\n逻辑运算符 功能 and 或 \u0026\u0026 并且 (多个条件同时成立) or 或 || 或者 (多个条件任意一个成立) not 或 ! 非 , 不是 注意：查询为NULL的数据时，不能使用 = null\n3.3 聚合函数 之前我们做的查询都是横向查询，就是根据条件一行一行的进行判断，而使用聚合函数查询就是纵向查询，它是对一列的值进行计算，然后返回一个结果值。（将一列数据作为一个整体，进行纵向计算）\n语法：\nselect 聚合函数(字段列表) from 表名 ; 注意 : 聚合函数会忽略空值，对NULL值不作为统计。\n常用聚合函数：\n函数 功能 count 统计数量 max 最大值 min 最小值 avg 平均值 sum 求和 count ：按照列去统计有多少行数据。\n在根据指定的列统计的时候，如果这一列中有null的行，该行不会被统计在其中。 sum ：计算指定列的数值和，如果不是数值类型，那么计算结果为0\nmax ：计算指定列的最大值\nmin ：计算指定列的最小值\navg ：计算指定列的平均值\n案例1：统计该企业员工数量\n# count(字段) select count(id) from tb_emp;-- 结果：29 select count(job) from tb_emp;-- 结果：28 （聚合函数对NULL值不做计算） # count(常量) select count(0) from tb_emp; select count('A') from tb_emp; # count(*) 推荐此写法（MySQL底层进行了优化） select count(*) from tb_emp; 3.4 分组查询 分组： 按照某一列或者某几列，把相同的数据进行合并输出。\n分组其实就是按列进行分类(指定列下相同的数据归为一类)，然后可以对分类完的数据进行合并计算。\n分组查询通常会使用聚合函数进行计算。\n语法：\nselect 字段列表 from 表名 [where 条件] group by 分组字段名 [having 分组后过滤条件]; 案例1：根据性别分组 , 统计男性和女性员工的数量\nselect gender, count(*) from tb_emp group by gender; -- 按照gender字段进行分组（gender字段下相同的数据归为一组） 案例2：查询入职时间在 ‘2015-01-01’ (包含) 以前的员工 , 并对结果根据职位分组 , 获取员工数量大于等于2的职位\nselect job, count(*) from tb_emp where entrydate \u003c= '2015-01-01' -- 分组前条件 group by job -- 按照job字段分组 having count(*) \u003e= 2; -- 分组后条件 注意事项:\n​\t• 分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义\n​\t• 执行顺序：where \u003e 聚合函数 \u003e having\nwhere与having区别（面试题）\n执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；而having是分组之后对结果进行过滤。 判断条件不同：where不能对聚合函数进行判断，而having可以。 3.5 分页查询 分页操作在业务系统开发时，也是非常常见的一个功能，日常我们在网站中看到的各种各样的分页条，后台也都需要借助于数据库的分页操作。\n分页查询语法：\nselect 字段列表 from 表名 limit 起始索引, 查询记录数 ; 案例1：从起始索引0开始查询员工数据, 每页展示5条记录\nselect id, username, password, name, gender, image, job, entrydate, create_time, update_time from tb_emp limit 0 , 5; -- 从索引0开始，向后取5条记录 注意事项:\n起始索引从0开始。\n计算公式：起始索引 = （查询页码 - 1）* 每页显示记录数\n分页查询是数据库的方言，不同的数据库有不同的实现，MySQL中是LIMIT\n如果查询的是第一页数据，起始索引可以省略，直接简写为 limit 条数\n3.6 案例 案例：根据需求完成员工信息的统计\n分析：以上信息统计在开发中也叫图形报表(将统计好的数据以可视化的形式展示出来)\n员工性别统计：以饼状图的形式展示出企业男性员人数和女性员工人数 只要查询出男性员工和女性员工各自有多少人就可以了 员工职位统计：以柱状图的形式展示各职位的在岗人数 只要查询出各个职位有多少人就可以了 员工性别统计：\n-- if(条件表达式, true取值 , false取值) select if(gender=1,'男性员工','女性员工') AS 性别, count(*) AS 人数 from tb_emp group by gender; if(表达式, tvalue, fvalue) ：当表达式为true时，取值tvalue；当表达式为false时，取值fvalue\n员工职位统计：\n-- case 表达式 when 值1 then 结果1 when 值2 then 结果2 ... else result end select (case job when 1 then '班主任' when 2 then '讲师' when 3 then '学工主管' when 4 then '教研主管' else '未分配职位' end) AS 职位 , count(*) AS 人数 from tb_emp group by job; case 表达式 when 值1 then 结果1 [when 值2 then 结果2 …] [else result] end\n4. 子查询 4.1 行子查询 子查询返回的结果是一行(可以是多列)，这种子查询称为行子查询。\n常用的操作符：= 、\u003c\u003e 、IN 、NOT IN\n案例：查询与\"韦一笑\"的入职日期及职位都相同的员工信息\n可以拆解为两步进行：\n查询 “韦一笑” 的入职日期 及 职位 查询与\"韦一笑\"的入职日期及职位相同的员工信息 -- 查询\"韦一笑\"的入职日期 及 职位 select entrydate , job from tb_emp where name = '韦一笑'; #查询结果： 2007-01-01 , 2 -- 查询与\"韦一笑\"的入职日期及职位相同的员工信息 select * from tb_emp where (entrydate,job) = ('2007-01-01',2); -- 合并以上两条SQL语句 select * from tb_emp where (entrydate,job) = (select entrydate , job from tb_emp where name = '韦一笑'); 5. 索引 5.1 介绍 索引(index)：是帮助数据库高效获取数据的数据结构 。\n简单来讲，就是使用索引可以提高查询的效率。 测试没有使用索引的查询：\n添加索引后查询：\n-- 添加索引 create index idx_sku_sn on tb_sku (sn); #在添加索引时，也需要消耗时间 -- 查询数据（使用了索引） select * from tb_sku where sn = '100000003145008'; 优点：\n提高数据查询的效率，降低数据库的IO成本。 通过索引列对数据进行排序，降低数据排序的成本，降低CPU消耗。 缺点：\n索引会占用存储空间。 索引大大提高了查询效率，同时却也降低了insert、update、delete的效率。 5.2 结构 MySQL数据库支持的索引结构有很多，如：Hash索引、B+Tree索引、Full-Text索引等。\n我们平常所说的索引，如果没有特别指明，都是指默认的 B+Tree 结构组织的索引。\n在没有了解B+Tree结构前，我们先回顾下之前所学习的树结构：\n二叉查找树：左边的子节点比父节点小，右边的子节点比父节点大\n当我们向二叉查找树保存数据时，是按照从大到小(或从小到大)的顺序保存的，此时就会形成一个单向链表，搜索性能会打折扣。\n可以选择平衡二叉树或者是红黑树来解决上述问题。（红黑树也是一棵平衡的二叉树）\n但是在Mysql数据库中并没有使用二叉搜索数或二叉平衡数或红黑树来作为索引的结构。\n思考：采用二叉搜索树或者是红黑树来作为索引的结构有什么问题？\n答案\r最大的问题就是在数据量大的情况下，树的层级比较深，会影响检索速度。因为不管是二叉搜索数还是红黑数，一个节点下面只能有两个子节点。此时在数据量大的情况下，就会造成数的高度比较高，树的高度一旦高了，检索速度就会降低。\r说明：如果数据结构是红黑树，那么查询1000万条数据，根据计算树的高度大概是23左右，这样确实比之前的方式快了很多，但是如果高并发访问，那么一个用户有可能需要23次磁盘IO，那么100万用户，那么会造成效率极其低下。所以为了减少红黑树的高度，那么就得增加树的宽度，就是不再像红黑树一样每个节点只能保存一个数据，可以引入另外一种数据结构，一个节点可以保存多个数据，这样宽度就会增加从而降低树的高度。这种数据结构例如BTree就满足。\n下面我们来看看B+Tree(多路平衡搜索树)结构中如何避免这个问题：\nB+Tree结构：\n每一个节点，可以存储多个key（有n个key，就有n个指针） 节点分为：叶子节点、非叶子节点 叶子节点，就是最后一层子节点，所有的数据都存储在叶子节点上 非叶子节点，不是树结构最下面的节点，用于索引数据，存储的的是：key+指针 为了提高范围查询效率，叶子节点形成了一个双向链表，便于数据的排序及区间范围查询 拓展：\n非叶子节点都是由key+指针域组成的，一个key占8字节，一个指针占6字节，而一个节点总共容量是16KB，那么可以计算出一个节点可以存储的元素个数：16*1024字节 / (8+6)=1170个元素。\n查看mysql索引节点大小：show global status like ‘innodb_page_size’; – 节点大小：16384 当根节点中可以存储1170个元素，那么根据每个元素的地址值又会找到下面的子节点，每个子节点也会存储1170个元素，那么第二层即第二次IO的时候就会找到数据大概是：1170*1170=135W。也就是说B+Tree数据结构中只需要经历两次磁盘IO就可以找到135W条数据。\n对于第二层每个元素有指针，那么会找到第三层，第三层由key+数据组成，假设key+数据总大小是1KB，而每个节点一共能存储16KB，所以一个第三层一个节点大概可以存储16个元素(即16条记录)。那么结合第二层每个元素通过指针域找到第三层的节点，第二层一共是135W个元素，那么第三层总元素大小就是：135W*16结果就是2000W+的元素个数。\n结合上述分析B+Tree有如下优点：\n千万条数据，B+Tree可以控制在小于等于3的高度 所有的数据都存储在叶子节点上，并且底层已经实现了按照索引进行排序，还可以支持范围查询，叶子节点是一个双向链表，支持从小到大或者从大到小查找 5.3 语法 创建索引\ncreate [ unique ] index 索引名 on 表名 (字段名,... ) ; 案例：为tb_emp表的name字段建立一个索引\ncreate index idx_emp_name on tb_emp(name); 在创建表时，如果添加了主键和唯一约束，就会默认创建：主键索引、唯一约束\n查看索引\nshow index from 表名; 案例：查询 tb_emp 表的索引信息\nshow index from tb_emp; 删除索引\ndrop index 索引名 on 表名; 案例：删除 tb_emp 表中name字段的索引\ndrop index idx_emp_name on tb_emp; 注意事项：\n主键字段，在建表时，会自动创建主键索引\n添加唯一约束时，数据库实际上会添加唯一索引\n",
+  "wordCount" : "5435",
+  "inLanguage": "zh",
+  "datePublished": "2023-09-20T00:00:00Z",
+  "dateModified": "2023-09-20T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Akuya"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://SteinsGatee.github.io/posts/tech/2023javaweb_03/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Akuya's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://SteinsGatee.github.io/img/girl.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://SteinsGatee.github.io/" accesskey="h" title="凉生晓岸催残暑 (Alt + H)">凉生晓岸催残暑</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://SteinsGatee.github.io/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/" title="主页">
+                <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/posts" title="文章">
+                <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/tags" title="标签">
+                <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/archives/" title="时间轴">
+                <span>时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/about" title="关于">
+                <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://SteinsGatee.github.io/"> 主页</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/">文章</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/tech/">技术</a></div>
+            <h1 class="post-title">
+                2023JavaWeb-03
+            </h1>
+            <div class="post-description">
+                Springboot基础
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-09-20
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>5435字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>11分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Akuya
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://SteinsGatee.github.io/tags/2023javaweb/" style="color: var(--secondary)!important;">2023JavaWeb</a>
+                &nbsp;<a href="https://SteinsGatee.github.io/tags/tech/" style="color: var(--secondary)!important;">tech</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#mysql" aria-label="MySQL">MySQL</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" aria-label="1. 数据类型">1. 数据类型</a><ul>
+                        
+                <li>
+                    <a href="#%e6%95%b0%e5%80%bc%e7%b1%bb%e5%9e%8b" aria-label="数值类型"><strong>数值类型</strong></a></li>
+                <li>
+                    <a href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%b1%bb%e5%9e%8b" aria-label="字符串类型"><strong>字符串类型</strong></a></li>
+                <li>
+                    <a href="#%e6%97%a5%e6%9c%9f%e6%97%b6%e9%97%b4%e7%b1%bb%e5%9e%8b" aria-label="日期时间类型"><strong>日期时间类型</strong></a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-%e6%a1%88%e4%be%8b" aria-label="2. ==案例==">2. ==案例==</a></li>
+                <li>
+                    <a href="#3-dql" aria-label="3. DQL">3. DQL</a><ul>
+                        
+                <li>
+                    <a href="#31-%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95" aria-label="3.1 基础语法">3.1 基础语法</a></li>
+                <li>
+                    <a href="#32-%e6%9d%a1%e4%bb%b6%e6%9f%a5%e8%af%a2" aria-label="3.2 条件查询">3.2 条件查询</a></li>
+                <li>
+                    <a href="#33-%e8%81%9a%e5%90%88%e5%87%bd%e6%95%b0" aria-label="3.3 聚合函数">3.3 聚合函数</a></li>
+                <li>
+                    <a href="#34-%e5%88%86%e7%bb%84%e6%9f%a5%e8%af%a2" aria-label="3.4 分组查询">3.4 分组查询</a></li>
+                <li>
+                    <a href="#35-%e5%88%86%e9%a1%b5%e6%9f%a5%e8%af%a2" aria-label="3.5 分页查询">3.5 分页查询</a></li>
+                <li>
+                    <a href="#36-%e6%a1%88%e4%be%8b" aria-label="3.6 案例">3.6 案例</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-%e5%ad%90%e6%9f%a5%e8%af%a2" aria-label="4. 子查询">4. 子查询</a><ul>
+                        
+                <li>
+                    <a href="#41-%e8%a1%8c%e5%ad%90%e6%9f%a5%e8%af%a2" aria-label="4.1 行子查询">4.1 行子查询</a></li></ul>
+                </li>
+                <li>
+                    <a href="#5-%e7%b4%a2%e5%bc%95" aria-label="5. 索引">5. 索引</a><ul>
+                        
+                <li>
+                    <a href="#51-%e4%bb%8b%e7%bb%8d" aria-label="5.1 介绍">5.1 介绍</a></li>
+                <li>
+                    <a href="#52-%e7%bb%93%e6%9e%84" aria-label="5.2 结构">5.2 结构</a></li>
+                <li>
+                    <a href="#53-%e8%af%ad%e6%b3%95" aria-label="5.3 语法">5.3 语法</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="mysql">MySQL<a hidden class="anchor" aria-hidden="true" href="#mysql">#</a></h1>
+<h2 id="1-数据类型">1. 数据类型<a hidden class="anchor" aria-hidden="true" href="#1-数据类型">#</a></h2>
+<p>在上面建表语句中，我们在指定字段的数据类型时，用到了int 、varchar、char，那么在MySQL中除了以上的数据类型，还有哪些常见的数据类型呢？ 接下来,我们就来详细介绍一下MySQL的数据类型。</p>
+<p>MySQL中的数据类型有很多，主要分为三类：数值类型、字符串类型、日期时间类型。</p>
+<h3 id="数值类型"><strong>数值类型</strong><a hidden class="anchor" aria-hidden="true" href="#数值类型">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>有符号(SIGNED)范围</th>
+<th>无符号(UNSIGNED)范围</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TINYINT</td>
+<td>1byte</td>
+<td>(-128，127)</td>
+<td>(0，255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2bytes</td>
+<td>(-32768，32767)</td>
+<td>(0，65535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3bytes</td>
+<td>(-8388608，8388607)</td>
+<td>(0，16777215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>INT/INTEGER</td>
+<td>4bytes</td>
+<td>(-2147483648，2147483647)</td>
+<td>(0，4294967295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8bytes</td>
+<td>(-2^63，2^63-1)</td>
+<td>(0，2^64-1)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>4bytes</td>
+<td>(-3.402823466 E+38，3.402823466351 E+38)</td>
+<td>0 和 (1.175494351  E-38，3.402823466 E+38)</td>
+<td>单精度浮点数值</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>8bytes</td>
+<td>(-1.7976931348623157 E+308，1.7976931348623157 E+308)</td>
+<td>0 和  (2.2250738585072014 E-308，1.7976931348623157 E+308)</td>
+<td>双精度浮点数值</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td></td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>小数值(精确定点数)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">示例</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">年龄字段</span> <span style="color:#75715e">---不会出现负数, 而且人的年龄不会太大
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	age tinyint unsigned
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">分数</span> <span style="color:#75715e">---总分100分, 最多出现一位小数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	score double(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="字符串类型"><strong>字符串类型</strong><a hidden class="anchor" aria-hidden="true" href="#字符串类型">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR</td>
+<td>0-255 bytes</td>
+<td>定长字符串(需要指定长度)</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>0-65535 bytes</td>
+<td>变长字符串(需要指定长度)</td>
+</tr>
+<tr>
+<td>TINYBLOB</td>
+<td>0-255 bytes</td>
+<td>不超过255个字符的二进制数据</td>
+</tr>
+<tr>
+<td>TINYTEXT</td>
+<td>0-255 bytes</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65 535 bytes</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65 535 bytes</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMBLOB</td>
+<td>0-16 777 215 bytes</td>
+<td>二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td>MEDIUMTEXT</td>
+<td>0-16 777 215 bytes</td>
+<td>中等长度文本数据</td>
+</tr>
+<tr>
+<td>LONGBLOB</td>
+<td>0-4 294 967 295 bytes</td>
+<td>二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td>LONGTEXT</td>
+<td>0-4 294 967 295 bytes</td>
+<td>极大文本数据</td>
+</tr>
+</tbody>
+</table>
+<p>char 与 varchar 都可以描述字符串，char是定长字符串，指定长度多长，就占用多少个字符，和字段值的长度无关 。而varchar是变长字符串，指定的长度为最大占用长度 。相对来说，char的性能会更高些。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">示例：</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">用户名</span> username <span style="color:#75715e">---长度不定, 最长不会超过50
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	username varchar(<span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">手机号</span> phone <span style="color:#75715e">---固定长度为11
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	phone char(<span style="color:#ae81ff">11</span>)
+</span></span></code></pre></div><h3 id="日期时间类型"><strong>日期时间类型</strong><a hidden class="anchor" aria-hidden="true" href="#日期时间类型">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围</th>
+<th>格式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DATE</td>
+<td>3</td>
+<td>1000-01-01 至  9999-12-31</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>3</td>
+<td>-838:59:59 至  838:59:59</td>
+<td>HH:MM:SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>1</td>
+<td>1901 至 2155</td>
+<td>YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>8</td>
+<td>1000-01-01 00:00:00 至 9999-12-31 23:59:59</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>4</td>
+<td>1970-01-01 00:00:01 至 2038-01-19 03:14:07</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">示例</span>: 
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">生日字段</span>  birthday <span style="color:#75715e">---生日只需要年月日  
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	birthday date
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">创建时间</span> createtime <span style="color:#75715e">--- 需要精确到时分秒
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	createtime  datetime
+</span></span></code></pre></div><h2 id="2-案例">2. ==案例==<a hidden class="anchor" aria-hidden="true" href="#2-案例">#</a></h2>
+<p>需求：根据产品原型/需求创建表((设计合理的数据类型、长度、约束)</p>
+<blockquote>
+<p>参考资料中提供的《黑马-tlias智能学习辅助系统》页面原型，设计员工管理模块的表结构</p>
+<p>暂不考虑所属部门字段</p>
+</blockquote>
+<p>产品原型及需求如下：</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20220829151032029.png" alt="image-20220829151032029"  />
+</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20220829151228102.png" alt=""  />
+</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20220829151245450.png" alt=""  />
+</p>
+<p><strong>步骤：</strong></p>
+<ol>
+<li>
+<p>阅读产品原型及需求文档，看看里面涉及到哪些字段。</p>
+</li>
+<li>
+<p>查看需求文档说明，确认各个字段的类型以及字段存储数据的长度限制。</p>
+</li>
+<li>
+<p>在页面原型中描述的基础字段的基础上，再增加额外的基础字段。</p>
+</li>
+</ol>
+<p>使用SQL创建表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> emp (
+</span></span><span style="display:flex;"><span>  id int unsigned <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span> auto_increment <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;ID&#39;</span>,
+</span></span><span style="display:flex;"><span>  username varchar(<span style="color:#ae81ff">20</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">unique</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;用户名&#39;</span>,
+</span></span><span style="display:flex;"><span>  password varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#39;123456&#39;</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;密码&#39;</span>,
+</span></span><span style="display:flex;"><span>  name varchar(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;姓名&#39;</span>,
+</span></span><span style="display:flex;"><span>  gender tinyint unsigned <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;性别, 说明: 1 男, 2 女&#39;</span>,
+</span></span><span style="display:flex;"><span>  image varchar(<span style="color:#ae81ff">300</span>) <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;图像&#39;</span>,
+</span></span><span style="display:flex;"><span>  job tinyint unsigned <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管&#39;</span>,
+</span></span><span style="display:flex;"><span>  entrydate date <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;入职时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  create_time datetime <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;创建时间&#39;</span>,
+</span></span><span style="display:flex;"><span>  update_time datetime <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;修改时间&#39;</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">comment</span> <span style="color:#e6db74">&#39;员工表&#39;</span>;
+</span></span></code></pre></div><p>除了使用SQL语句创建表外，我们还可以借助于图形化界面来创建表结构，这种创建方式会更加直观、更加方便。</p>
+<h2 id="3-dql">3. DQL<a hidden class="anchor" aria-hidden="true" href="#3-dql">#</a></h2>
+<h3 id="31-基础语法">3.1 基础语法<a hidden class="anchor" aria-hidden="true" href="#31-基础语法">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">字段列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">表名列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">条件列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span>  <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">分组字段列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">HAVING</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">分组后条件列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">排序字段列表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">LIMIT</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">分页参数</span>
+</span></span></code></pre></div><h3 id="32-条件查询">3.2 条件查询<a hidden class="anchor" aria-hidden="true" href="#32-条件查询">#</a></h3>
+<p><strong>语法：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  <span style="color:#960050;background-color:#1e0010">字段列表</span>  <span style="color:#66d9ef">from</span>   <span style="color:#960050;background-color:#1e0010">表名</span>   <span style="color:#66d9ef">where</span>   <span style="color:#960050;background-color:#1e0010">条件列表</span> ; <span style="color:#75715e">-- 条件列表：意味着可以有多个条件
+</span></span></span></code></pre></div><p>学习条件查询就是学习条件的构建方式，而在SQL语句当中构造条件的运算符分为两类：</p>
+<ul>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+</ul>
+<p>常用的比较运算符如下:</p>
+<table>
+<thead>
+<tr>
+<th><strong>比较运算符</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>&lt;&gt; 或 !=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>between &hellip;  and &hellip;</td>
+<td>在某个范围之内(含最小、最大值)</td>
+</tr>
+<tr>
+<td>in(&hellip;)</td>
+<td>在in之后的列表中的值，多选一</td>
+</tr>
+<tr>
+<td>like 占位符</td>
+<td>模糊匹配(_匹配单个字符, %匹配任意个字符)</td>
+</tr>
+<tr>
+<td><code>is null</code></td>
+<td>是null</td>
+</tr>
+</tbody>
+</table>
+<p>常用的逻辑运算符如下:</p>
+<table>
+<thead>
+<tr>
+<th><strong>逻辑运算符</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and 或 &amp;&amp;</td>
+<td>并且 (多个条件同时成立)</td>
+</tr>
+<tr>
+<td>or 或 ||</td>
+<td>或者 (多个条件任意一个成立)</td>
+</tr>
+<tr>
+<td>not 或 !</td>
+<td>非 , 不是</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：查询为NULL的数据时，不能使用 <code>= null</code></p>
+</blockquote>
+<h3 id="33-聚合函数">3.3 聚合函数<a hidden class="anchor" aria-hidden="true" href="#33-聚合函数">#</a></h3>
+<p>之前我们做的查询都是横向查询，就是根据条件一行一行的进行判断，而使用聚合函数查询就是纵向查询，它是对一列的值进行计算，然后返回一个结果值。（将一列数据作为一个整体，进行纵向计算）</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  <span style="color:#960050;background-color:#1e0010">聚合函数</span>(<span style="color:#960050;background-color:#1e0010">字段列表</span>)  <span style="color:#66d9ef">from</span>  <span style="color:#960050;background-color:#1e0010">表名</span> ;
+</span></span></code></pre></div><blockquote>
+<p>注意 : 聚合函数会忽略空值，对NULL值不作为统计。</p>
+</blockquote>
+<p>常用聚合函数：</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数</strong></th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>统计数量</td>
+</tr>
+<tr>
+<td>max</td>
+<td>最大值</td>
+</tr>
+<tr>
+<td>min</td>
+<td>最小值</td>
+</tr>
+<tr>
+<td>avg</td>
+<td>平均值</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>求和</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>count ：按照列去统计有多少行数据。</p>
+<ul>
+<li>在根据指定的列统计的时候，如果这一列中有null的行，该行不会被统计在其中。</li>
+</ul>
+<p>sum ：计算指定列的数值和，如果不是数值类型，那么计算结果为0</p>
+<p>max ：计算指定列的最大值</p>
+<p>min ：计算指定列的最小值</p>
+<p>avg ：计算指定列的平均值</p>
+</blockquote>
+<p>案例1：统计该企业员工数量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e"># count(字段)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#a6e22e">count</span>(id) <span style="color:#66d9ef">from</span> tb_emp;<span style="color:#75715e">-- 结果：29
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#a6e22e">count</span>(job) <span style="color:#66d9ef">from</span> tb_emp;<span style="color:#75715e">-- 结果：28 （聚合函数对NULL值不做计算）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># count(常量)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#a6e22e">count</span>(<span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">from</span> tb_emp;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#a6e22e">count</span>(<span style="color:#e6db74">&#39;A&#39;</span>) <span style="color:#66d9ef">from</span> tb_emp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># count(*)  推荐此写法（MySQL底层进行了优化）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">from</span> tb_emp;
+</span></span></code></pre></div><h3 id="34-分组查询">3.4 分组查询<a hidden class="anchor" aria-hidden="true" href="#34-分组查询">#</a></h3>
+<p>分组： 按照某一列或者某几列，把相同的数据进行合并输出。</p>
+<blockquote>
+<p>分组其实就是按列进行分类(指定列下相同的数据归为一类)，然后可以对分类完的数据进行合并计算。</p>
+<p>分组查询通常会使用聚合函数进行计算。</p>
+</blockquote>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  <span style="color:#960050;background-color:#1e0010">字段列表</span>  <span style="color:#66d9ef">from</span>  <span style="color:#960050;background-color:#1e0010">表名</span>  [<span style="color:#66d9ef">where</span> <span style="color:#960050;background-color:#1e0010">条件</span>]  <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> <span style="color:#960050;background-color:#1e0010">分组字段名</span>  [<span style="color:#66d9ef">having</span> <span style="color:#960050;background-color:#1e0010">分组后过滤条件</span>];
+</span></span></code></pre></div><p>案例1：根据性别分组 , 统计男性和女性员工的数量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> gender, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> tb_emp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> gender; <span style="color:#75715e">-- 按照gender字段进行分组（gender字段下相同的数据归为一组）
+</span></span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206172615000.png" alt="image-20221206172615000"  />
+</p>
+<p>案例2：查询入职时间在 &lsquo;2015-01-01&rsquo; (包含) 以前的员工 , 并对结果根据职位分组 , 获取员工数量大于等于2的职位</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> job, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> tb_emp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">where</span> entrydate <span style="color:#f92672">&lt;=</span> <span style="color:#e6db74">&#39;2015-01-01&#39;</span>   <span style="color:#75715e">-- 分组前条件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> job                      <span style="color:#75715e">-- 按照job字段分组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">having</span> <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>;             <span style="color:#75715e">-- 分组后条件
+</span></span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206172431873.png" alt=""  />
+</p>
+<blockquote>
+<p>注意事项:</p>
+<p>​	• 分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义</p>
+<p>​	• 执行顺序：where &gt; 聚合函数 &gt; having</p>
+</blockquote>
+<p><strong>where与having区别（面试题）</strong></p>
+<ul>
+<li>执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；而having是分组之后对结果进行过滤。</li>
+<li>判断条件不同：where不能对聚合函数进行判断，而having可以。</li>
+</ul>
+<h3 id="35-分页查询">3.5 分页查询<a hidden class="anchor" aria-hidden="true" href="#35-分页查询">#</a></h3>
+<p>分页操作在业务系统开发时，也是非常常见的一个功能，日常我们在网站中看到的各种各样的分页条，后台也都需要借助于数据库的分页操作。</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206183310586.png" alt="image-20221206183310586"  />
+</p>
+<p>分页查询语法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  <span style="color:#960050;background-color:#1e0010">字段列表</span>  <span style="color:#66d9ef">from</span>   <span style="color:#960050;background-color:#1e0010">表名</span>  <span style="color:#66d9ef">limit</span>  <span style="color:#960050;background-color:#1e0010">起始索引</span>, <span style="color:#960050;background-color:#1e0010">查询记录数</span> ;
+</span></span></code></pre></div><p>案例1：从起始索引0开始查询员工数据, 每页展示5条记录</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> id, username, password, name, gender, image, job, entrydate, create_time, update_time
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> tb_emp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">limit</span> <span style="color:#ae81ff">0</span> , <span style="color:#ae81ff">5</span>; <span style="color:#75715e">-- 从索引0开始，向后取5条记录
+</span></span></span></code></pre></div><blockquote>
+<p>注意事项:</p>
+<ol>
+<li>
+<p>起始索引从0开始。</p>
+<p>计算公式：起始索引 = （查询页码 - 1）* 每页显示记录数</p>
+</li>
+<li>
+<p>分页查询是数据库的方言，不同的数据库有不同的实现，MySQL中是LIMIT</p>
+</li>
+<li>
+<p>如果查询的是第一页数据，起始索引可以省略，直接简写为 limit  条数</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="36-案例">3.6 案例<a hidden class="anchor" aria-hidden="true" href="#36-案例">#</a></h3>
+<p>案例：根据需求完成员工信息的统计</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206210536118.png" alt="image-20221206210536118"  />
+</p>
+<blockquote>
+<p>分析：以上信息统计在开发中也叫图形报表(将统计好的数据以可视化的形式展示出来)</p>
+<ul>
+<li>员工性别统计：以饼状图的形式展示出企业男性员人数和女性员工人数
+<ul>
+<li>只要查询出男性员工和女性员工各自有多少人就可以了</li>
+</ul>
+</li>
+<li>员工职位统计：以柱状图的形式展示各职位的在岗人数
+<ul>
+<li>只要查询出各个职位有多少人就可以了</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>员工性别统计：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e">-- if(条件表达式, true取值 , false取值)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">if</span>(gender<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;男性员工&#39;</span>,<span style="color:#e6db74">&#39;女性员工&#39;</span>) <span style="color:#66d9ef">AS</span> <span style="color:#960050;background-color:#1e0010">性别</span>, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> <span style="color:#960050;background-color:#1e0010">人数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> tb_emp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> gender;
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206220908397.png" alt="image-20221206220908397"  />
+</p>
+<blockquote>
+<p>if(表达式, tvalue, fvalue) ：当表达式为true时，取值tvalue；当表达式为false时，取值fvalue</p>
+</blockquote>
+<p>员工职位统计：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e">-- case 表达式 when 值1 then 结果1  when 值2  then  结果2 ...  else  result  end
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> (<span style="color:#66d9ef">case</span> job
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">when</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span> <span style="color:#e6db74">&#39;班主任&#39;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">when</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">then</span> <span style="color:#e6db74">&#39;讲师&#39;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">when</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">then</span> <span style="color:#e6db74">&#39;学工主管&#39;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">when</span> <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">then</span> <span style="color:#e6db74">&#39;教研主管&#39;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;未分配职位&#39;</span>
+</span></span><span style="display:flex;"><span>        end) <span style="color:#66d9ef">AS</span> <span style="color:#960050;background-color:#1e0010">职位</span> ,
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> <span style="color:#960050;background-color:#1e0010">人数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">from</span> tb_emp
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> job;
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221206221718731.png" alt="image-20221206221718731"  />
+</p>
+<blockquote>
+<p>case   表达式    when   值1   then  结果1   [when 值2  then  结果2 &hellip;]     [else result]     end</p>
+</blockquote>
+<h2 id="4-子查询">4. 子查询<a hidden class="anchor" aria-hidden="true" href="#4-子查询">#</a></h2>
+<h3 id="41-行子查询">4.1 行子查询<a hidden class="anchor" aria-hidden="true" href="#41-行子查询">#</a></h3>
+<p>子查询返回的结果是一行(可以是多列)，这种子查询称为行子查询。</p>
+<p>常用的操作符：= 、&lt;&gt; 、IN 、NOT IN</p>
+<p>案例：查询与&quot;韦一笑&quot;的入职日期及职位都相同的员工信息</p>
+<blockquote>
+<p>可以拆解为两步进行：</p>
+<ol>
+<li>查询 &ldquo;韦一笑&rdquo; 的入职日期 及 职位</li>
+<li>查询与&quot;韦一笑&quot;的入职日期及职位相同的员工信息</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e">-- 查询&#34;韦一笑&#34;的入职日期 及 职位
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> entrydate , job <span style="color:#66d9ef">from</span> tb_emp <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;韦一笑&#39;</span>;  <span style="color:#75715e">#查询结果： 2007-01-01 , 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- 查询与&#34;韦一笑&#34;的入职日期及职位相同的员工信息
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> tb_emp <span style="color:#66d9ef">where</span> (entrydate,job) <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;2007-01-01&#39;</span>,<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 合并以上两条SQL语句
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> tb_emp <span style="color:#66d9ef">where</span> (entrydate,job) <span style="color:#f92672">=</span> (<span style="color:#66d9ef">select</span> entrydate , job <span style="color:#66d9ef">from</span> tb_emp <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;韦一笑&#39;</span>);
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221207204452202.png" alt="image-20221207204452202"  />
+</p>
+<h2 id="5-索引">5. 索引<a hidden class="anchor" aria-hidden="true" href="#5-索引">#</a></h2>
+<h3 id="51-介绍">5.1 介绍<a hidden class="anchor" aria-hidden="true" href="#51-介绍">#</a></h3>
+<p>索引(index)：是帮助数据库高效获取数据的数据结构 。</p>
+<ul>
+<li>简单来讲，就是使用索引可以提高查询的效率。</li>
+</ul>
+<p>测试没有使用索引的查询：</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209115617429.png" alt="image-20221209115617429"  />
+</p>
+<p>添加索引后查询：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#75715e">-- 添加索引
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">index</span> idx_sku_sn <span style="color:#66d9ef">on</span> <span style="color:#a6e22e">tb_sku</span> (sn);  <span style="color:#75715e">#在添加索引时，也需要消耗时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 查询数据（使用了索引）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> tb_sku <span style="color:#66d9ef">where</span> sn <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;100000003145008&#39;</span>;
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209120107543.png" alt="image-20221209120107543"  />
+</p>
+<p>优点：</p>
+<ol>
+<li>提高数据查询的效率，降低数据库的IO成本。</li>
+<li>通过索引列对数据进行排序，降低数据排序的成本，降低CPU消耗。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>索引会占用存储空间。</li>
+<li>索引大大提高了查询效率，同时却也降低了insert、update、delete的效率。</li>
+</ol>
+<h3 id="52-结构">5.2 结构<a hidden class="anchor" aria-hidden="true" href="#52-结构">#</a></h3>
+<p>MySQL数据库支持的索引结构有很多，如：Hash索引、B+Tree索引、Full-Text索引等。</p>
+<p>我们平常所说的索引，如果没有特别指明，都是指默认的 B+Tree 结构组织的索引。</p>
+<p>在没有了解B+Tree结构前，我们先回顾下之前所学习的树结构：</p>
+<blockquote>
+<p>二叉查找树：左边的子节点比父节点小，右边的子节点比父节点大</p>
+</blockquote>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221208174135229.png" alt="image-20221208174135229"  />
+</p>
+<blockquote>
+<p>当我们向二叉查找树保存数据时，是按照从大到小(或从小到大)的顺序保存的，此时就会形成一个单向链表，搜索性能会打折扣。</p>
+</blockquote>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221208174859866.png" alt="image-20221208174859866"  />
+</p>
+<blockquote>
+<p>可以选择平衡二叉树或者是红黑树来解决上述问题。（红黑树也是一棵平衡的二叉树）</p>
+</blockquote>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209100647867.png" alt="image-20221209100647867"  />
+</p>
+<blockquote>
+<p>但是在Mysql数据库中并没有使用二叉搜索数或二叉平衡数或红黑树来作为索引的结构。</p>
+</blockquote>
+<p>思考：采用二叉搜索树或者是红黑树来作为索引的结构有什么问题？</p>
+<details>
+    <summary>答案</summary>
+    最大的问题就是在数据量大的情况下，树的层级比较深，会影响检索速度。因为不管是二叉搜索数还是红黑数，一个节点下面只能有两个子节点。此时在数据量大的情况下，就会造成数的高度比较高，树的高度一旦高了，检索速度就会降低。
+</details>
+<blockquote>
+<p>说明：如果数据结构是红黑树，那么查询1000万条数据，根据计算树的高度大概是23左右，这样确实比之前的方式快了很多，但是如果高并发访问，那么一个用户有可能需要23次磁盘IO，那么100万用户，那么会造成效率极其低下。所以为了减少红黑树的高度，那么就得增加树的宽度，就是不再像红黑树一样每个节点只能保存一个数据，可以引入另外一种数据结构，一个节点可以保存多个数据，这样宽度就会增加从而降低树的高度。这种数据结构例如BTree就满足。</p>
+</blockquote>
+<p>下面我们来看看B+Tree(多路平衡搜索树)结构中如何避免这个问题：</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221208181315728.png" alt="image-20221208181315728"  />
+</p>
+<p>B+Tree结构：</p>
+<ul>
+<li>每一个节点，可以存储多个key（有n个key，就有n个指针）</li>
+<li>节点分为：叶子节点、非叶子节点
+<ul>
+<li>叶子节点，就是最后一层子节点，所有的数据都存储在叶子节点上</li>
+<li>非叶子节点，不是树结构最下面的节点，用于索引数据，存储的的是：key+指针</li>
+</ul>
+</li>
+<li>为了提高范围查询效率，叶子节点形成了一个双向链表，便于数据的排序及区间范围查询</li>
+</ul>
+<blockquote>
+<p><strong>拓展：</strong></p>
+<p>非叶子节点都是由key+指针域组成的，一个key占8字节，一个指针占6字节，而一个节点总共容量是16KB，那么可以计算出一个节点可以存储的元素个数：16*1024字节 / (8+6)=1170个元素。</p>
+<ul>
+<li>查看mysql索引节点大小：show global status like &lsquo;innodb_page_size&rsquo;;    &ndash; 节点大小：16384</li>
+</ul>
+<p>当根节点中可以存储1170个元素，那么根据每个元素的地址值又会找到下面的子节点，每个子节点也会存储1170个元素，那么第二层即第二次IO的时候就会找到数据大概是：1170*1170=135W。也就是说B+Tree数据结构中只需要经历两次磁盘IO就可以找到135W条数据。</p>
+<p>对于第二层每个元素有指针，那么会找到第三层，第三层由key+数据组成，假设key+数据总大小是1KB，而每个节点一共能存储16KB，所以一个第三层一个节点大概可以存储16个元素(即16条记录)。那么结合第二层每个元素通过指针域找到第三层的节点，第二层一共是135W个元素，那么第三层总元素大小就是：135W*16结果就是2000W+的元素个数。</p>
+<p>结合上述分析B+Tree有如下优点：</p>
+<ul>
+<li>千万条数据，B+Tree可以控制在小于等于3的高度</li>
+<li>所有的数据都存储在叶子节点上，并且底层已经实现了按照索引进行排序，还可以支持范围查询，叶子节点是一个双向链表，支持从小到大或者从大到小查找</li>
+</ul>
+</blockquote>
+<h3 id="53-语法">5.3 语法<a hidden class="anchor" aria-hidden="true" href="#53-语法">#</a></h3>
+<p><strong>创建索引</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span>  [ <span style="color:#66d9ef">unique</span> ]  <span style="color:#66d9ef">index</span> <span style="color:#960050;background-color:#1e0010">索引名</span> <span style="color:#66d9ef">on</span>  <span style="color:#960050;background-color:#1e0010">表名</span> (<span style="color:#960050;background-color:#1e0010">字段名</span>,... ) ;
+</span></span></code></pre></div><p>案例：为tb_emp表的name字段建立一个索引</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">index</span> idx_emp_name <span style="color:#66d9ef">on</span> <span style="color:#a6e22e">tb_emp</span>(name);
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209105119159.png" alt="image-20221209105119159"  />
+</p>
+<blockquote>
+<p>在创建表时，如果添加了主键和唯一约束，就会默认创建：主键索引、唯一约束</p>
+<p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209105846211.png" alt="image-20221209105846211"  />
+</p>
+</blockquote>
+<p><strong>查看索引</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">show</span>  <span style="color:#66d9ef">index</span>  <span style="color:#66d9ef">from</span>  <span style="color:#960050;background-color:#1e0010">表名</span>;
+</span></span></code></pre></div><p>案例：查询 tb_emp 表的索引信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">show</span>  <span style="color:#66d9ef">index</span>  <span style="color:#66d9ef">from</span>  tb_emp;
+</span></span></code></pre></div><p><img loading="lazy" src="./2023JavaWeb_03.assets/image-20221209110317092.png" alt="image-20221209110317092"  />
+</p>
+<p><strong>删除索引</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">drop</span>  <span style="color:#66d9ef">index</span>  <span style="color:#960050;background-color:#1e0010">索引名</span>  <span style="color:#66d9ef">on</span>  <span style="color:#960050;background-color:#1e0010">表名</span>;
+</span></span></code></pre></div><p>案例：删除 tb_emp 表中name字段的索引</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-mysql" data-lang="mysql"><span style="display:flex;"><span><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">index</span> idx_emp_name <span style="color:#66d9ef">on</span> tb_emp;
+</span></span></code></pre></div><blockquote>
+<p>注意事项：</p>
+<ul>
+<li>
+<p>主键字段，在建表时，会自动创建主键索引</p>
+</li>
+<li>
+<p>添加唯一约束时，数据库实际上会添加唯一索引</p>
+</li>
+</ul>
+</blockquote>
+
+
+        </div>
+
+        
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://SteinsGatee.github.io/posts/tech/2023javaweb_04/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>2023JavaWeb-04</span>
+  </a>
+  <a class="next" href="https://SteinsGatee.github.io/posts/tech/javabugs20230920/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>JavaDebug01</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+
+
+
+
+</article>
+</main>
+
+<footer class="footer">
+    <span>Akuya</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>
