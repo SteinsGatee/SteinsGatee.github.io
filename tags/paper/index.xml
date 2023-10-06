@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>paper on Akuya&#39;s Blog</title>
+    <title>paper on Akuya Blog</title>
     <link>https://SteinsGatee.github.io/tags/paper/</link>
-    <description>Recent content in paper on Akuya&#39;s Blog</description>
+    <description>Recent content in paper on Akuya Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <copyright>Akuya</copyright>
+    <copyright>Copyright © 2021 - 2023  Akuya</copyright>
     <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅析论文写作方法</title>
