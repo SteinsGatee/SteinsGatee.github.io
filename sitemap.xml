@@ -3,10 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://SteinsGatee.github.io/</loc>
-    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/categories/</loc>
-    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/categories/deploy/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/tags/hugo/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/categories/hugo/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/posts/blog/hugo/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/tags/rate/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/categories/rate/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/posts/tech/rate_deploy/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/tags/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/posts/tech/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/posts/blog/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://SteinsGatee.github.io/posts/</loc>
+    <lastmod>2023-10-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/tags/paper/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
@@ -14,16 +47,10 @@
     <loc>https://SteinsGatee.github.io/tags/read/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SteinsGatee.github.io/tags/</loc>
-    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SteinsGatee.github.io/categories/%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/posts/read/%E6%B5%85%E6%9E%90%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2023-10-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SteinsGatee.github.io/posts/</loc>
     <lastmod>2023-10-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/posts/read/</loc>
@@ -39,9 +66,6 @@
     <lastmod>2023-09-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/tags/tech/</loc>
-    <lastmod>2023-09-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SteinsGatee.github.io/posts/tech/</loc>
     <lastmod>2023-09-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/posts/tech/2023javaweb_07/</loc>
@@ -77,12 +101,6 @@
     <loc>https://SteinsGatee.github.io/posts/tech/2023javaweb_02/</loc>
     <lastmod>2023-09-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://SteinsGatee.github.io/tags/rate/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SteinsGatee.github.io/categories/rate/</loc>
-    <lastmod>2023-09-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SteinsGatee.github.io/posts/tech/ratemail/</loc>
     <lastmod>2023-09-13T00:00:00+00:00</lastmod>
   </url><url>
@@ -93,9 +111,6 @@
     <lastmod>2023-09-01T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/posts/blog/blog/</loc>
-    <lastmod>2023-09-01T00:18:23+08:00</lastmod>
-  </url><url>
-    <loc>https://SteinsGatee.github.io/posts/blog/</loc>
     <lastmod>2023-09-01T00:18:23+08:00</lastmod>
   </url><url>
     <loc>https://SteinsGatee.github.io/tags/life/</loc>

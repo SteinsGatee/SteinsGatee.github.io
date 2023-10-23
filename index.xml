@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright © 2021 - 2023  Akuya</copyright>
-    <lastBuildDate>Wed, 04 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo建站</title>
+      <link>https://SteinsGatee.github.io/posts/blog/hugo/</link>
+      <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/blog/hugo/</guid>
+      <description>建站的一些细节和方法</description>
+    </item>
+    
+    <item>
+      <title>rateDeploy</title>
+      <link>https://SteinsGatee.github.io/posts/tech/rate_deploy/</link>
+      <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/rate_deploy/</guid>
+      <description>rateDeploy</description>
+    </item>
+    
     <item>
       <title>浅析论文写作方法</title>
       <link>https://SteinsGatee.github.io/posts/read/%E6%B5%85%E6%9E%90%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/</link>

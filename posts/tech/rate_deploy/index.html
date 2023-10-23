@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>rateDeploy | Akuya Blog</title>
+<meta name="keywords" content="rate">
+<meta name="description" content="rateDeploy">
+<meta name="author" content="Akuya">
+<link rel="canonical" href="https://SteinsGatee.github.io/posts/tech/rate_deploy/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="apple-touch-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="mask-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="rateDeploy" />
+<meta property="og:description" content="rateDeploy" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://SteinsGatee.github.io/posts/tech/rate_deploy/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="rateDeploy"/>
+<meta name="twitter:description" content="rateDeploy"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "文章",
+          "item": "https://SteinsGatee.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "技术",
+          "item": "https://SteinsGatee.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "rateDeploy",
+      "item": "https://SteinsGatee.github.io/posts/tech/rate_deploy/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "rateDeploy",
+  "name": "rateDeploy",
+  "description": "rateDeploy",
+  "keywords": [
+    "rate"
+  ],
+  "articleBody": "1. 登陆新的服务器 1. 开启VPN 电脑版 VPN 客户端 MotionPro 安装使用说明 1、Windows 操作系统 1.1 打开网址：https://client.arraynetworks.com.cn:8080/zh/troubleshooting 根据 Windows 操作系统的位数下载对应 MotionPro 客户端软件。\n安装之后\n使用这个vpn账号：\n2. 登陆堡垒机 https://192.168.144.55/login\n网站登录的账号密码：\n3. 运维登陆 4. 登陆服务器 5. ==应用安装注意事项：== windows：请将应用和数据安装存放在在E盘；如申请了备份空间，请将备份数据存放到Z盘\n2. 安装必备的软件和工具 win server 2019\n1. 安装jdk 1.8 1. 下载安装包，从qq邮箱传输 2. 安装jdk 感觉不太爽，重新安装一下！\n3. 配置环境变量 系统变量-path .;%JAVA_HOME%\\lib;%JAVA_HOME%\\lib\\dt.jar;%JAVA_HOME%\\lib\\tools.jar 4. 验证成功 2. 安装mysql 参考：https://blog.csdn.net/NOWSHUT/article/details/107722623\n1. 下载mysql-windows安装包 https://dev.mysql.com/downloads/mysql/\n2. 安装步骤 需下载360国际版压缩。\n3. 配置环境变量 4. 创建mysql配置文件my.ini 在mysql跟目录下创建文件名为my.ini的配置文件，打开my.ini，添加以下内容\n[mysqld] # 设置3306端口 port=3306 # 设置mysql的安装目录 basedir=C:\\Servers\\mysql # 设置mysql数据库的数据的存放目录 datadir=C:\\Servers\\mysql\\data # 允许最大连接数 max_connections=200 # 允许连接失败的次数。 max_connect_errors=10 # 服务端使用的字符集默认为utf8mb4 character-set-server=utf8mb4 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB # 默认使用“mysql_native_password”插件认证 #mysql_native_password default_authentication_plugin=mysql_native_password [mysql] # 设置mysql客户端默认字符集 default-character-set=utf8mb4 [client] # 设置mysql客户端连接服务端时默认使用的端口 port=3306 default-character-set=utf8mb4 5. 安装VC++ 14 运行时文件，已经安装过了 在最下面的其他工具和框架里找VC++的可再发行包。\n直达下载地址：https://aka.ms/vs/16/release/VC_redist.x64.exe\n下载后运行安装即可。\n6. 初始化mysql 其中提示了初始密码：XXXX\n7. 启动mysql 进入mysql 控制台\n在mysql 控制台下运行修改密码的sql语句\nALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘Your new password’;\n但是我没有修改！\n8. 开启远程访问权限（也没有搞，感觉有需要再搞） 在cmd中使用mysql -u root -p命令，进入mysql控制台\n在mysql 控制台下输入 use mysql 切换到内置mysql数据库\n运行 select User,authentication_string,Host from user;\n以上sql 语句查询当前用户的Host权限，root用户的权限是localhost\n运行sql语句，为root用户授权所有远程计算机访问权限\nupdate user set host=’%’ where user =‘root’;\n继续运行sql语句，刷新权限设置\nflush privileges;\n此时应该已经能够远程访问你的数据库了\n最后运行sql语句\nGRANT ALL PRIVILEGES ON . TO ‘root’@’%‘WITH GRANT OPTION;\n正式授权远程访问权限。\n完成！\n3. 安装navicat（只有这个不需要关闭联网） 1. 下载安装软件 2. 安装 3. 运行免注册插件 3. 开始部署 1. 服务器地址 2. navicat新建数据库 太酷拉\n1. try 1 skip-grant-tables\n停止：输入 net stop mysql\n启动：输入 net start mysql mysqk\n2. try … 3. 修改密码——成功 net stop mysql\nnet start mysql\nmysql -u root -p\n修改密码\n3. 一系列文件通过邮件上传并移动到指定位置 4. everything is okay except 8080 算了，先试试这个\nTest-NetConnection -ComputerName 219.228.76.150 -Port 8080\ntelnet 219.228.76.150 8080 1. 设置防火墙入站和出站规则 2. vue不支持ie浏览器 ",
+  "wordCount" : "1256",
+  "inLanguage": "zh",
+  "datePublished": "2023-10-20T00:00:00Z",
+  "dateModified": "2023-10-20T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Akuya"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://SteinsGatee.github.io/posts/tech/rate_deploy/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Akuya Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://SteinsGatee.github.io/img/girl.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://SteinsGatee.github.io/" accesskey="h" title="凉生晓岸催残暑 (Alt + H)">凉生晓岸催残暑</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://SteinsGatee.github.io/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/" title="主页">
+                <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/posts" title="文章">
+                <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/tags" title="标签">
+                <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/archives/" title="时间轴">
+                <span>时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/about" title="关于">
+                <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://SteinsGatee.github.io/"> 主页</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/">文章</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/tech/">技术</a></div>
+            <h1 class="post-title">
+                rateDeploy
+            </h1>
+            <div class="post-description">
+                rateDeploy
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-10-20
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1256字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Akuya
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://SteinsGatee.github.io/tags/rate/" style="color: var(--secondary)!important;">rate</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-%e7%99%bb%e9%99%86%e6%96%b0%e7%9a%84%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="1. 登陆新的服务器">1. 登陆新的服务器</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%bc%80%e5%90%afvpn" aria-label="1. 开启VPN">1. 开启VPN</a></li>
+                <li>
+                    <a href="#2-%e7%99%bb%e9%99%86%e5%a0%a1%e5%9e%92%e6%9c%ba" aria-label="2. 登陆堡垒机">2. 登陆堡垒机</a></li>
+                <li>
+                    <a href="#3-%e8%bf%90%e7%bb%b4%e7%99%bb%e9%99%86" aria-label="3. 运维登陆">3. 运维登陆</a></li>
+                <li>
+                    <a href="#4-%e7%99%bb%e9%99%86%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="4. 登陆服务器">4. 登陆服务器</a></li>
+                <li>
+                    <a href="#5-%e5%ba%94%e7%94%a8%e5%ae%89%e8%a3%85%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" aria-label="5. ==应用安装注意事项：==">5. ==应用安装注意事项：==</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-%e5%ae%89%e8%a3%85%e5%bf%85%e5%a4%87%e7%9a%84%e8%bd%af%e4%bb%b6%e5%92%8c%e5%b7%a5%e5%85%b7" aria-label="2. 安装必备的软件和工具">2. 安装必备的软件和工具</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%ae%89%e8%a3%85jdk-18" aria-label="1. 安装jdk 1.8">1. 安装jdk 1.8</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e5%8c%85%e4%bb%8eqq%e9%82%ae%e7%ae%b1%e4%bc%a0%e8%be%93" aria-label="1. 下载安装包，从qq邮箱传输">1. 下载安装包，从qq邮箱传输</a></li>
+                <li>
+                    <a href="#2-%e5%ae%89%e8%a3%85jdk" aria-label="2. 安装jdk">2. 安装jdk</a></li>
+                <li>
+                    <a href="#3-%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="3. 配置环境变量">3. 配置环境变量</a></li>
+                <li>
+                    <a href="#4-%e9%aa%8c%e8%af%81%e6%88%90%e5%8a%9f" aria-label="4. 验证成功">4. 验证成功</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-%e5%ae%89%e8%a3%85mysql" aria-label="2. 安装mysql">2. 安装mysql</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%b8%8b%e8%bd%bdmysql-windows%e5%ae%89%e8%a3%85%e5%8c%85" aria-label="1. 下载mysql-windows安装包">1. 下载mysql-windows安装包</a></li>
+                <li>
+                    <a href="#2-%e5%ae%89%e8%a3%85%e6%ad%a5%e9%aa%a4" aria-label="2. 安装步骤">2. 安装步骤</a></li>
+                <li>
+                    <a href="#3-%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f-1" aria-label="3. 配置环境变量">3. 配置环境变量</a></li>
+                <li>
+                    <a href="#4-%e5%88%9b%e5%bb%bamysql%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6myini" aria-label="4. 创建mysql配置文件my.ini">4. 创建mysql配置文件my.ini</a></li>
+                <li>
+                    <a href="#5-del%e5%ae%89%e8%a3%85vc-14-%e8%bf%90%e8%a1%8c%e6%97%b6%e6%96%87%e4%bb%b6%e5%b7%b2%e7%bb%8f%e5%ae%89%e8%a3%85%e8%bf%87%e4%ba%86del" aria-label="5. 安装VC&#43;&#43; 14 运行时文件，已经安装过了">5. <del>安装VC++ 14 运行时文件，已经安装过了</del></a></li>
+                <li>
+                    <a href="#6-%e5%88%9d%e5%a7%8b%e5%8c%96mysql" aria-label="6. 初始化mysql">6. 初始化mysql</a></li>
+                <li>
+                    <a href="#7-%e5%90%af%e5%8a%a8mysql" aria-label="7. 启动mysql">7. 启动mysql</a></li>
+                <li>
+                    <a href="#8-%e5%bc%80%e5%90%af%e8%bf%9c%e7%a8%8b%e8%ae%bf%e9%97%ae%e6%9d%83%e9%99%90%e4%b9%9f%e6%b2%a1%e6%9c%89%e6%90%9e%e6%84%9f%e8%a7%89%e6%9c%89%e9%9c%80%e8%a6%81%e5%86%8d%e6%90%9e" aria-label="8. 开启远程访问权限（也没有搞，感觉有需要再搞）">8. 开启远程访问权限（也没有搞，感觉有需要再搞）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e5%ae%89%e8%a3%85navicat%e5%8f%aa%e6%9c%89%e8%bf%99%e4%b8%aa%e4%b8%8d%e9%9c%80%e8%a6%81%e5%85%b3%e9%97%ad%e8%81%94%e7%bd%91" aria-label="3. 安装navicat（只有这个不需要关闭联网）">3. 安装navicat（只有这个不需要关闭联网）</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6" aria-label="1. 下载安装软件">1. 下载安装软件</a></li>
+                <li>
+                    <a href="#2-%e5%ae%89%e8%a3%85" aria-label="2. 安装">2. 安装</a></li>
+                <li>
+                    <a href="#3-%e8%bf%90%e8%a1%8c%e5%85%8d%e6%b3%a8%e5%86%8c%e6%8f%92%e4%bb%b6" aria-label="3. 运行免注册插件">3. 运行免注册插件</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e5%bc%80%e5%a7%8b%e9%83%a8%e7%bd%b2" aria-label="3. 开始部署">3. 开始部署</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%9c%b0%e5%9d%80" aria-label="1. 服务器地址">1. 服务器地址</a></li>
+                <li>
+                    <a href="#2-navicat%e6%96%b0%e5%bb%ba%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="2. navicat新建数据库">2. navicat新建数据库</a><ul>
+                        
+                <li>
+                    <a href="#1-try-1" aria-label="1. try 1">1. try 1</a></li>
+                <li>
+                    <a href="#2-try-" aria-label="2. try &amp;hellip;">2. try &hellip;</a></li>
+                <li>
+                    <a href="#3-%e4%bf%ae%e6%94%b9%e5%af%86%e7%a0%81%e6%88%90%e5%8a%9f" aria-label="3. 修改密码——成功">3. 修改密码——成功</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e4%b8%80%e7%b3%bb%e5%88%97%e6%96%87%e4%bb%b6%e9%80%9a%e8%bf%87%e9%82%ae%e4%bb%b6%e4%b8%8a%e4%bc%a0%e5%b9%b6%e7%a7%bb%e5%8a%a8%e5%88%b0%e6%8c%87%e5%ae%9a%e4%bd%8d%e7%bd%ae" aria-label="3. 一系列文件通过邮件上传并移动到指定位置">3. 一系列文件通过邮件上传并移动到指定位置</a></li>
+                <li>
+                    <a href="#4--everything-is-okay-except-8080" aria-label="4.  everything is okay except 8080">4.  everything is okay except 8080</a><ul>
+                        
+                <li>
+                    <a href="#1-%e8%ae%be%e7%bd%ae%e9%98%b2%e7%81%ab%e5%a2%99%e5%85%a5%e7%ab%99%e5%92%8c%e5%87%ba%e7%ab%99%e8%a7%84%e5%88%99" aria-label="1. 设置防火墙入站和出站规则">1. 设置防火墙入站和出站规则</a></li>
+                <li>
+                    <a href="#2-vue%e4%b8%8d%e6%94%af%e6%8c%81ie%e6%b5%8f%e8%a7%88%e5%99%a8" aria-label="2. vue不支持ie浏览器">2. vue不支持ie浏览器</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="1-登陆新的服务器">1. 登陆新的服务器<a hidden class="anchor" aria-hidden="true" href="#1-登陆新的服务器">#</a></h1>
+<h2 id="1-开启vpn">1. 开启VPN<a hidden class="anchor" aria-hidden="true" href="#1-开启vpn">#</a></h2>
+<p>电脑版 VPN 客户端 MotionPro 安装使用说明
+1、Windows 操作系统
+1.1 打开网址：https://client.arraynetworks.com.cn:8080/zh/troubleshooting 根据 Windows 操作系统的位数下载对应 MotionPro 客户端软件。</p>
+<blockquote>
+<p>安装之后</p>
+</blockquote>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020170515232.png" alt="image-20231020170515232"  />
+</p>
+<blockquote>
+<p>使用这个vpn账号：</p>
+</blockquote>
+<h2 id="2-登陆堡垒机">2. 登陆堡垒机<a hidden class="anchor" aria-hidden="true" href="#2-登陆堡垒机">#</a></h2>
+<p>https://192.168.144.55/login</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020170659910.png" alt="image-20231020170659910"  />
+</p>
+<blockquote>
+<p>网站登录的账号密码：</p>
+</blockquote>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020170820997.png" alt="image-20231020170820997"  />
+</p>
+<h2 id="3-运维登陆">3. 运维登陆<a hidden class="anchor" aria-hidden="true" href="#3-运维登陆">#</a></h2>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020170944458.png" alt="image-20231020170944458"  />
+</p>
+<h2 id="4-登陆服务器">4. 登陆服务器<a hidden class="anchor" aria-hidden="true" href="#4-登陆服务器">#</a></h2>
+<h2 id="5-应用安装注意事项">5. ==应用安装注意事项：==<a hidden class="anchor" aria-hidden="true" href="#5-应用安装注意事项">#</a></h2>
+<p>windows：请将应用和数据安装存放在在E盘；如申请了备份空间，请将备份数据存放到Z盘</p>
+<h1 id="2-安装必备的软件和工具">2. 安装必备的软件和工具<a hidden class="anchor" aria-hidden="true" href="#2-安装必备的软件和工具">#</a></h1>
+<blockquote>
+<p>win server 2019</p>
+</blockquote>
+<h2 id="1-安装jdk-18">1. 安装jdk 1.8<a hidden class="anchor" aria-hidden="true" href="#1-安装jdk-18">#</a></h2>
+<h3 id="1-下载安装包从qq邮箱传输">1. 下载安装包，从qq邮箱传输<a hidden class="anchor" aria-hidden="true" href="#1-下载安装包从qq邮箱传输">#</a></h3>
+<h3 id="2-安装jdk">2. 安装jdk<a hidden class="anchor" aria-hidden="true" href="#2-安装jdk">#</a></h3>
+<blockquote>
+<p>感觉不太爽，重新安装一下！</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095140952.png" alt="image-20231023095140952"  />
+</p>
+</blockquote>
+<h3 id="3-配置环境变量">3. 配置环境变量<a hidden class="anchor" aria-hidden="true" href="#3-配置环境变量">#</a></h3>
+<ol>
+<li></li>
+</ol>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095201062.png" alt="image-20231023095201062"  />
+</p>
+<ol start="2">
+<li>系统变量-path</li>
+</ol>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095219095.png" alt="image-20231023095219095"  />
+</p>
+<ol start="3">
+<li>.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</li>
+</ol>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095241494.png" alt="image-20231023095241494"  />
+</p>
+<h3 id="4-验证成功">4. 验证成功<a hidden class="anchor" aria-hidden="true" href="#4-验证成功">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095254179.png" alt="image-20231023095254179"  />
+</p>
+<h2 id="2-安装mysql">2. 安装mysql<a hidden class="anchor" aria-hidden="true" href="#2-安装mysql">#</a></h2>
+<blockquote>
+<p>参考：https://blog.csdn.net/NOWSHUT/article/details/107722623</p>
+</blockquote>
+<h3 id="1-下载mysql-windows安装包">1. 下载mysql-windows安装包<a hidden class="anchor" aria-hidden="true" href="#1-下载mysql-windows安装包">#</a></h3>
+<blockquote>
+<p><a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020190229416.png" alt="image-20231020190229416"  />
+</p>
+</blockquote>
+<h3 id="2-安装步骤">2. 安装步骤<a hidden class="anchor" aria-hidden="true" href="#2-安装步骤">#</a></h3>
+<blockquote>
+<p>需下载360国际版压缩。</p>
+</blockquote>
+<h3 id="3-配置环境变量-1">3. 配置环境变量<a hidden class="anchor" aria-hidden="true" href="#3-配置环境变量-1">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095356985.png" alt="image-20231023095356985"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020192912751.png" alt="image-20231020192912751"  />
+</p>
+<h3 id="4-创建mysql配置文件myini">4. 创建mysql配置文件my.ini<a hidden class="anchor" aria-hidden="true" href="#4-创建mysql配置文件myini">#</a></h3>
+<p>在mysql跟目录下创建文件名为my.ini的配置文件，打开my.ini，添加以下内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[mysqld]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置3306端口</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">3306</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置mysql的安装目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">basedir</span><span style="color:#f92672">=</span><span style="color:#e6db74">C:\Servers\mysql</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置mysql数据库的数据的存放目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">datadir</span><span style="color:#f92672">=</span><span style="color:#e6db74">C:\Servers\mysql\data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 允许最大连接数</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">max_connections</span><span style="color:#f92672">=</span><span style="color:#e6db74">200</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 允许连接失败的次数。</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">max_connect_errors</span><span style="color:#f92672">=</span><span style="color:#e6db74">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 服务端使用的字符集默认为utf8mb4</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">character-set-server</span><span style="color:#f92672">=</span><span style="color:#e6db74">utf8mb4</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建新表时将使用的默认存储引擎</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default-storage-engine</span><span style="color:#f92672">=</span><span style="color:#e6db74">INNODB</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 默认使用“mysql_native_password”插件认证</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#mysql_native_password</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default_authentication_plugin</span><span style="color:#f92672">=</span><span style="color:#e6db74">mysql_native_password</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[mysql]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置mysql客户端默认字符集</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default-character-set</span><span style="color:#f92672">=</span><span style="color:#e6db74">utf8mb4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[client]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置mysql客户端连接服务端时默认使用的端口</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#e6db74">3306</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">default-character-set</span><span style="color:#f92672">=</span><span style="color:#e6db74">utf8mb4</span>
+</span></span></code></pre></div><h3 id="5-del安装vc-14-运行时文件已经安装过了del">5. <del>安装VC++ 14 运行时文件，已经安装过了</del><a hidden class="anchor" aria-hidden="true" href="#5-del安装vc-14-运行时文件已经安装过了del">#</a></h3>
+<p>在最下面的其他工具和框架里找VC++的可再发行包。</p>
+<p>直达下载地址：https://aka.ms/vs/16/release/VC_redist.x64.exe</p>
+<p>下载后运行安装即可。</p>
+<h3 id="6-初始化mysql">6. 初始化mysql<a hidden class="anchor" aria-hidden="true" href="#6-初始化mysql">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095423472.png" alt="image-20231023095423472"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020194126560-1697802088180-1.png" alt="image-20231020194126560"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095447603.png" alt="image-20231023095447603"  />
+</p>
+<blockquote>
+<p>其中提示了初始密码：XXXX</p>
+</blockquote>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095521981.png" alt="image-20231023095521981"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095540631.png" alt="image-20231023095540631"  />
+</p>
+<h3 id="7-启动mysql">7. 启动mysql<a hidden class="anchor" aria-hidden="true" href="#7-启动mysql">#</a></h3>
+<blockquote>
+<p>进入mysql 控制台</p>
+<p>在mysql 控制台下运行修改密码的sql语句</p>
+<p>ALTER USER &lsquo;root&rsquo;@&rsquo;localhost&rsquo; IDENTIFIED WITH mysql_native_password BY &lsquo;Your new password&rsquo;;</p>
+<p>但是我没有修改！</p>
+</blockquote>
+<h3 id="8-开启远程访问权限也没有搞感觉有需要再搞">8. 开启远程访问权限（也没有搞，感觉有需要再搞）<a hidden class="anchor" aria-hidden="true" href="#8-开启远程访问权限也没有搞感觉有需要再搞">#</a></h3>
+<p>在cmd中使用mysql -u root -p命令，进入mysql控制台</p>
+<p>在mysql 控制台下输入 use mysql 切换到内置mysql数据库</p>
+<p>运行 select  User,authentication_string,Host from user;</p>
+<p>以上sql 语句查询当前用户的Host权限，root用户的权限是localhost</p>
+<p><img loading="lazy" src="../rate_deploy.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3ppdmV5,size_16,color_FFFFFF,t_70.png" alt="img"  />
+</p>
+<p>运行sql语句，为root用户授权所有远程计算机访问权限</p>
+<p>update user set host=&rsquo;%&rsquo; where user =&lsquo;root&rsquo;;</p>
+<p>继续运行sql语句，刷新权限设置</p>
+<p>flush privileges;</p>
+<p>此时应该已经能够远程访问你的数据库了</p>
+<p>最后运行sql语句</p>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO &lsquo;root&rsquo;@&rsquo;%&lsquo;WITH GRANT OPTION;</p>
+<p>正式授权远程访问权限。</p>
+<p>完成！</p>
+<h2 id="3-安装navicat只有这个不需要关闭联网">3. 安装navicat（只有这个不需要关闭联网）<a hidden class="anchor" aria-hidden="true" href="#3-安装navicat只有这个不需要关闭联网">#</a></h2>
+<h3 id="1-下载安装软件">1. 下载安装软件<a hidden class="anchor" aria-hidden="true" href="#1-下载安装软件">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/na1.png" alt="Navicat for MySQL 11.1.13 中文版"  />
+</p>
+<h3 id="2-安装">2. 安装<a hidden class="anchor" aria-hidden="true" href="#2-安装">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/na3.png" alt="Navicat for MySQL 11.1.13 中文版"  />
+</p>
+<h3 id="3-运行免注册插件">3. 运行免注册插件<a hidden class="anchor" aria-hidden="true" href="#3-运行免注册插件">#</a></h3>
+<p><img loading="lazy" src="../rate_deploy.assets/na2.png" alt="Navicat for MySQL 11.1.13 中文版"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/na4.png" alt="Navicat for MySQL 11.1.13 中文版"  />
+</p>
+<p><img loading="lazy" src="../rate_deploy.assets/na5.png" alt="Navicat for MySQL 11.1.13 中文版"  />
+</p>
+<h1 id="3-开始部署">3. 开始部署<a hidden class="anchor" aria-hidden="true" href="#3-开始部署">#</a></h1>
+<h2 id="1-服务器地址">1. 服务器地址<a hidden class="anchor" aria-hidden="true" href="#1-服务器地址">#</a></h2>
+<h2 id="2-navicat新建数据库">2. navicat新建数据库<a hidden class="anchor" aria-hidden="true" href="#2-navicat新建数据库">#</a></h2>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095704649.png" alt="image-20231023095704649"  />
+</p>
+<p>太酷拉</p>
+<h3 id="1-try-1">1. try 1<a hidden class="anchor" aria-hidden="true" href="#1-try-1">#</a></h3>
+<blockquote>
+<p>skip-grant-tables</p>
+</blockquote>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020202840998.png" alt="image-20231020202840998"  />
+</p>
+<blockquote>
+<p>停止：输入 <code>net stop mysql</code></p>
+<p>启动：输入 <code>net start mysql</code> mysqk</p>
+</blockquote>
+<h3 id="2-try-">2. try &hellip;<a hidden class="anchor" aria-hidden="true" href="#2-try-">#</a></h3>
+<h3 id="3-修改密码成功">3. 修改密码——成功<a hidden class="anchor" aria-hidden="true" href="#3-修改密码成功">#</a></h3>
+<blockquote>
+<p>net stop mysql</p>
+<p>net start mysql</p>
+<p>mysql -u root -p</p>
+<p>修改密码</p>
+</blockquote>
+<h2 id="3-一系列文件通过邮件上传并移动到指定位置">3. 一系列文件通过邮件上传并移动到指定位置<a hidden class="anchor" aria-hidden="true" href="#3-一系列文件通过邮件上传并移动到指定位置">#</a></h2>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231023095042685.png" alt="image-20231023095042685"  />
+</p>
+<h2 id="4--everything-is-okay-except-8080">4.  everything is okay except 8080<a hidden class="anchor" aria-hidden="true" href="#4--everything-is-okay-except-8080">#</a></h2>
+<p><img loading="lazy" src="../rate_deploy.assets/image-20231020210659944.png" alt="image-20231020210659944"  />
+</p>
+<p>算了，先试试这个</p>
+<blockquote>
+<p>Test-NetConnection -ComputerName 219.228.76.150 -Port 8080</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>telnet 219.228.76.150 8080
+</span></span></code></pre></div><h3 id="1-设置防火墙入站和出站规则">1. 设置防火墙入站和出站规则<a hidden class="anchor" aria-hidden="true" href="#1-设置防火墙入站和出站规则">#</a></h3>
+<h3 id="2-vue不支持ie浏览器">2. vue不支持ie浏览器<a hidden class="anchor" aria-hidden="true" href="#2-vue不支持ie浏览器">#</a></h3>
+
+
+        </div>
+
+        
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="prev" href="https://SteinsGatee.github.io/posts/blog/hugo/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>hugo建站</span>
+  </a>
+  <a class="next" href="https://SteinsGatee.github.io/posts/read/%E6%B5%85%E6%9E%90%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E6%96%B9%E6%B3%95/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>浅析论文写作方法</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+
+
+
+
+</article>
+</main>
+
+<footer class="footer">
+    <span>Copyright © 2021 - 2023  Akuya</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

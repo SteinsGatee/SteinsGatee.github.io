@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>hugo建站 | Akuya Blog</title>
+<meta name="keywords" content="hugo, build site">
+<meta name="description" content="建站的一些细节和方法">
+<meta name="author" content="Akuya">
+<link rel="canonical" href="https://SteinsGatee.github.io/posts/blog/hugo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="apple-touch-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<link rel="mask-icon" href="https://SteinsGatee.github.io/img/girl.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="hugo建站" />
+<meta property="og:description" content="建站的一些细节和方法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://SteinsGatee.github.io/posts/blog/hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hugo建站"/>
+<meta name="twitter:description" content="建站的一些细节和方法"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "文章",
+          "item": "https://SteinsGatee.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "建站",
+          "item": "https://SteinsGatee.github.io/posts/blog/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "hugo建站",
+      "item": "https://SteinsGatee.github.io/posts/blog/hugo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "hugo建站",
+  "name": "hugo建站",
+  "description": "建站的一些细节和方法",
+  "keywords": [
+    "hugo", "build site"
+  ],
+  "articleBody": "1. 如何提交网站的文件 git init git add . git commit -m \"first commit\" git branch -M main git remote add origin https://github.com/SteinsGatee/SteinsGatee.github.io.git git pull origin main git pull origin main --allow-unrelated-histories git push -u origin main 之后就是这个样子：\ncd public git add . git commit -m \"xx\" git push echo \"# akuyaz.github.io\" \u003e\u003e README.md git init git add README.md git commit -m \"first commit\" git branch -M main git remote add origin https://github.com/akuyaz/akuyaz.github.io.git git push -u origin main 2. 什么是Tranquilpeak Tranquilpeak 是一款 WordPress 主题，通常用于创建博客或个人网站。您提到的 “features”、“releases” 和 “showcase” 可能是与 Tranquilpeak 主题相关的内容。让我为您解释一下：\nFeatures（功能）: 这通常指的是 Tranquilpeak 主题的功能和特性。这可能包括布局选项、颜色主题、自定义小部件、社交媒体集成等。 Releases（发布版本）: 这可能是指 Tranquilpeak 主题的不同版本或更新。每个版本都可能包含修复漏洞、增加新功能或改进性能等方面的变化。 Showcase（展示）: 这可能是 Tranquilpeak 主题的使用案例展示。通常，网站开发者和用户会分享他们使用 Tranquilpeak 主题创建的网站，以展示主题的不同应用和设计风格。 3. 如何写具体的分类和tag ​\n4. 创建软链接，分离仓库 mklink /D \"F:\\Hugo\\Sites\\papermod\\public\" \"F:\\Hugo\\akuya\\public\" 目标文件 -源文件\n5. 创建一个新的github账号后，你应该做什么 1. 修改账号 git config --global user.name “SteinsGatee” git config --global user.email “akuya1980@gmail.com” git config --global credential.helper store git config --global user.name “akuyaz” git config --global user.email “yakuizhang1111@163.com” git config --global credential.helper store 2. 查看账号 //用户名 git config user.name //邮箱 git config user.email ",
+  "wordCount" : "573",
+  "inLanguage": "zh",
+  "datePublished": "2023-10-20T00:00:00Z",
+  "dateModified": "2023-10-20T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Akuya"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://SteinsGatee.github.io/posts/blog/hugo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Akuya Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://SteinsGatee.github.io/img/girl.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://SteinsGatee.github.io/" accesskey="h" title="凉生晓岸催残暑 (Alt + H)">凉生晓岸催残暑</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://SteinsGatee.github.io/search" title="搜索 (Alt &#43; /)" accesskey=/>
+                <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/" title="主页">
+                <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/posts" title="文章">
+                <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/tags" title="标签">
+                <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/archives/" title="时间轴">
+                <span>时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://SteinsGatee.github.io/about" title="关于">
+                <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://SteinsGatee.github.io/"> 主页</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/">文章</a>&nbsp;»&nbsp;<a href="https://SteinsGatee.github.io/posts/blog/">建站</a></div>
+            <h1 class="post-title">
+                hugo建站
+            </h1>
+            <div class="post-description">
+                建站的一些细节和方法
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-10-20
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>573字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>2分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Akuya
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://SteinsGatee.github.io/tags/hugo/" style="color: var(--secondary)!important;">hugo</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    
+                    
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-%e5%a6%82%e4%bd%95%e6%8f%90%e4%ba%a4%e7%bd%91%e7%ab%99%e7%9a%84%e6%96%87%e4%bb%b6" aria-label="1. 如何提交网站的文件">1. 如何提交网站的文件</a></li>
+                <li>
+                    <a href="#2-%e4%bb%80%e4%b9%88%e6%98%aftranquilpeak" aria-label="2. 什么是Tranquilpeak">2. 什么是Tranquilpeak</a></li>
+                <li>
+                    <a href="#3-%e5%a6%82%e4%bd%95%e5%86%99%e5%85%b7%e4%bd%93%e7%9a%84%e5%88%86%e7%b1%bb%e5%92%8ctag" aria-label="3. 如何写具体的分类和tag">3. 如何写具体的分类和tag</a></li>
+                <li>
+                    <a href="#4-%e5%88%9b%e5%bb%ba%e8%bd%af%e9%93%be%e6%8e%a5%e5%88%86%e7%a6%bb%e4%bb%93%e5%ba%93" aria-label="4. 创建软链接，分离仓库">4. 创建软链接，分离仓库</a></li>
+                <li>
+                    <a href="#5-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e6%96%b0%e7%9a%84github%e8%b4%a6%e5%8f%b7%e5%90%8e%e4%bd%a0%e5%ba%94%e8%af%a5%e5%81%9a%e4%bb%80%e4%b9%88" aria-label="5. 创建一个新的github账号后，你应该做什么">5. 创建一个新的github账号后，你应该做什么</a><ul>
+                        
+                <li>
+                    <a href="#1-%e4%bf%ae%e6%94%b9%e8%b4%a6%e5%8f%b7" aria-label="1. 修改账号">1. 修改账号</a></li>
+                <li>
+                    <a href="#2-%e6%9f%a5%e7%9c%8b%e8%b4%a6%e5%8f%b7" aria-label="2. 查看账号">2. 查看账号</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        if (elements) {
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement){
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="1-如何提交网站的文件">1. 如何提交网站的文件<a hidden class="anchor" aria-hidden="true" href="#1-如何提交网站的文件">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git init   
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m &#34;first commit&#34;
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/SteinsGatee/SteinsGatee.github.io.git 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git pull origin main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git pull origin main --allow-unrelated-histories
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><p>之后就是这个样子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m &#34;xx&#34;
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>echo &#34;# akuyaz.github.io&#34; &gt;&gt; README.md
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add README.md
+</span></span><span style="display:flex;"><span>git commit -m &#34;first commit&#34;
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/akuyaz/akuyaz.github.io.git
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><h1 id="2-什么是tranquilpeak">2. 什么是Tranquilpeak<a hidden class="anchor" aria-hidden="true" href="#2-什么是tranquilpeak">#</a></h1>
+<p>Tranquilpeak 是一款 WordPress 主题，通常用于创建博客或个人网站。您提到的 &ldquo;features&rdquo;、&ldquo;releases&rdquo; 和 &ldquo;showcase&rdquo; 可能是与 Tranquilpeak 主题相关的内容。让我为您解释一下：</p>
+<ol>
+<li><strong>Features（功能）</strong>: 这通常指的是 Tranquilpeak 主题的功能和特性。这可能包括布局选项、颜色主题、自定义小部件、社交媒体集成等。</li>
+<li><strong>Releases（发布版本）</strong>: 这可能是指 Tranquilpeak 主题的不同版本或更新。每个版本都可能包含修复漏洞、增加新功能或改进性能等方面的变化。</li>
+<li><strong>Showcase（展示）</strong>: 这可能是 Tranquilpeak 主题的使用案例展示。通常，网站开发者和用户会分享他们使用 Tranquilpeak 主题创建的网站，以展示主题的不同应用和设计风格。</li>
+</ol>
+<h1 id="3-如何写具体的分类和tag">3. 如何写具体的分类和tag<a hidden class="anchor" aria-hidden="true" href="#3-如何写具体的分类和tag">#</a></h1>
+<p><img loading="lazy" src="../hugo.assets/image-20230906154234384.png" alt="image-20230906154234384"  />
+</p>
+<p>​</p>
+<p><img loading="lazy" src="../hugo.assets/image-20230906154239106.png" alt="image-20230906154239106"  />
+</p>
+<h1 id="4-创建软链接分离仓库">4. 创建软链接，分离仓库<a hidden class="anchor" aria-hidden="true" href="#4-创建软链接分离仓库">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">mklink</span> /D <span style="color:#e6db74">&#34;F:\Hugo\Sites\papermod\public&#34;</span> <span style="color:#e6db74">&#34;F:\Hugo\akuya\public&#34;</span>
+</span></span></code></pre></div><p>目标文件 -源文件</p>
+<p><img loading="lazy" src="../hugo.assets/image-20230914093858710.png" alt="image-20230914093858710"  />
+</p>
+<h1 id="5-创建一个新的github账号后你应该做什么">5. 创建一个新的github账号后，你应该做什么<a hidden class="anchor" aria-hidden="true" href="#5-创建一个新的github账号后你应该做什么">#</a></h1>
+<p><img loading="lazy" src="../hugo.assets/image-20231005143013403.png" alt="image-20231005143013403"  />
+</p>
+<h2 id="1-修改账号">1. 修改账号<a hidden class="anchor" aria-hidden="true" href="#1-修改账号">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git config --global user.name “SteinsGatee”
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git config --global user.email “akuya1980@gmail.com”
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git config --global credential.helper store
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git config --global user.name “akuyaz”
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git config --global user.email “yakuizhang1111@163.com”
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git config --global credential.helper store
+</span></span></code></pre></div><h2 id="2-查看账号">2. 查看账号<a hidden class="anchor" aria-hidden="true" href="#2-查看账号">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>//用户名
+</span></span><span style="display:flex;"><span>git config user.name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>//邮箱
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>git config user.email 
+</span></span></code></pre></div>
+
+        </div>
+
+        
+
+        <footer class="post-footer">
+            
+<nav class="paginav">
+  <a class="next" href="https://SteinsGatee.github.io/posts/tech/rate_deploy/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>rateDeploy</span>
+  </a>
+</nav>
+
+        </footer>
+    </div>
+
+
+
+
+
+</article>
+</main>
+
+<footer class="footer">
+    <span>Copyright © 2021 - 2023  Akuya</span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '复制';
+
+        function copyingDone() {
+            copybutton.innerText = '已复制！';
+            setTimeout(() => {
+                copybutton.innerText = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Akuya Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+</body>
+
+</html>

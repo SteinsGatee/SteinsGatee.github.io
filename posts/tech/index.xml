@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>Copyright © 2021 - 2023  Akuya</copyright>
-    <lastBuildDate>Mon, 25 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://SteinsGatee.github.io/posts/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rateDeploy</title>
+      <link>https://SteinsGatee.github.io/posts/tech/rate_deploy/</link>
+      <pubDate>Fri, 20 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://SteinsGatee.github.io/posts/tech/rate_deploy/</guid>
+      <description>rateDeploy</description>
+    </item>
+    
     <item>
       <title>2023JavaWeb-08</title>
       <link>https://SteinsGatee.github.io/posts/tech/2023javaweb_08/</link>
