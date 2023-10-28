@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TimeSformer</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="29000b96-c92a-46f0-869b-e958cc08976c" class="page sans"><header><h1 class="page-title">TimeSformer</h1><p class="page-description"></p></header><div class="page-body"><p id="19c3db2f-150b-4779-b559-107f62de8824" class="">
+</p><h2 id="222e8d84-278f-43ab-a390-fb2339442136" class=""><strong>1. 模型输入</strong></h2><p id="c2b28714-4381-4c49-8cca-54169e271035" class="">Input clip. The TimeSformer takes as input a clip <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>H</mi><mo>×</mo><mi>W</mi><mo>×</mo><mn>3</mn><mo>×</mo><mi>F</mi></mrow></msup></mrow><annotation encoding="application/x-tex">X \in \mathbb{R}^{H \times W \times 3 \times F}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.08125em;">H</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span><span class="mbin mtight">×</span><span class="mord mtight">3</span><span class="mbin mtight">×</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">F</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> consisting of F RGB frames of size H × W sampled from the original video.</p><p id="f2c06549-7833-4127-8f50-f26d60d61bda" class="">Due to GPU memory constraints, we are not able to test our model on clips longer than 96 frames. Still, we would like to point out that using clips of 96 frames is a significant departure from current convolutional models, which are typically limited to processing inputs of 8 − 32 frames.</p><p id="e9ea0a6e-ff50-4315-8419-b42c8c6a0f3d" class="">something like vit</p><figure id="78fca7da-3192-4a61-8a61-98a21ba747e9" class="image"><a href="Untitled.png"><img style="width:994px" src="Untitled.png"/></a></figure><figure id="116a76d1-62f2-462f-93a4-c04f88144d76" class="image"><a href="Untitled%201.png"><img style="width:726px" src="Untitled%201.png"/></a></figure><h2 id="e720248f-168d-4f38-a2e3-068b71c83948" class=""><strong>2. 模型结构</strong></h2><figure id="ffafe117-7d6c-49e4-bde9-2cc47e11987b" class="image"><a href="Untitled%202.png"><img style="width:868px" src="Untitled%202.png"/></a></figure><p id="6f80e7ef-71a1-4e0f-ac28-53d9ffa54d00" class="">在下图中可以清楚看到，注意力机制是如何运作的：</p><figure id="3594f72a-b254-4a75-8bf5-54405cb6a577" class="image"><a href="Untitled%203.png"><img style="width:720px" src="Untitled%203.png"/></a></figure><p id="5d47e0b5-7a59-42fa-abd0-48af7c9e0e51" class="">Visualization of the five space-time self-attention schemes studied in this work. Each video clip is viewed as a sequence of frame-level patches with a size of 16 × 16 pixels. For illustration, we <strong>denote in blue the query patch and show in non-blue colors its self-attention space-time neighborhood under each scheme</strong>. <strong>Patches without color are not used for the self-attention computation of the blue patch</strong>. <strong>Multiple colors within a scheme denote attentions separately applied along different dimensions</strong> (e.g., space and time for (T+S)) or over different neighborhoods (e.g., for (L+G)). Note that self-attention is computed for every single patch in the video clip, i.e., every patch serves as a query. <strong>We also note that although the attention pattern is shown for only two adjacent frames, it extends in the same fashion to all frames of the clip</strong>.</p><p id="8fd999e2-4796-4558-8135-a74f60654d95" class="">图中，蓝色的图像块是 query 的图像块，其余颜色的图像块，是每个自注意力策略使用到的图像块，没有颜色的图像块没有被使用到。策略中，有多种颜色的图像块，代表注意力机制是分开进行的，比如 T+S，就是先 T，后 S，L + G 也是同理。这里图中只展示了三帧，但是作用时是作用在整个序列上的。</p><p id="50d1a3b6-f150-48b2-bf17-c9777d1594bb" class=""><mark class="highlight-blue">通过对输入图像进行分块，论文中一共研究了五种不同的注意力机制</mark>：</p><ol type="1" id="420df564-b3fe-44b4-aaa5-388f720244ee" class="numbered-list" start="1"><li><strong>空间注意力机制（S)：只取</strong><strong>同一帧内的图像块</strong><strong>进行自注意力机制</strong></li></ol><ol type="1" id="d42db054-a301-4fa1-b7fd-fc23c796ff08" class="numbered-list" start="2"><li><strong>时空共同注意力机制（ST）：取</strong><strong>所有帧中的所有图像块</strong><strong>进行注意力机制</strong></li></ol><ol type="1" id="5d4ba3ee-47fa-4a56-ba6d-f39dcbbf41c1" class="numbered-list" start="3"><li><strong>分开的时空注意力机制（T+S）：</strong><strong>先对同一帧中的所有图像块</strong><strong>进行自注意力机制，然</strong><strong>后对不同帧中对应位置的图像块</strong><strong>进行注意力机制</strong></li></ol><ol type="1" id="04ae365e-e3bd-4e82-ba6c-dad5c879be03" class="numbered-list" start="4"><li><strong>稀疏局部全局注意力机制（L+G）：</strong><strong>先利用所有帧中，相邻的 H/2 和 W/2 的图像块</strong><strong>计算局部的注意力，</strong><strong>然后在空间上，使用2个图像块的步长，在整个序列中</strong><strong>计算自注意力机制，这个可以看做全局的时空注意力更快的近似</strong></li></ol><ol type="1" id="a59c714e-8860-4230-91bd-70471d4da2cd" class="numbered-list" start="5"><li><strong>轴向的注意力机制（T+W+H）：</strong><strong>先在时间维度上</strong><strong>进行自注意力机制，</strong><strong>然后在纵坐标相同的图像块上</strong><strong>进行自注意力机制，</strong><strong>最后在横坐标相同的图像块上</strong><strong>进行自注意力机制</strong></li></ol><h2 id="c6e2081a-6c24-4390-b379-89cf94ae14f3" class=""><strong>3. 实验部分</strong></h2><h3 id="8665c1c4-1ac5-430c-a5fd-75fb1c8ad196" class=""><strong>1. </strong><strong>自注意力机制的分析</strong></h3><p id="075c3e1e-c14c-4d19-854e-903c17760710" class="">在 K400 和 SSv2 数据集上研究了所提的五个自注意力策略，表中汇报的是视频级别的分类准确率。其中分开的时空注意力效果最好。</p><figure id="de3b1f7a-9670-448e-8072-2405ebb475fe" class="image"><a href="Untitled%204.png"><img style="width:492px" src="Untitled%204.png"/></a></figure><p id="c481b7a9-f1ec-45ba-83dc-7768903c1be2" class="">从表中可以看出，对于 K400 数据集，仅使用空间信息已经能够分类比较好了，这些前面的研究者也发现了，但是，对于 SSv2 数据集来说，仅仅使用空间信息的效果非常差。这说明了<strong>对时间建模的重要性</strong>。</p><h3 id="90da8ce7-9242-4d40-8f3f-2726b17bc2d9" class=""><strong>2. </strong><strong>图像大小和视频长度的影响</strong></h3><p id="7b8f9702-2f66-46fc-a6a2-d331aaab7210" class="">当每一个图像块的大小不变时，图像越大，图像块的个数越多。同时，帧数越多，输入注意力机制的数据也越多。作者也研究了这些对于最终性能的影响，结果是随着输入信息更加丰富，带来的效果提升是非常明显的。</p><figure id="de9beed4-8b3e-4b52-9814-4a7b1f33a727" class="image"><a href="Untitled%205.png"><img style="width:613px" src="Untitled%205.png"/></a></figure><p id="f8444d5f-dedf-4159-ba32-50a378f234ad" class="">这里由于显存的限制，没有办法测试 96 帧以上的视频片段。作者说，这已经是一个很大的提升了， 因为目前的卷积模型，输入一般都被限制在 8-32 帧。</p><h3 id="c14c1161-3851-4bdc-9bf2-cca53bad73c8" class=""><strong>3. </strong><strong>预训练和数据集规模的重要性</strong></h3><p id="48b5c2dc-a5d4-49c0-9e15-655c48829466" class="">因为这个模型需要非常大的数据才能够训练，作者有尝试自己从头训练，但是都失败了，因此在论文中报告的所有结果，都使用了 ImageNet 进行预训练。</p><figure id="f8657bb8-c31b-4357-a386-f759f476eb0b" class="image"><a href="Untitled%206.png"><img style="width:720px" src="Untitled%206.png"/></a></figure><p id="25681dc0-8649-4464-9d8f-754b91b1d04f" class="">为了研究数据集的规模的影响，使用了两个数据集，实验中，分四组，分别使用25%，50%，75%和100%的数据。结果是 TimeSformer 当数据比较少的时候表现不太好，数据多的时候表现好。</p><h3 id="85847a01-5d73-4fc5-94cd-9c89e8901336" class=""><strong>4. </strong><strong>与 SOTA 比较</strong></h3><p id="eafe52cb-1c41-4088-9815-737c18066ce9" class="">在本节中使用了三个模型的变种：</p><ol type="1" id="4dc83b9c-9d1e-475b-a0bd-e8f49c7f34eb" class="numbered-list" start="1"><li><strong>TimeSformer ：输入 8*224*224，8为帧数</strong></li></ol><ol type="1" id="d6d6244f-e268-480c-b865-016cde275694" class="numbered-list" start="2"><li><strong>TimeSformer-HR：空间清晰度比较高，输入为 16*448*448</strong></li></ol><ol type="1" id="163db46f-6f6e-4173-8011-a230a6ec9d85" class="numbered-list" start="3"><li><strong>TimeSformer-L：时间范围比较广，输入为 96*224*224</strong></li></ol><h3 id="841cd256-3560-44ee-ba40-49e362129eba" class=""><strong>K400</strong></h3><p id="2f4c722b-3469-49a2-975d-2418c8099260" class=""><strong>在 K400 数据集上视频分类的结果，达到了SOTA。</strong></p><figure id="c6f049ce-44eb-4dc5-a31c-f67bd1e9337d" class="image"><a href="Untitled%207.png"><img style="width:720px" src="Untitled%207.png"/></a></figure><h3 id="a30fc408-39ac-4453-9af6-72bed974676a" class=""><strong>K600</strong></h3><p id="c22c4902-ee8b-4eaa-9c85-ab30add6f6fb" class=""><strong>K600数据集上的结果，达到了 SOTA。</strong></p><figure id="7d75aed4-5f04-4067-a26e-f871f1bedb6f" class="image"><a href="Untitled%208.png"><img style="width:636px" src="Untitled%208.png"/></a></figure><p id="9300dcdf-a6ff-43df-babd-d965a0766a51" class=""><strong>SSv2和Diving48上的结果，SSv2并没有达到最好的结果</strong>，作者提到说所提方法采用了完全不同的结构，对于这么有挑战性的数据集来说已经是比较好的了，有进一步发展的空间。</p><figure id="990a6baa-8156-4483-8403-c7d62aac2216" class="image"><a href="Untitled%209.png"><img style="width:720px" src="Untitled%209.png"/></a></figure><h3 id="c06a415c-79b1-4528-b15f-541694212a99" class=""><strong>5. </strong><strong>视频中的长期建模</strong></h3><p id="eb9bb4f3-af24-4a55-8f88-aa1ae98a73bd" class="">作者还验证了所提模型相比于 CNN 来说，对于长期视频建模的优势。这一步使用了 HowTo100M 数据集。</p><p id="0c7aea3a-8e58-42d8-b0bd-aa84c178f9d0" class="">其中，# Input Frames 代表输入模型的帧数，Single Clip Coverage 代表输入的一段视频覆盖了多久的视频，# Test Clips 代表预测阶段，需要将输入视频裁剪几段才能输入进网络。可以看到，当TimeSformer 输入96帧时，能够有效利用视频中长期依赖的信息，达到了最好的效果。</p><figure id="2ad2734a-ceb2-4e70-add4-42710bcafb68" class="image"><a href="Untitled%2010.png"><img style="width:570px" src="Untitled%2010.png"/></a></figure><h2 id="ba632ab7-ef92-46d4-b162-63fb9293f59d" class=""><strong>4. 总结</strong></h2><p id="287e486e-9eb5-4b1b-9acf-3d6c1cc0a468" class="">总所周知，Transformer 的训练非常消耗资源，为了缓解这一问题，TimeSformer 通过两个方式来减少计算量：</p><ol type="1" id="09d92f4a-0c80-4b6a-a1b0-72f41f4cf8da" class="numbered-list" start="1"><li><strong>将视频拆解为不相交的图像块序列的子集；</strong></li></ol><ol type="1" id="9a2c3016-0f17-484d-84f9-651869147f68" class="numbered-list" start="2"><li><strong>使用一种独特的自注意力方式，来避免所有的图像块序列之间进行复杂计算。文中把这项技术叫做 </strong><strong>分开的时空注意力机制（divided space-time attention）</strong><strong>。</strong><strong>在时间 attention 中，每个图像块仅和其余帧在对应位置提取出的图像块进行 attention</strong><strong>。</strong><strong>在空间 attention 中，这个图像块仅和同一帧的提取出的图像块进行 attention</strong><strong>。作者还发现，分开的时空注意力机制，效果要好于共同使用的时空注意力机制。</strong></li></ol><p id="3854f8c2-f4ba-4e13-824f-7430682d5063" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

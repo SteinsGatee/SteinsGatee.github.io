@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Vivit</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dff279df-5ab9-4c3c-b2bc-73119e63d7ce" class="page sans"><header><h1 class="page-title">Vivit</h1><p class="page-description"></p></header><div class="page-body"><p id="f556947e-5d50-492b-ad5c-0eaaeeb015f6" class="">
+</p><h2 id="15d13451-041b-4eae-b2d0-302cf5391182" class=""><strong>1. 问题引入</strong></h2><p id="a04bd6a4-8571-4557-9eaa-a955958edc04" class="">Transformer在NLP领域大获成功，ViT（Vision Transformer）将Transformer架构应用到视觉领域，<strong>它将图片按给定大小分为不重叠的patches，再将每个patch线性映射为一个token，随位置编码和cls token（可选）一起输入到Transformer的编码器中</strong>。作者尝试在视频中使用ViT模型，探究Video Vision Transformer的优化方式。</p><p id="9bd437bc-f0ac-44ac-b357-0f53430739a7" class="">视频作为输入会产生大量的时空token，处理时必须考虑这些长范围token序列的上下文关系，同时要兼顾模型效率问题，作者<strong>在空间和时间维度上分别对Transformer编码器各组件进行分解</strong>，在ViT模型的基础上提出了三种用于视频分类的纯Transformer模型（ViViT）。同时，作者展示了<strong>如何在训练时有效地正则化模型，并利用预训练的图像模型在相对较小的数据集上进行训练</strong>。</p><h2 id="21c2a9ef-e5b8-469d-8b1a-7654590b393c" class=""><strong>2. 序列token的两种构建方式</strong></h2><p id="db84a96f-aec9-4790-9b7c-02a0de1a1def" class="">在处理视频输入时，需要先将视频V映射为序列token \tilde z，在\tilde z上加入位置编码后进行reshape可获得transformer的输入token z。</p><p id="40a37bf5-b7c5-4747-9465-36f7f42d83ce" class="">作者提供了两种简单的方式，将视频V映射为\tilde z。</p><h3 id="c1c4fc91-336d-4149-bd27-1f5d12f256b2" class=""><strong>1. Uniform frame sampling</strong></h3><p id="bd815942-838c-4016-91b5-b937369517ba" class="">均匀采样：从输入视频片段中均匀采样帧，使用与ViT相同的方法独立嵌入每个2D帧，并将所有这些token concat到一起，操作方式如下图</p><p id="ca2cbd5d-fd65-4748-b62e-51de2b5c38c2" class="">具体做法是，从每一个视频中采样n_t帧，若从每一帧中提取的非重叠patch数量为n_h×n_w，则一个视频有n_t×n_h×n_w个token会被传递到Transformer的的Encoder中。</p><h3 id="917b5d29-6329-48e8-9b20-102af2b7d1ba" class=""><strong>2. </strong><strong>Tubelet embedding</strong></h3><p id="ce4c5fab-bdb6-4d49-9475-c556c9bf78dd" class="">1中的均匀采样方式是2D的，Tubelet embedding可看做在3D层面上提取特征，定义<strong>非重叠的tube</strong>同时在空间和时间维度上进行线性映射，操作如下图:</p><p id="c2cffa09-cf3a-4be3-bead-c3f4a536640f" class="">这种方式是ViT中映射方式在3D维度上的扩展，若tube维度为t × h × w，同样每个视频有n_t×n_h×n_w个token，其中n_t=\frac{T}{t},n_h=\frac{H}{h},n_w=\frac{W}{w}</p><p id="0c6455f1-0be8-458f-8237-78aab1a32c17" class="">如上图，取t=5，共有T=10帧图像，可得到2×n_h×n_w个序列token。</p><p id="73317b5f-65b3-405b-be5d-af03d49b635a" class="">与均匀采样相比，tubelet embedding融合了时间维度的帧信息，即这种构建方式获取的序列token同时融合了空间和时间信息。</p><blockquote id="4ab6d8b9-1b60-4703-a803-571442811fee" class="">Smaller tubelet dimensions thus result in more tokens which increases the computation. Intuitively, this method fuses spatio-temporal information during tokenisation, in contrast to &quot;Uniform frame sampling&quot; where temporal information from different frames is fused by the transformer.</blockquote><h2 id="6c2cb51f-5c8b-4451-af84-c2b3f0e33622" class=""><strong>3. 模型结构</strong></h2><h3 id="64673a31-13a1-4458-82a9-140ae09d5bc4" class=""><strong>1. Model 1：Spatio-temporal attention</strong></h3><p id="a2f80aa1-bebc-4ef9-a582-47c74f10a877" class="">模型1简单地套用ViT，效率太低。</p><p id="1879b0d7-8cca-4ca2-bde5-e10f4bce8023" class=""><strong>位置编码+原始token+cls token</strong></p><p id="434d3813-1754-4506-984c-4c1cae101dd6" class="">它将从视频中提取的token拼接后送入Transformer的Encoder中，Transformer层的Attention机制可以对所有token之间的关系建模，<strong>在Model 1中，模型从第一层Transformer开始就要对全部输入token进行成对建模，这使得多头注意力复杂度与token数量成平方级关系</strong>，复杂度为O((n_t*n_h*n_w)^2)，这种效率是无法接受的。</p><h3 id="22daf526-c4ba-4d6e-aa23-1fd833041f1f" class=""><strong>2. Model 2：Factorised encoder</strong></h3><p id="b58c1067-2bd1-4731-9112-b43e348c5b1d" class="">如上图，Model 2将Encoder分为空间Encoder和时间Encoder，空间Encoder有L_s层，<strong>对从相同时间序列提取的token的之间的关系建模</strong>，最终获得每一帧的表示h_i（维度为d），<strong>若输入有cls token的前缀，则做分类任务，否则对空间Encoder输出的所有token进行全局平均池化。</strong></p><p id="22c9dd03-b05c-49e6-bf42-50efeb00f8f6" class=""><strong>空间Encoder得到的帧级别表示信息h_i，被连接成n_t×d维度的H，前向传输进入时间Encoder。</strong><strong>时间Encoder有L_t层，对来自不同时间序列的token关系建模，对应空间和时间信息的后期融合，时间Encoder输出的token最终用于分类任务</strong>。</p><p id="6472441f-3e4e-4773-9b7d-5d01fbad066f" class="">这里论文提到了“late fusion”一词。可参考如下解释：<a href="https://chengyong.blog.csdn.net/article/details/106358697?spm=1001.2101.3001.6650.6&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-106358697-blog-79592577.235%5Ev38%5Epc_relevant_default_base&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-106358697-blog-79592577.235%5Ev38%5Epc_relevant_default_base&amp;utm_relevant_index=7"><strong>【深度学习】Early fusion vs Late fusion</strong></a></p><blockquote id="d99e97f9-3de3-4153-8e1b-fdb7b17109b2" class="">This model consists of two transformer encoders in series: the first models interactions between tokens extracted from the same temporal index to produce a latent representation per time-index. The second transformer models interactions between time steps. It thus corresponds to a “late fusion” of spatial- and temporal- information.</blockquote><p id="6a8f8d91-7e5f-4c7e-8aa7-b804fec1104c" class=""><strong>这种方式与CNN类似，首先提取每一帧的特征，在分类之前将它们聚合为最终的表示</strong>。</p><p id="fd45e5c9-1f52-462c-b48b-89d731b3dc4f" class="">综上，可总结Model 2的关键点如下：</p><ol type="1" id="a0f72f78-47d3-42f6-afe8-712d6e1f04ad" class="numbered-list" start="1"><li><strong>将Encoder拆分成为Spatial Encoder和Temporal Encoder；</strong></li></ol><ol type="1" id="206a640e-f525-48c0-8eb5-97f666fed788" class="numbered-list" start="2"><li><strong>Spatial Encoder提取每个时间序列的特征表示，</strong><strong>输入为某一帧的tokens，输出为代表这个时间序列的一个token</strong><strong>；</strong></li></ol><ol type="1" id="bcfc6d4e-d190-46ad-9b58-dffb2783095f" class="numbered-list" start="3"><li><strong>Temporal Encoder聚合来自所有时间序列的表示，生成最终用于分类的表示，输入为来自Spatial Encoder的不同时间序列的tokens，输出结果送入MLP做分类任务；</strong></li></ol><ol type="1" id="bd7c4c0f-06f0-4603-a2ea-78259eb5b0cf" class="numbered-list" start="4"><li><strong>Model 2虽然有两个Transformer Encoder，但它的计算量小于Model 1，Model 2复杂度为O((n_h*n_w)^2+n_t^2)</strong></li></ol><h3 id="217612e1-f84d-40f2-bb55-e122c9221ef3" class=""><strong>3. Model 3：Factorised self-attention</strong></h3><p id="a8aea7fb-828f-4542-86e0-25296749611a" class="">Model 3分解多头自注意力机制，它与Model 1的Transformer层数相同，<strong>在Model 1中，L层Transformer对所有tokens两两进行多头注意力计算</strong>，<strong>在Model 3中，将计算分解，先计算空间自注意力，然后再计算时间自注意力</strong>。</p><p id="e1f3eddc-ab7d-4de1-9ea2-0cde075dad1e" class=""><strong>首先对来自同一时间序列</strong>的所有token计算<strong>空间</strong>自注意力，然后对<strong>相同空间序列</strong>的token计算<strong>时间</strong>注意力，对比Model 1，Model 3将自注意力运算分解在更小的集合上，使得运算量与Model 2相同。</p><p id="07f13b4b-9894-45b0-8706-d2a48e9091a9" class=""><strong>因为Model 3需要用到多次reshape操作，所以不使用cls token</strong>。</p><p id="87e085fb-27d1-429e-82be-6d3227c7390d" class="">综上，可总结Model 3的关键点如下：</p><ol type="1" id="0bd42a46-b911-4d56-8c81-a47465dc9d5b" class="numbered-list" start="1"><li><strong>分开计算self-attention，分别对时空token计算空间MSA和时间MSA；</strong></li></ol><ol type="1" id="c79df17a-bc6e-4ac0-a5db-296aae840b89" class="numbered-list" start="2"><li><strong>Spatial Self-Attention Block仅对</strong><strong>同一帧的不同token</strong><strong>进行MSA计算；</strong></li></ol><ol type="1" id="a5b5e8d0-faff-45e7-80e5-d506df016be0" class="numbered-list" start="3"><li><strong>Temporal Self-Attention Block仅对</strong><strong>不同帧相同位置</strong><strong>的token进行MSA计算；</strong></li></ol><ol type="1" id="ba55b598-9058-446d-838f-107657ff1793" class="numbered-list" start="4"><li><strong>作者发现，时间自注意模块和空间自注意模块的</strong><strong>先后顺序是无差别的。</strong></li></ol><h3 id="6b65ff90-0c66-4619-9292-37eac5e635cc" class=""><strong>4. Model 4：Factorised dot-product attention</strong></h3><p id="69441a4d-66be-4c2b-bf69-0c027f8d11e8" class="">Model 4在参数量与Model 1相同的情况下，其计算量与Model 2、3一样，设计思想与Model 3相似，不同之处在于Model 4将点积拆分到不同维度，使用不同的head分别在空间和时间维度上计算attention权重，直观地看，<strong>Model 3计算空间注意力和时间注意力是串行的，而Model 4可并行计算</strong>。</p><p id="f38fa2cd-7a6e-4261-8d51-cdd942868e85" class="">综上，可总结Model 4的关键点如下：</p><ul id="b6b82fe9-a9a2-4f2b-af7a-6a150a30c30a" class="bulleted-list"><li style="list-style-type:disc"><strong>可视为Model 3的并行版；</strong></li></ul><ul id="49da32ba-439e-4068-9b08-387c73695b52" class="bulleted-list"><li style="list-style-type:disc"><strong>与Model 3相似，</strong><strong>Spatial Head计算的为同一帧内不同token</strong><strong>，</strong><strong>Temporal Head则为不同帧相同位置的token</strong><strong>；</strong></li></ul><h2 id="6c3695b8-e2f8-4482-84a4-b737876d3ce2" class=""><strong>4. 利用预训练模型初始化</strong></h2><p id="3830c4d7-2510-4f88-8ab7-440d19f65460" class="">从零开始到高精度地训练大型模型是极具挑战性的，往往会通过已有模型来初始化大型视频分类模型</p><h3 id="3475d3e5-2f01-4370-aeb9-39ea2591800c" class=""><strong>1. 位置编码</strong></h3><h3 id="abca530c-bb6f-48f1-9e49-3e11723f9a7c" class=""><strong>2. 映射参数—E</strong></h3><p id="667fc1e4-cdda-45bc-a652-aca66d0ce2bd" class="">ViT中，将patches投影为token，使用的是2D卷积，当使用Tubelet embedding构建token时，需要的是3D的卷积核，<strong>如何将预训练模型中的二维tensor拓展为三维是一个问题</strong>，作者提供了两种方式。</p><ol type="1" id="6404d707-40ff-49dd-9dab-73006977afc3" class="numbered-list" start="1"><li><strong>考虑一种常见的做法，从2D卷积核初始化3D卷积核的常用方式是</strong><strong>沿时间维度复制卷积核并对其取平均</strong><strong>，从而“膨胀”2D卷积，如下</strong></li></ol><ol type="1" id="af56d6f2-052a-4b30-844f-0aff320c90a0" class="numbered-list" start="2"><li><strong>作者还提供了另一种策略，将其称作“中心帧初始化”（center frame initialisation），这种方式下，除中心帧( \frac{t}{2}位置)其余时间位置全为0，即</strong></li></ol><h3 id="f4541a9a-2e06-46ff-88df-2c0c965a9195" class=""><strong>3. Model 3 的Transformer参数</strong></h3><p id="07e5bd8c-d956-4f8f-903f-13a801d8a3bd" class="">Model 3里有两个多头自注意力（MSA）模块，这与ViT预训练有不同，作者采取的策略是<strong>从预训练模块中初始化空间MSA，用0初始化时间MSA</strong>。</p><h2 id="6e1eb743-1395-488a-b723-5163ae2e1736" class=""><strong>5. 消融实验</strong></h2><h3 id="917b1e54-9093-4eff-a65b-eceff98ef382" class=""><strong>0. 基本设置</strong></h3><p id="5f104620-818b-40a5-af3c-f8b63b090604" class="">实验的backbone为ViT和BERT，对ViT-B、ViT-L和ViT-H分别进行实验，使用带动量的SGD优化器，使用余弦学习率衰减的方式… …关于更多详细的训练与数据集设置，建议阅读原论文。</p><p id="4edc8412-5dad-4ec5-bdc6-50153fe72385" class="">注：
+论文对模型标注方式的解释，例如ViViT-B/16×2表示tubelet为h × w × t = 16 × 16 × 2 的以ViT-B为backbone的ViViT模型。</p><p id="928ca633-e7b2-4d6c-b437-fd5338c80d44" class="">完成模型基本设置后，作者对输入编码方式、模型变体、正则化方式、backbone、token数量、网络输入帧数分别进行消融实验，具体情况下面展开。</p><h3 id="6b6d05df-e512-4564-9255-4970892ab5f2" class=""><strong>1. 输入编码</strong></h3><p id="3c08852b-6bd0-417e-83a7-786837c3ccf8" class="">考虑不同的输入编码方式（对应内容2.1）对模型的影响，在Kinetics400数据集上使用Model 1形式的ViViT-B模型，<strong>网络输入为32帧</strong>，<strong>通过均匀采样8帧和t = 4 的tubelet</strong>来确保两种方式下token数目一致，并且针对tubelet embedding，分别使用不同的映射参数E初始化方法（对应内容4.2）探究其对结果的影响，实验结果如表1</p><h3 id="063e57bb-f2d5-42d1-9339-70ab5ffe982e" class=""><strong>2. 模型变体</strong></h3><p id="ec73b2d1-6cc9-490c-8aa7-b2b62e69a9bf" class="">作者使用不同的ViViT模型在Kinetics400和Epic Kitchens数据集上进行实验，比较它们的准确率和效率，结果如表2</p><p id="5993df83-50e0-423b-bdc0-365cf8399166" class="">在Model 2 Factorised Encoder中有一个额外的参数L_t，即时间Transformer的层数，这也是一个超参数，但实际这个参数取值对模型基本无影响，作者为了说明这一点对L_t取值做了实验，结果如表3</p><p id="efa7860f-7079-4d9b-9425-80578b962d14" class=""><strong>所以在其他实验中，将L_t的值固定为4，不再变动。</strong></p><h3 id="a63de6a2-43d8-4ad2-be87-3385d8694780" class=""><strong>3. 模型正则化</strong></h3><p id="67f42e3a-f3c9-453e-9a7e-8cba99f9563a" class=""><strong>纯粹的Transformer模型需要大量的数据训练，在小型数据集如Epic Kitchens和SSv2会出现过拟合</strong>， 作者在模型2 Factorised encoder上使用不同种正则化策略，得到结果如表4</p><h3 id="d803f9f5-7ee4-4d53-862e-29be78cd100b" class=""><strong>4. Backbone</strong></h3><p id="108ac1ad-4862-4860-aa8c-4b51c0d5bfad" class="">Model 1上的ViViT-B和ViViT-L的准确率和效率如下图所示</p><h3 id="3c8c7f9b-1820-43e7-b4d8-05f79a2243ec" class=""><strong>5. token数量</strong></h3><p id="58ae1b5e-3261-409b-a656-3aeee8c8a2ea" class="">在Kinetics 400数据集上，不同数量的时间token对精度和计算量的影响如下图</p><h3 id="40a0b5b3-7c4c-4d70-85b9-062fbd8c11ad" class=""><strong>6. 输入帧数</strong></h3><p id="5ac222ad-dfcf-4f2e-a8bb-672a9dbee1ad" class="">之前的实验中，输入帧数一直是32，现增加输入帧数，并按比例增加token数量，观察对网络精度的影响，结果如下图</p><h3 id="1f8326bb-8a9a-4987-a330-02faad03d735" class=""><strong>7. ViViT与其他模型的比较</strong></h3><p id="3731bbb1-6a0f-41b7-80f7-7ff63a999c93" class="">作者使用ViViT模型与其他SOTA模型在不同数据集上进行比较，结果如表6</p><blockquote id="042fd61b-51fa-4516-bd40-d4a1506ffe9a" class="">Based on our ablation studies in the previous section, we compare to the current state-of-the-art using two of our model variants. We use the unfactorised spatio-temporal attention model (Model 1) for the larger datasets, Kinetics and Moments in Time. For the smaller datasets, Epic Kitchens and SSv2, we use our Factorised encoder model (Model 2)</blockquote><p id="a8094e03-c05a-46cd-9345-6f32333c08f5" class="">The author compared all four models with convolutional SOTa networks and other transformer-based networks in terms of FLOPs, accuracy, and its trade-off with their ViViT models, and reported the best performing model among four models, on each dataset.</p><p id="52d15ca9-bc7b-4eb7-89db-55a587885024" class="">It can be seen second model BiBiT FE(Factorized encoder), the model performed better than all other model variants on all 5 datasets including Kinetics-400, 600, Epci Kitches, and Something Something v2 datasets.</p><p id="7a15c994-1b20-476e-9422-8b374ec48179" class=""><strong>So among all four models Model 2 was the best performer — 🏆MODEL 2.</strong></p><p id="59f7505c-ecd9-49ee-b978-67b30c7c2af2" class="">On the Kinetics dataset, authors had to initialize model 2’s bigger variants on private JFT-300 datasets weights. Since there are generally not as big datasets for video classification tasks available, like ImageNet, etc. hence pre-training was not an option. The authors observed that initializing a video classification model with image classification weights improves the accuracy of the model.</p><p id="ce0aaf93-4980-49ae-af1a-407ab4569ca5" class="">[NerdFact-🤓: Why did Model 2 out-performed all other models? Divided space-time attention!]</p><p id="2022c4da-d432-4b4d-a84e-0815ff0ccead" class="">All ViViT model variants were trying to combine the spatial and temporal tokens effectively to develop a better semantic representation of the video. Model 2, first attends each clip individually and then attends all clips together. This approach is called divided space-time attention because we are first attending space / spatial aspect and later the temporal aspect of the video sample. This idea of divided space and time attention has proven to be useful for video understanding by Facebook AI Research lab too, in their paper TimeSFormer, in which they explored varying spatial and temporal attention approaches and found divided space and time attention approach to stand out amongst all methods.</p><p id="58eb0cf5-ef01-4862-b4b0-bde14880038e" class="">What will happen if we reverse the order of space and time attention computation in model 2?</p><p id="57fb7c2a-e3a9-4db9-a7d0-16ee71540c94" class="">How about using a 3D convolutional embedding for Tubelets? The authors used it and found it better than linear embedding layer.</p><p id="48dd06fd-4635-4692-9a5e-7f9ee8c687f9" class="">How can we improve model 2?</p><p id="5ab8825a-1df3-47e5-96be-bb8ac5569f82" class="">Are CLS tokens better representation of spatial attention or pooled spatially encoded features? I think CLS tokens.</p><p id="b4b9e2c6-b388-4910-9965-92ee59b306d4" class="">What will happen if we convert model 2 to hybrid architecture, use a convolutional network for spatial encoding and a transformer for temporal encodings?</p><h2 id="7ec62dbf-c18c-471a-b7c6-f7dcafdd6527" class=""><strong>6. 论文总结</strong></h2><p id="b455af89-e1c1-4a98-8446-95131cc132dc" class="">论文的主要贡献有以下两点：</p><ol type="1" id="c8f81530-c1f9-4bf1-a3ba-13f0b36b5129" class="numbered-list" start="1"><li><strong>提出了四种用于视频分类的纯Transformer模型，在五个流行的数据集上达到了SOTA的结果；</strong></li></ol><ol type="1" id="ef5a1b3b-4122-489d-aeeb-59f8da1bce70" class="numbered-list" start="2"><li><strong>展示了如何有效地在小规模数据集上训练大容量模型</strong></li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
