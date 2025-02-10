@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tag1 on My New Hugo Site</title>
+    <title>Tag1 on Akuya の Blog</title>
     <link>http://localhost:1313/tags/tag1/</link>
-    <description>Recent content in Tag1 on My New Hugo Site</description>
+    <description>Recent content in Tag1 on Akuya の Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2025 22:26:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2025 23:03:31 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/tag1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
-      <link>http://localhost:1313/posts/test/</link>
-      <pubDate>Sun, 09 Feb 2025 22:26:46 +0800</pubDate>
-      <guid>http://localhost:1313/posts/test/</guid>
+      <title>Me</title>
+      <link>http://localhost:1313/posts/about/me/</link>
+      <pubDate>Mon, 10 Feb 2025 23:03:31 +0800</pubDate>
+      <guid>http://localhost:1313/posts/about/me/</guid>
       <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paojiaofengzhua</title>
+      <link>http://localhost:1313/posts/menu/paojiaofengzhua/</link>
+      <pubDate>Mon, 10 Feb 2025 23:00:57 +0800</pubDate>
+      <guid>http://localhost:1313/posts/menu/paojiaofengzhua/</guid>
+      <description>&lt;p&gt;作者：OCG汤唯&#xA;链接：https://www.zhihu.com/question/61616681/answer/1349277677&#xA;来源：知乎&#xA;著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&lt;/p&gt;&#xA;&lt;p&gt;倾囊相授-终极绝杀版百香果泡鸡爪菜谱&#xA;第一步&#xA;准备材料&#xA;鸡爪2斤、白醋一瓶、柠檬1个、百香果3-5个&#xA;花椒1两、小米椒1两、酱油或者蒸鱼豉油、盐、鸡精、大蒜、生姜、大葱&#xA;冰糖、辣椒粉、花椒粉、芹菜、洋葱，小萝卜、卤料一包&#xA;（忘记拍照）&#xA;是不是看得头晕&#xA;复杂是确实复杂了点&#xA;但是&#xA;复合型人才就要吃复合型味道嘛&#xA;话不多说&#xA;我们就开始吧&#xA;第二步&#xA;白净的纤纤玉爪&#xA;给它施以清宫酷刑&#xA;去掉指甲&#xA;再斩成三段&#xA;用于入味&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/menu/fengzhua.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;洗净丢入冷水中&#xA;加入生姜片，大葱段&#xA;煮沸后捞出浮沫&lt;/p&gt;&#xA;&lt;p&gt;￼加入卤料包&#xA;这个卤料包的名字&#xA;我笑了足足一分钟&#xA;（四川人才能get的笑点）&lt;/p&gt;&#xA;&lt;p&gt;小火20分钟左右&#xA;用筷子试试&#xA;能把玉爪戳穿&#xA;就说明好了&lt;/p&gt;&#xA;&lt;p&gt;如果你有时间&#xA;就关火闷一会儿更入味&#xA;如果你更喜欢来点爽脆的&#xA;就直接下冰水&#xA;让它来几次冰火两重天&#xA;就……可以啦&lt;/p&gt;&#xA;&lt;p&gt;接下来我们要加点底料&#xA;小米椒切三段&#xA;加入盐和花椒&#xA;拌匀&#xA;柠檬切碎&#xA;加入百香果粒&#xA;大蒜粒&#xA;洋葱碎&#xA;白醋&#xA;冰糖&#xA;少许酱油&#xA;拌匀之后&lt;/p&gt;&#xA;&lt;p&gt;加上主角&#xA;晒黑后的爪爪&#xA;小萝卜、芹菜、洋葱&#xA;然后就可以开始疯狂搅拌&#xA;盖上保鲜膜冰镇&lt;/p&gt;&#xA;&lt;p&gt;过1，2小时&#xA;拿出来翻拌一次&#xA;冰镇5个小时&#xA;再加入适量盐，鸡精，酱油调味&#xA;拌匀&#xA;就可以放冰箱了&lt;/p&gt;&#xA;&lt;p&gt;放置一夜&#xA;拿出来再拌一下&#xA;尝尝是不是想要的味道&#xA;如果淡了就&#xA;repeat一遍&#xA;盐，鸡精，糖&#xA;而我&#xA;因为口味太重&#xA;一般还要加上花椒粉，辣椒粉&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
