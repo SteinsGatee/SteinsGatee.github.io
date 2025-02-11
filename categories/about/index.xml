@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Akuya の Blog</title>
+    <link>http://localhost:1313/categories/about/</link>
+    <description>Recent content in About on Akuya の Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Feb 2025 23:03:31 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Me</title>
+      <link>http://localhost:1313/posts/about/me/</link>
+      <pubDate>Mon, 10 Feb 2025 23:03:31 +0800</pubDate>
+      <guid>http://localhost:1313/posts/about/me/</guid>
+      <description>&lt;p&gt;Cut out summary from your post content here.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

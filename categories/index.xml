@@ -6,13 +6,20 @@
     <description>Recent content in Categories on Akuya の Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Feb 2025 23:03:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2025 15:02:25 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Category1</title>
-      <link>http://localhost:1313/categories/category1/</link>
+      <title>Menu</title>
+      <link>http://localhost:1313/categories/menu/</link>
+      <pubDate>Tue, 11 Feb 2025 15:02:25 +0800</pubDate>
+      <guid>http://localhost:1313/categories/menu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/categories/about/</link>
       <pubDate>Mon, 10 Feb 2025 23:03:31 +0800</pubDate>
-      <guid>http://localhost:1313/categories/category1/</guid>
+      <guid>http://localhost:1313/categories/about/</guid>
       <description></description>
     </item>
   </channel>
