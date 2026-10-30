@@ -1,0 +1,8 @@
+name = "akuya-deepseek-proxy"
+main = "deepseek-proxy.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# 允许调用代理的站点来源，逗号分隔
+ALLOWED_ORIGINS = "https://steinsgatee.github.io,http://127.0.0.1:5173,http://127.0.0.1:4173"
+MODEL = "deepseek-chat"
